@@ -1,0 +1,168 @@
+
+<!--  <div ng-controller="GovtschemedataController">
+
+
+<div class="container-fluid">
+	<div class="row">
+<h2>GovtSchemedata PAGE</h2>
+		<ul class="govtschemedata">
+		
+			    <li ng-repeat="govtschemedata in govtschemedata" class="thumbnail"> 
+			   
+				<a href="#/govtschemedata/{{govtschemedata.id}}">
+				<b>govtschemedataId:-</b><span ng-bind="govtschemedata.id"></span></a>
+				
+				</li>
+		</ul>
+
+	</div>
+	</div>
+	
+</div>  -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<link href="Bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+<link href="Content/css/govern.css" rel="stylesheet" />
+</head>
+<body>
+	<!--  <nav class="navbar navbar-inverse navbar-fixed-top" style="margin-bottom:0;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+
+                <a class="navbar-brand" href="#">VOICEUP</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+
+                <ul class="nav navbar-nav navbar-right"></ul>
+            </div>/.nav-collapse
+        </div>
+    </nav> -->
+	<!-- <div class="container-fluid">
+		<div class="row" style="margin-top: 50px;">
+			<a href="#/problem">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 problem-cols">
+					<div style="float: right; width: 270px; height: 100%;">
+						<div style="float: left; width: 50px; height: 50px;">
+							<img src="Images/checkbox_off.png" style="zoom: 2;">
+						</div>
+						<div style="float: left; margin-left: 15px; margin-top: 5px;">
+							<span style="font-size: 18px;">Would you need help ?</span><br>
+							<span style="font-size: 12px;">Raise your problem<i
+								class="glyphicon glyphicon-arrow-right"
+								style="margin-left: 10px;"></i>
+							</span>
+
+
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+			</a>
+		</div>
+		<a href="#/govtschemedata">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 problem-cols">
+				<div
+					style="float: left; width: 355px; height: 100%; margin-left: 15px;">
+					<div style="float: left; width: 50px; height: 50px;">
+						<img src="Images/checkbox_off.png" style="zoom: 2;">
+					</div>
+
+					<div style="float: left; margin-left: 15px; margin-top: 5px;">
+						<span style="font-size: 18px;">Would you like to show
+							leadership ?</span><br> <span style="font-size: 12px;">Solve
+							others problem <i class="glyphicon glyphicon-arrow-right"
+							style="margin-left: 10px;"></i>
+						</span>
+					</div>
+
+					<div style="clear: both;"></div>
+				</div>
+			</div>
+		</a>
+	</div> -->
+	<div class="row" style="background-color: #eee;">
+		<!--  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="padding: 10px;">
+                <div style="background-color: #ffffff; min-height: 680px;"></div>
+            </div> -->
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+			style="padding: 10px 0;">
+			<div
+				style="background-color: #ffffff; min-height: 500px; padding: 10px;">
+				<div class="row" style="margin: 10px 0;">
+					<div class="col-lg-12 col-md-12 col-sm-12"
+						style="color: #41b7d8; font-weight: bold; font-size: 25px;">
+						GOVTSCHEMES</div>
+
+				</div>
+				<div class="row success-story-row">
+					<div ng-repeat="govtschemedata in govtschemedata">
+						<div class="col-lg-6 col-md-6 col-sm-6" style="padding-right: 0;">
+							<!-- Hover start  -->
+							<!-- <div id="success-story-hover-0" class="success-story-well-hover">
+								<div class="caption-desc">Lorem ipsum dolor sit amet,
+									consectetur adipiscing elit. Proin nisi ligula, dapibus a
+									volutpat sit amet, mattis et dui. Nunc porttitor accumsan orci
+									id luctus. Phasellus ipsum metus, tincidunt non rhoncus id,
+									dictum a lectus. Nam sed ipsum a lacus sodales eleifend.
+									Vestibulum lorem felis, rhoncus elementum vestibulum eget,
+									dictum ut velit. Nullam venenatis, elit in suscipit imperdiet,
+									orci purus posuere mauris, quis adipiscing ipsum urna ac quam.</div>
+								<div class="caption-detail">
+									<div class="caption-detail-title">Related to Corruption
+										in Bangaluru</div>
+									<div class="caption-detail-from">By Servesh Sharma</div>
+									<div class="caption-detail-support">
+										<i class="glyphicon glyphicon-user"></i><span>50</span> users
+										signed to support
+									</div>
+									<div class="caption-detail-footer">
+										<span>Read full story</span><i></i>
+									</div>
+								</div>
+							</div> -->
+							<!-- Hover end  -->
+
+							<div class="success-story-well" id="success-story-0">
+								<a href="#/govtschemedata/{{govtschemedata.id}}">  
+								</a>
+								<div class="success-story-well-detail">
+								<p>{{govtschemedata.schemename}}</p>
+									<p>{{govtschemedata.description1}}</p>
+									<a href="#/govtschemedata/{{govtschemedata.id}}">Description</a>
+									<div class="pull-right">
+										
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<script src="Scripts/jquery-1.12.4.min.js"></script>
+	<script src="Scripts/jquery.dotdotdot-1.2.1.js"></script>
+	<script src="Bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+
+			$(".success-story-well,.success-story-well-hover").mouseenter(function() {
+
+				$(".success-story-well-hover").toggle();
+			}).mouseleave(function() {
+
+				$(".success-story-well-hover").hide();
+			});
+
+		});
+	</script>
+</body>
+</html>
+
+
+

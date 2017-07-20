@@ -1,0 +1,7 @@
+ERROR   2017-02-15 18:19:07,658 [main] com.ohmuk.folitics.component.newsfeed.RomeExample [] [] - Error while using ROME
+java.io.FileNotFoundException: http://www.firstpost.com/politics/feed
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1872)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1474)
+	at com.rometools.rome.io.XmlReader.<init>(XmlReader.java:248)
+	at com.rometools.rome.io.XmlReader.<init>(XmlReader.java:217)
+	at com.ohmuk.folitics.component.newsfeed.RomeExample.main(RomeExample.java:27)

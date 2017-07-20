@@ -1,0 +1,316 @@
+<link rel="stylesheet" href="content/css/govern.css">
+<div ng-controller="userRegistrationController">
+	<div class="col-sm-8 col-sm-offset-2">
+		<div class="header-section">
+			<h2 class="header-title OpenSansBold-class">Registration Form</h2>
+		</div>
+
+		<form name="registrationForm" novalidate
+			onSubmit="return checkPw(this)">
+			<div class="form-group margin-bottom-30">
+				<label class="header-label">Full Name:</label> <input
+					name="fullName" type="text" placeholder="Full name"
+					ng-model="registration.name" class="form-control"
+					ng-maxlength="maxlength" ng-pattern="/^[,\w -]*$/" required
+					auto-fill-sync></input> <span class="error" style="color: red;"
+					ng-show="registrationForm.fullName.$touched"> <span
+					ng-show="registrationForm.fullName.$error.required">Full
+						Name is required</span> <span
+					ng-show="registrationForm.fullName.$error.pattern">Special
+						characters not allowed</span>
+				</span>
+			</div>
+
+
+			<div class="form-group margin-bottom-30">
+				<label class="header-label">User Name:</label> <input
+					name="userName" type="text" placeholder="Username"
+					ng-model="registration.username" class="form-control"
+					ng-maxlength="maxlength" ng-pattern="/^[,\w -]*$/" required
+					auto-fill-sync ng-blur="compare(userName)"></input>
+					<span ng-show="result" class="error" style="color: red;">UserName already exist
+			</span>
+				    <span class="error" style="color: red;"
+					ng-show="registrationForm.userName.$touched"> <span
+					ng-show="registrationForm.userName.$error.required">User
+						Name is required</span> <span
+					ng-show="registrationForm.userName.$error.pattern">Special
+						characters not allowed</span>
+						
+				</span>
+					</div>
+			<div class="form-group margin-bottom-30">
+				<label class="header-label">Password:</label> <input
+					name="txtNewPassword" type="password" placeholder="Password"
+					class="form-control" ng-model="registration.password"
+					ng-pattern="/^[,\w -]*$/" ng-maxlength="maxlength" auto-fill-sync
+					required></input> <span class="error" style="color: red;"
+					ng-show="registrationForm.txtNewPassword.$touched"> <span
+					ng-show="registrationForm.txtNewPassword.$error.required">Password
+						is required is required</span>
+				</span>
+
+			</div>
+
+
+			<div class="form-group margin-bottom-30">
+				<label class="header-label">Email ID:</label> <input name="emailId"
+					type="text" placeholder="Email" class="form-control"
+					ng-model="registration.emailId" ng-pattern="/\S+@\S+\.\S+/"
+					ng-maxlength="maxlength" auto-fill-sync required></input> <span
+					class="error" style="color: red;"
+					ng-show="registrationForm.emailId.$touched"> <span
+					ng-show="registrationForm.emailId.$error.required">Email Id
+						is required</span> <span
+					ng-show="registrationForm.emailId.$error.pattern">Email Id
+						is incorrect</span>
+				</span>
+			</div>
+
+			<div class="form-group margin-bottom-30">
+				<label class="header-label">Mobile Number:</label> <input
+					name="mobileNumber" type="text" placeholder="Mobile Number"
+					class="form-control" ng-model="registration.mobileNo"
+					ng-pattern="/^[+0-9]{10,16}$/" ng-minlength="5" ng-maxlength="30"
+					required></input> <span class="error" style="color: red;"
+					ng-show="registrationForm.mobileNumber.$touched"> <span
+					ng-show="((registrationForm.mobileNumber.$error.minlength || registrationForm.mobileNumber.$error.maxlength) && registrationForm.mobileNumber.$dirty) ">phone
+						number should be 10 digits</span> <span
+					ng-show="registrationForm.mobileNumber.$error.pattern">Please
+						enter a valid phone number.</span> <span
+					ng-show="registrationForm.mobileNumber.$error.required">Phone
+						number is required.</span>
+				</span>
+
+			</div>
+
+			<div class="form-group margin-bottom-30">
+				<label class="header-label">DOB:</label> <input name="dob"
+					type="date" class="form-control" ng-model="registration.dob"
+					ng-change="checkErr(registration.dob)" required><span></span></input>
+				<span class="error" style="color: red;"
+					ng-show="registrationForm.dob.$touched"> <span class="error"
+					ng-show="registrationForm.dob.$invalid"> Please enter a
+						valid date</span> <span class="error"> {{errMessage}} </span>
+				</span>
+			</div>
+
+			<div class="form-group margin-bottom-30">
+				<label class="header-label" for="religion">Marrital Status:</label>
+				<select name="MaritalStatus" ng-model="marital"
+					ng-options="option3.maritalStatus for option3 in status"
+					class="form-control" required>
+					<option value="">--Please Select--</option>
+
+				</select><span class="error" style="color: red;"
+					ng-show="registrationForm.marritalStatus.$touched"> <span
+					ng-show="registrationForm.marritalStatus.$error.required">Marital
+						status is required</span> <span
+					ng-show="registrationForm.marritalStatus.$error.pattern">Special
+						characters not allowed</span>
+				</span>
+
+			</div>
+
+			<div class="form-group margin-bottom-30">
+				<label class="header-label">Gender</label><br> <input
+					type="radio" ng-model="registration.gender" name="Gender"
+					value="male" checked=true />Male <input type="radio"
+					ng-model="registration.gender" name="Gender" value="female" />Female<br />
+			</div>
+
+			<div class="form-group margin-bottom-30">
+
+				<label class="header-label">Association:</label>
+				<fieldset
+					data-ng-repeat="association in registration.userAssociation">
+					<input name="association" type="text"
+						ng-model="association.associationName" class="form-control"
+						ng-maxlength="maxlength" ng-pattern="/^[,\w -]*$/" auto-fill-sync>
+					</input>
+				</fieldset>
+				<button ng-click="add()">Add fields</button>
+				<span class="error" style="color: red;"
+					ng-show="registrationForm.association.$touched"> <span
+					ng-show="registrationForm.association.$error.required">Marital
+						status is required</span> <span
+					ng-show="registrationForm.association.$error.pattern">Special
+						characters not allowed</span>
+				</span>
+			</div>
+
+			<div id="choicesDisplay">{{ choices }}</div>
+
+			<div class="form-group margin-bottom-30">
+				<label class="header-label" for="religion">Religion:</label> <select
+					class="form-control"
+					ng-options="option.religion for option in religions track by option.id "
+					name="religion" ng-model="religion1" class="form-control" required>
+					<option value="">--Please Select--</option>
+
+				</select><i class="icon-drop-down"></i> <span class="error"
+					style="color: red;" ng-show="registrationForm.religion.$touched">
+					<span ng-show="registrationForm.religion.$error.required">Religion
+						is required</span> <span
+					ng-show="registrationForm.religion.$error.pattern">Special
+						characters not allowed</span>
+				</span>
+			</div>
+
+			<div class="form-group margin-bottom-30">
+				<label class="header-label">Hobbies:</label> <input name="hobbies"
+					type="text" ng-model="registration.hobbies" class="form-control"
+					ng-maxlength="maxlength" ng-pattern="/^[,\w -]*$/" required
+					auto-fill-sync></input> <span class="error" style="color: red;"
+					ng-show="registrationForm.hobbies.$touched"> <span
+					ng-show="registrationForm.hobbies.$error.required">Hobbies
+						is required</span> <span
+					ng-show="registrationForm.hobbies.$error.pattern">Special
+						characters not allowed</span>
+				</span>
+			</div>
+
+
+
+			<div class="form-group margin-bottom-30">
+				<label class="header-label" for="state">State:</label> <select
+					name="state" ng-change="getCity()"
+					ng-options="option1.id.state for option1 in states "
+					ng-model="state1" class="form-control" ng-maxlength="maxlength"
+					required auto-fill-sync>
+					<option value="">--Please Select--</option>
+					
+				</select><i class="icon-drop-down"></i> <span class="error"
+					style="color: red;" ng-show="registrationForm.state.$touched">
+					<span ng-show="registrationForm.state.$error.required">state
+						Name is required</span> <span
+					ng-show="registrationForm.state.$error.pattern">Special
+						characters not allowed</span>
+				</span>
+			</div>
+
+			<div class="form-group margin-bottom-30">
+				<label class="header-label">City:</label> <select name="city"
+					type="text" ng-options="option5 as option5.city for option5 in statlookup" ng-model="registration.city"
+					class="form-control" ng-maxlength="maxlength"
+					
+					 required auto-fill-sync>
+					 <option value="">--Please Select--</option></select><i
+					class="icon-drop-down"></i> <span class="error" style="color: red;"
+					ng-show="registrationForm.city.$touched"> <span
+					ng-show="registrationForm.city.$error.required">City Name is
+						required</span> <span ng-show="registrationForm.city.$error.pattern">Special
+						characters not allowed</span>
+				</span>
+			</div>
+
+
+			<div class="form-group margin-bottom-30">
+				<lab1el class="header-label">Occupation:</label> <input
+					name="occupation" type="text" ng-model="registration.occupation"
+					class="form-control" ng-maxlength="maxlength"
+					ng-pattern="/^[,\w -]*$/" auto-fill-sync></input> <span
+					class="error" style="color: red;"
+					ng-show="registrationForm.occupation.$error.pattern">
+					Special characters not allowed</span>
+
+				<div class="form-group margin-bottom-30">
+					<label class="header-label">Mother Tongue:</label> <select
+						name="motherTongue" ng-model="registration.motherTongue"
+						class="form-control" required>
+						<option value="">--Please Select--</option>
+						<option value="Hindi">Hindi</option>
+						<option value="English">English</option>
+						<option value="Panjabi">Panjabi</option>
+						<option value="Bangali">Bangali</option>
+						<option value="Other">Other</option>
+					</select><span class="error" style="color: red;"
+						ng-show="registrationForm.motherTongue.$touched"> <span
+						ng-show="registrationForm.motherTongue.$error.required">Mother
+							tongue is required</span> <span
+						ng-show="registrationForm.motherTongue.$error.pattern">Special
+							characters not allowed</span>
+					</span>
+				</div>
+
+				<div class="form-group margin-bottom-30">
+					<label class="header-label">Upload image:</label> <input
+						class="form-control" type="file" file-model="file" name="file"
+						accept="image/jpeg,image/jpg,image/gif,image/png"
+						data-max-size="204" required></input> <span class="error"
+						style="color: red;" ng-show="registrationForm.file.$touched"><span
+						ng-show="registrationForm.file.$invalid">Image is required</span></span>
+				</div>
+
+
+
+				<div class="form-group margin-bottom-30">
+					<legend class="header-label">Education</legend>
+					<fieldset
+						ng-repeat="education in registration.userEducation track by $index">
+
+						<label class="form-group margin-bottom-30">Institution
+							Name</label> <input name="instituteName" type="text"
+							ng-model="education.instituteName" class="form-control"
+							ng-maxlength="maxlength" ng-pattern="/^[,\w -]*$/" auto-fill-sync></input>
+						<label>Start Date:</label> <input name="startDate" type="date"
+							class="form-control" ng-model="education.startDate"
+							ng-change="checkdate(education.startDate,education.endDate)"></input>
+						<label>End Date:</label> <input name="endDate" type="date"
+							class="form-control" ng-model="education.endDate"
+							ng-change="checkdate(education.startDate,education.endDate)"></input>
+						<span class="error" style="color: red;"
+							ng-show="registrationForm.dob.$touched"> <span
+							class="error" ng-show="registrationForm.dob.$invalid">
+								Please enter a valid date</span> <span class="error">
+								{{ErrMessage}} </span><br>
+						</span> <label>Course Name</label> <select name="courseName1"
+							ng-options="option2.qualification as option2.qualification for option2 in qualifications"
+							ng-model="education.courseName" class="form-control" required>
+							<option value="">--Please Select--</option>
+
+
+						</select> <span class="error" style="color: red;"
+							ng-show="registrationForm.instituteName.$error.pattern">
+							Special characters not allowed</span> <span class="error"
+							style="color: red;"
+							ng-show="registrationForm.sDate.$error.$invalid"> Please
+							enter a valid date</span> <span class="error" style="color: red;"
+							ng-show="registrationForm.eDate.$error.min"> Please enter
+							a date greater than start date</span> <span class="error"
+							style="color: red;" ng-show="registrationForm.edate.$invalid">
+							Please enter a valid date</span> <span class="error" style="color: red;"
+							ng-show="registrationForm.courseName.$error.pattern">
+							Special characters not allowed</span> <br>
+						<button class="remove" ng-show="$last" ng-click="removeChoice()">Remove</button>
+						<!-- <h1>{{education.courseName}}</h1> -->
+					</fieldset>
+					<br>
+					<button ng-click="addEducation()">Add Education</button>
+					<!-- 			<span class="error" style="color: red;"
+						ng-show="registrationForm.institutionName.$error.pattern">
+						Special characters not allowed</span> <span class="error"
+						style="color: red;" ng-show="registrationForm.startDate>registrationForm.endDate">
+						Please enter a valid date</span>
+						<span class="error"
+						style="color: red;" ng-show="registrationForm.startDate.$error.max">
+						Please enter a date greater than start date</span>
+						 <span class="error" style="color: red;"
+						ng-show="registrationForm.enddate.$invalid"> Please enter a
+						valid date</span> <span class="error" style="color: red;"
+						ng-show="registrationForm.courseName.$error.pattern">
+						Special characters not allowed</span> -->
+				</div>
+
+				<button ng-click="submit(registrationForm.$valid)"
+					class="btn btn-warning" ng-disabled="!registrationForm.$valid">Submit</button>
+				<button type="reset" class="btn btn-warning">Reset</button>
+				<div>
+					<!-- <h3>{{registration}}</h3> -->
+
+				</div>
+		</form>
+	</div>
+
+</div>
+

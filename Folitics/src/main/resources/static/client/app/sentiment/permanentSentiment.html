@@ -1,0 +1,100 @@
+
+<!-- <div ng-controller="ViewSentimentController">
+
+	<div class="container-fluid">
+		<div class="row">
+			<h2>SENTIMENT PAGE</h2>
+			<ul class="sentiments">
+				<li ng-repeat="sentiment in sentiments" class="thumbnail"><b>SENTIMEBTID:-</b><a
+					href="#/appsentiment/{{sentiment.id}}" class="thumb"> <span
+						ng-bind="sentiment.id"></span></a></li>
+			</ul>
+
+		</div>
+	</div> -->
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<link href="Bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+<link href="Content/css/govern.css" rel="stylesheet" />
+</head>
+<body>
+	
+	<div class="main-container" style="background-color: #eee;">
+		<!--  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="padding: 10px;">
+                <div style="background-color: #ffffff; min-height: 680px;"></div>
+            </div> -->
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+			style="padding: 10px 0;">
+			<div
+				style="background-color: #ffffff; min-height: 500px; padding: 10px;">
+				<div class="row" style="margin: 10px 0;">
+					<div class="col-lg-12 col-md-12 col-sm-12"
+						style="color: #41b7d8; font-weight: bold; font-size: 25px;">
+						PERMANENT SENTIMENTS</div>
+
+				</div>
+				<div class="row success-story-row">
+					<div ng-repeat="sentiment in permanentSentiments">
+						<div class="col-lg-6 col-md-6 col-sm-6" style="padding-right: 0;">
+							<!-- Hover start  -->
+							<div id="success-story-hover-0" class="success-story-well-hover">
+								<div class="caption-desc"></div>
+								<div class="caption-detail">
+									<div class="caption-detail-title">
+									</div>
+									<div class="caption-detail-from"></div>
+									<div class="caption-detail-support">
+									 
+									
+									</div>
+									<div class="caption-detail-footer">
+										
+									</div>
+								</div>
+							</div>
+							<!-- Hover end  -->
+
+							<div class="success-story-well" id="success-story-0">
+								<a href="#/sentiment/{{sentiment.id}}"> <img style="width: 200px; height: 100px"
+									ng-src="data:image/JPEG;base64,{{sentiment.image}}"
+									 /><b style="font-size: 21px; font-style: italic;">{{sentiment.subject}}</b>
+								</a>
+								<div class="success-story-well-detail">
+									
+									<div class="pull-right">
+										
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<script src="Scripts/jquery-1.12.4.min.js"></script>
+	<script src="Scripts/jquery.dotdotdot-1.2.1.js"></script>
+	<script src="Bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+
+			$(".success-story-well,.success-story-well-hover").mouseenter(function() {
+
+				$(".success-story-well-hover").toggle();
+			}).mouseleave(function() {
+
+				$(".success-story-well-hover").hide();
+			});
+
+		});
+	</script>
+</body>
+</html>
+
+	

@@ -1,0 +1,158 @@
+<div class="main-container">
+
+	<div class="col-md-3 col-sm-3">
+		<div class="category-box col-md-12">
+			<h2>personality</h2>
+
+			<div class="personalitySlider" ng-repeat="_v in personality">
+				<div class="col-md-6 padding0">
+					<img class="personality-icon" src="{{_v.imageUrl}}">
+					<div class="personality-name">Narendra Modi</div>
+				</div>
+				<div class="col-md-6">
+					<div class="slider-control">
+						<a class="angle-left"><i ng-click="goLeft($event)"
+							id="{{_v.pagination}}" class="fa fa-angle-left"></i></a> <a
+							class="angle-right"><i ng-click="goRight($event)"
+							id="{{_v.pagination}}" class="fa fa-angle-right"></i></a>
+					</div>
+
+					<ul class="feedList">
+						<li ng-repeat="_lest in _v.feedList">{{_lest.feed}}</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="category-box col-md-12">
+			<h2>Trends</h2>
+
+			<ul class="trendsList">
+				<li ng-repeat="_v in trendsList">{{_v.trendName}}
+					<div class="trendColun">{{_v.trendColun}}</div>
+				</li>
+
+			</ul>
+
+		</div>
+
+	</div>
+	<div class="col-md-6 col-sm-6">
+		<div class="category-box col-md-12">
+
+			<div class="container-fluid">
+				<div class="row" style="margin-top: 50px;">
+					<a href="#/problem">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 problem-cols">
+							<div style="float: right; width: 270px; height: 100%;">
+								<div style="float: left; width: 50px; height: 50px;">
+									<img src="images/icon_needSupport.png" style="height: 100%" />
+								</div>
+								<div style="float: left; margin-left: 15px; margin-top: 5px;">
+									<span style="font-size: 18px;">Would you need help ?</span><br>
+									<span style="font-size: 12px;">Raise your problem<i
+										class="glyphicon glyphicon-arrow-right"
+										style="margin-left: 10px;"></i>
+									</span>
+
+
+								</div>
+								<div style="clear: both;"></div>
+							</div>
+					</a>
+				</div>
+				<a href="#/solveProblem">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 problem-cols">
+						<div
+							style="float: left; width: 355px; height: 100%; margin-left: 15px;">
+							<div style="float: left; width: 50px; height: 50px;">
+								<img src="images/icon_leader.png" style="height: 100%" />
+							</div>
+
+							<div style="float: left; margin-left: 15px; margin-top: 5px;">
+								<span style="font-size: 18px;">Would you like to show
+									leadership ?</span><br> <span style="font-size: 12px;">Solve
+									others problem<i class="glyphicon glyphicon-arrow-right"
+									style="margin-left: 10px;"></i>
+								</span>
+							</div>
+
+							<div style="clear: both;"></div>
+						</div>
+					</div>
+				</a>
+			</div>
+
+
+			<div class="row" style="background-color: #eee;">
+				<!--  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="padding: 10px;">
+                <div style="background-color: #ffffff; min-height: 680px;"></div>
+            </div> -->
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+					style="padding: 10px 0;">
+					<div
+						style="background-color: #ffffff; min-height: 500px; padding: 10px;">
+						<div class="row" style="margin: 10px 0;">
+							<div class="col-lg-12 col-md-12 col-sm-12"
+								style="color: #41b7d8; font-weight: bold; font-size: 25px;">
+								Success Stories</div>
+
+						</div>
+						<div class="row success-story-row">
+							<div ng-repeat="task in tasks">
+
+								<div class="col-lg-6 col-md-6 col-sm-6"
+									style="padding-right: 0;">
+									<!-- Hover start  -->
+									<div id="success-story-hover-0"
+										class="success-story-well-hover">
+										<div class="caption-desc"></div>
+										<div class="caption-detail">
+											<div class="caption-detail-title"></div>
+											<div class="caption-detail-from"></div>
+											<div class="caption-detail-support"></div>
+											<div class="caption-detail-footer"></div>
+										</div>
+									</div>
+									<!-- Hover end  -->
+
+									<div class="success-story-well" id="success-story-0">
+										<a href="#/problem/{{task.id}}"> <img
+											ng-src="data:image/JPEG;base64,{{task.attachment}}" />
+										</a>
+										<div class="success-story-well-detail">
+											<p>{{task.subject}}</p>
+											<!--   <a href="#">{{task.createdBy.name}}</a> -->
+											<div class="pull-right"></div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="Scripts/jquery-1.12.4.min.js"></script>
+<script src="Scripts/jquery.dotdotdot-1.2.1.js"></script>
+<script src="Bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+
+		$(".success-story-well,.success-story-well-hover").mouseenter(
+				function() {
+
+					$(".success-story-well-hover").toggle();
+				}).mouseleave(function() {
+
+			$(".success-story-well-hover").hide();
+		});
+
+	});
+</script>
+<!-- ............ -->

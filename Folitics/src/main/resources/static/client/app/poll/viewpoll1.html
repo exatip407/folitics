@@ -1,0 +1,37 @@
+<div ng-controller="PollViewController">
+
+	<div class="container-fluid">
+		<div class="row">
+			<h2>view poll1 page</h2>
+
+
+
+			<b>ID:- </b> <span ng-bind="viewpoll.id"></span></br>
+			</br>
+			<b> QUESTION:-</b> <span ng-bind="viewpoll.question"></span></br>
+			</br>
+			<b>STATE:-</b> <span ng-bind="viewpoll.state"></span></br>
+			</br>
+			<b> CREATEDBY:- </b> <span ng-bind="viewpoll.createdBy"></span></br>
+			</br> <b>DESCRIPTION:-</b> <span ng-bind="viewpoll.description"></span></br></br> <b>POLL
+				OPTION </b>
+
+
+
+			<div class="container">
+				<div clas="row1">
+					<ul class="options">
+						<li ng-repeat="options in viewpoll.options" class="thumbnail">
+							<a href="#/options/{{options.id}}"></a> <b> ID:-</b> <span
+							ng-bind=" options.id"></span></br> <b>CREATED BY:-</b> <span
+							ng-bind="options.createdBy"></span></br> <b>EDITED BY:-</b><span
+							ng-bind="options.editedBy"></span></br> <b>POLL OPTION:-</b> <span
+							ng-bind="options.pollOption"></span></br>
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

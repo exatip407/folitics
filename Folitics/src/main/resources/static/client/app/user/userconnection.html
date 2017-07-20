@@ -1,0 +1,185 @@
+<link rel="stylesheet" href="content/css/govern.css">
+<div class="main-container">
+	<div class="col-md-12">
+		<br>
+		<br>
+		<button id="conn" type="button" class="btn btn-info"
+			data-toggle="collapse" data-target="#demo1" 
+			ng-click="getUserConnection()" ng-disabled="connection">
+			<span ng-bind="getUserConnectionbuttonValue"></span>Connections
+		</button>
+		<br>
+		<br>
+
+		<div id="demo1" class="collapse">
+
+			<div class="">
+
+				<div ng-repeat="friend in friends">
+					<div ng-if="friend.points >=sessionUser.points">
+						<b>
+							<h4>
+								<font color="green">Pro connection with {{friend.points}}
+									Points </font>
+							</h4>
+						</b>
+
+						<div>
+							<!--  min-height: 250px; min-width: 50px; padding: 10px;"> -->
+
+							<div style="background-color: #50D050; padding: 10px;"
+								success-story-well" id="success-story-0">
+								<a href="/#/user/{{friend.id}}"> <img
+									style="width: 110px; height: 80px;"
+									ng-src="data:image/JPEG;base64,{{friend.userImage.image}}" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<span style="font-size: 20px;" ng-bind="friend.name"></span>
+								</a><br>
+
+							</div>
+
+						</div>
+
+					</div>
+					<div ng-if="friend.points<sessionUser.points">
+						<b>
+							<h4>
+								<font color="red">Anti connection with {{friend.points}}
+									Points </font>
+							</h4>
+						</b>
+						<div>
+							<!-- 				 min-height: 250px; min-width: 50px; padding: 10px;"> 
+ -->
+						
+
+								<div style="background-color: #FFB914; padding: 10px;"
+									success-story-well" id="success-story-0">
+									<a href="/#/user/{{friend.id}}"> <img
+										style="width: 110px; height: 80px;"
+										ng-src="data:image/JPEG;base64,{{friend.userImage.image}}" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<span style="font-size: 20px;" ng-bind="friend.name"></span>
+									</a><br>
+									
+
+								</div>
+
+								<!-- 	<div class="caption-detail-footer">
+								<font color="black"><span ng-bind="friend.id"></span> <span
+									ng-bind="friend.name"></span></font>
+							</div> -->
+						
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+			<a id="connection3" type="button" class="btn btn-info"
+				data-toggle="collapse" data-target="#demo">
+			<!-- 	<a href="#/requesteduser/{{requestedUser.id}}" class="thumb"> </a><span
+					ng-bind="requestedUser.id"></span> <span
+					ng-bind="getRequestConnectionbuttonValue"> --></span>Connection
+				Requests
+			</a>
+
+			<div id="demo" class="collapse">
+				<h2>Requests</h2>
+				<ul class="">
+					<span>{{request}}</span>
+					<li ng-repeat="requestedUser in requestedUsers" class="thumbnail"><b></b>
+
+						<span> <img
+							ng-src="data:image/JPEG;base64,{{requestedUser.userImage.image}}"
+							height="44" width="44" /><a href="#/user/{{requestedUser.id}}"
+							ng-bind="requestedUser.name" class="thumb" /></span> <span>
+							<button id="connection4" type="button" ng-show = "!showDiv" class="btn btn-default"
+								ng-click="updateConnectionStatus(requestedUser.id);showDiv=true">
+								<span ng-bind="updateConnectionStatusbuttonValue"></span>Confirm
+							</button>
+							<span ng-if = "requestedUser.id == {{id}}" style="font-size: 18px; font-style: italic;">{{msg}} </span>
+							<button id="connection1" type="button" ng-show = "!showDiv" class="btn btn-primary"
+								ng-click="deleteConnection(requestedUser.id);showDiv=true">
+								<span ng-bind="deleteconnectionbuttonValue"></span>Delete
+								Request
+							</button>
+							</a>
+					</span></li>
+				</ul>
+		</div>
+
+		<div class="row" style="background-color: #eee;">
+			<!--  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="padding: 10px;">
+                <div style="background-color: #ffffff; min-height: 680px;"></div>
+            </div> -->
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+				style="padding: 10px 0;">
+				<div
+					style="background-color: #ffffff; min-height: 500px; padding: 10px;">
+					<div class="row" style="margin: 10px 0;">
+						<div class="col-lg-12 col-md-12 col-sm-12"
+							style="color: #41b7d8; font-weight: bold; font-size: 25px;">
+							USERS</div>
+
+					</div>
+					<div class="row success-story-row">
+						<div ng-repeat="user in users">
+							<div ng-if="user.id!=sessionUser.id"
+								class="col-lg-6 col-md-6 col-sm-6" style="padding-right: 0;">
+								<!-- Hover start  -->
+								<div id="success-story-hover-0" class="success-story-well-hover">
+									<div class="caption-desc"></div>
+									<div class="caption-detail">
+										<div class="caption-detail-title"></div>
+										<div class="caption-detail-from"></div>
+										<div class="caption-detail-support">
+											<i class="glyphicon glyphicon-user"></i>
+
+										</div>
+										<div class="caption-detail-footer">
+											<span></span><i></i>
+										</div>
+									</div>
+								</div>
+								<!-- Hover end  -->
+
+								<div class="success-story-well" id="success-story-0">
+									<a href="#/user/{{user.id}}"><img
+										style="width: 110px; height: 80px;"
+										ng-src="data:image/JPEG;base64,{{user.userImage.image}}" /> <span
+										ng-bind="user.name"></a>
+									<div class="success-story-well-detail">
+
+										<div class="pull-right"></div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="Scripts/jquery-1.12.4.min.js"></script>
+<script src="Scripts/jquery.dotdotdot-1.2.1.js"></script>
+<script src="Bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+
+		$(".success-story-well,.success-story-well-hover").mouseenter(
+				function() {
+
+					$(".success-story-well-hover").toggle();
+				}).mouseleave(function() {
+
+			$(".success-story-well-hover").hide();
+		});
+
+	});
+</script>
+
+

@@ -1,0 +1,774 @@
+<link rel="stylesheet" href="content/css/govern.css">
+<div class="main-container">
+	<div class="col-md-12">
+		<div class="news-flash-box">
+			<div class="news-flash-left">
+				<span>News Flash</span> <span class="news-flash-title"><samp
+						class="triangle-topright"></samp> </span>
+			</div>
+			<div class="news-flash-right">
+				<a href="">{{newsFlash}}</a>
+			</div>
+			<span class="news-flash-close">X</span>
+		</div>
+	</div>
+	<div class="col-md-3 col-sm-3">
+		<div class="category-box col-md-12">
+			<h2>personality</h2>
+
+			<div class="personalitySlider" ng-repeat="_v in personality">
+				<div class="col-md-6 padding0">
+					<img class="personality-icon" src="{{_v.imageUrl}}">
+					<div class="personality-name">Narendra Modi</div>
+				</div>
+				<div class="col-md-6">
+					<div class="slider-control">
+						<a class="angle-left"><i ng-click="goLeft($event)"
+							id="{{_v.pagination}}" class="fa fa-angle-left"></i></a> <a
+							class="angle-right"><i ng-click="goRight($event)"
+							id="{{_v.pagination}}" class="fa fa-angle-right"></i></a>
+					</div>
+
+					<ul class="feedList">
+						<li ng-repeat="_lest in _v.feedList">{{_lest.feed}}</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="category-box col-md-12">
+			<h2>Trends and notification</h2>
+
+
+
+			<div class="row">
+				<div class="trendsList" style="border-right: 1px solid lightgray">
+					<table id="asyncTable"
+						class="table table-condensed table-striped clearfix"
+						style="display: none">
+						<thead>
+							<tr>
+								<td>Notification</td>
+
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<ul class="trendsList">
+					<li ng-repeat="_v in trendsList">{{_v.trendName}}
+						<div class="trendColun">{{_v.trendColun}}</div>
+					</li>
+
+				</ul>
+
+			</div>
+			<!--  -->
+
+		</div>
+
+	</div>
+	<div class="col-md-6 col-sm-6">
+		<div class="category-box col-md-12">
+			<!DOCTYPE html>
+
+			<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<link href="Bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+<link href="Content/css/govern.css" rel="stylesheet" />
+<style type="text/css">
+.success-story-row {
+	padding-left: 15px;
+	padding-right: 30px;
+	margin-bottom: 10px;
+}
+
+.success-story-well-hover {
+	display: none;
+	border: 1px solid #e3e3e3;
+	position: absolute;
+	top: 0;
+	background-color: #41b7d8;
+	opacity: .95;
+	height: 100%;
+	padding: 15px;
+	z-index: 1;
+}
+
+.success-story-well-hover .caption-desc {
+	font-size: 14px;
+	font-weight: bold;
+	color: #ffffff;
+	height: 120px;
+	overflow: hidden;
+}
+
+.success-story-well {
+	border: 1px solid #e3e3e3;
+}
+
+.success-story-well img {
+	height: 200px;
+	width: 100%;
+}
+
+.success-story-well .success-story-well-detail {
+	padding: 10px;
+}
+
+.success-story-well .success-story-well-detail p {
+	font-size: 14px;
+	color: #000;
+	font-weight: bold;
+}
+
+.success-story-well .success-story-well-detail a {
+	color: #41b7d8;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.success-story-well .success-story-well-detail i {
+	color: #000;
+}
+
+.caption-detail {
+	margin-top: 20px;
+	font-size: 12px;
+	color: #ffffff;
+}
+
+.caption-detail .caption-detail-support {
+	margin-top: 10px;
+}
+
+.caption-detail .caption-detail-support i {
+	color: #fff;
+}
+
+.caption-detail .caption-detail-footer {
+	position: absolute;
+	bottom: 10px;
+	right: 20px;
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.caption-detail .caption-detail-footer span {
+	margin-right: 25px;
+}
+
+.caption-detail .caption-detail-footer i {
+	background: url('/Images/icon_add.png');
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	top: -10px;
+	right: -10px;
+}
+
+.caption-detail .caption-detail-footer i:hover {
+	background: url('/Images/icon_add_hover.png');
+	width: 34px;
+	height: 34px;
+	position: absolute;
+	right: -15px;
+}
+
+.problem-cols {
+	border-right: 1px solid #ffffff;
+	height: 100px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: #41b7d8;
+	color: #ffffff;
+}
+
+.problem-cols:hover {
+	background-color: #f95900;
+}
+
+.breadcrumb {
+	padding: 8px 15px;
+	list-style: none;
+	background-color: #fff;
+	border-radius: 0;
+	margin-bottom: 0;
+}
+
+.breadcrumb a, i {
+	margin-right: 5px;
+	font-size: 12px;
+	color: #bcbcbc;
+	font-weight: 600;
+}
+
+.breadcrumb a:hover {
+	color: #ccc;
+	text-decoration: underline;
+}
+
+.breadcrumb .active {
+	color: #000;
+	font-size: 12px;
+	font-weight: bold;
+	margin-left: -3px;
+}
+
+.breadcrumb>li+li:before {
+	content: none !important;
+}
+
+.active-problem-nav {
+	padding: 0 5px;
+}
+
+.active-problem-nav ul {
+	border: 1px solid #ccc;
+	background-color: #eef6f5;
+}
+
+.active-problem-nav ul li {
+	border-left: 1px solid #ccc;
+}
+
+.active-problem-nav ul li a {
+	/*color: #626469;*/
+	color: grey;
+	border-radius: 0;
+	padding: 5px;
+}
+
+.active-problem-nav ul li a span {
+	color: #bcbcbc;
+}
+
+.active-problem-nav ul li.active a, a:hover {
+	color: #fff !important;
+	background-color: #41b7d8 !important;
+}
+
+.active-problem-nav ul li.active, li:hover {
+	color: #fff !important;
+	background-color: #41b7d8 !important;
+}
+
+.radio-type {
+	border: 1px solid #41b7d8;
+	border-radius: 0;
+}
+
+.radio-type ul {
+	padding: 10px;
+	list-style: none;
+	background-color: #fff;
+	margin-bottom: 0;
+}
+
+.radio-type ul li {
+	border: 0;
+}
+
+.radio-type ul li:hover {
+	background-color: #fff !important;
+}
+
+.radio-type ul li span {
+	position: relative;
+	bottom: 8px;
+	color: #000;
+}
+
+.checkbox-type {
+	border: 1px solid #41b7d8;
+	border-radius: 0;
+}
+
+.checkbox-type ul {
+	padding: 10px;
+	list-style: none;
+	background-color: #fff;
+	margin-bottom: 0;
+}
+
+.checkbox-type ul li {
+	border: 0;
+}
+
+.checkbox-type ul li:hover {
+	background-color: #fff !important;
+}
+
+.checkbox-type ul li span {
+	position: relative;
+	bottom: 8px;
+	color: #000;
+}
+
+.tab-content-problem {
+	position: absolute;
+	top: 135px;
+	z-index: 2;
+	width: 100%;
+	background-color: #fff;
+}
+
+.problem-detail {
+	background-color: #ffffff;
+	min-height: 785px;
+	padding: 10px;
+}
+
+.problem-detail .problem-detail-title {
+	color: #41b7d8;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.problem-detail .problem-detail-from {
+	font-size: 12px;
+	color: #777;
+}
+
+.problem-detail-info {
+	padding: 20px 15px;
+}
+
+.problem-detail-info .problem-detail-header {
+	color: #41b7d8;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.problem-detail-info .problem-detail-header-desc {
+	color: #000;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+.problem-detail-desc {
+	margin: 20px 0px;
+}
+
+.problem-detail-desc p {
+	font-size: 16px;
+	color: #000;
+}
+
+.problem-detail-btn-row {
+	margin: 20px 0px;
+}
+
+.problem-detail-btn-row .problem-detail-btn {
+	background-color: #ffffff;
+	border: 1px solid #f95900;
+	color: #f95900;
+	font-weight: bold;
+}
+
+.problem-detail-ppl {
+	margin: 25px 0px;
+}
+
+.problem-detail-ppl .problem-detail-ppl-header {
+	color: #41b7d8;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.problem-detail-ppl ul {
+	list-style: none;
+	padding-left: 0;
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: -moz-inline-box;
+	margin-top: 10px;
+}
+
+.problem-detail-ppl ul li {
+	border-radius: 15px;
+	background-color: #eef6f5;
+	padding: 5px;
+	margin-right: 5px;
+}
+
+.problem-detail-ppl ul li .thumb-up {
+	background: url('/Images/icon_thumb-up.png') no-repeat;
+	width: 25px;
+	height: 25px;
+	position: absolute;
+}
+
+.problem-detail-ppl ul li .ppl-cont {
+	margin-left: 20px;
+}
+
+.problem-detail-att {
+	margin: 20px 0px;
+}
+
+.problem-detail-att .problem-detail-att-header {
+	color: #41b7d8;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.problem-detail-att ul {
+	list-style: none;
+	padding-left: 0;
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: -moz-inline-box;
+	margin-top: 10px;
+}
+
+.problem-detail-att ul li {
+	margin-right: 5px;
+	text-align: center;
+}
+
+.problem-detail-att ul li:hover {
+	color: #000 !important;
+	background-color: #fff !important;
+}
+
+.problem-detail-att ul li img {
+	width: 100px;
+	height: 100px;
+}
+
+.problem-detail-att ul li span {
+	color: #777;
+	font-size: 12px;
+}
+
+.problem-detail-user {
+	margin: 20px 0px;
+}
+
+.problem-detail-user .problem-detail-user-header {
+	color: #41b7d8;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.problem-detail-user ul {
+	list-style: none;
+	padding-left: 0;
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: -moz-inline-box;
+	margin-top: 10px;
+}
+
+.problem-detail-user ul li {
+	border-radius: 15px;
+	background-color: #eef6f5;
+	padding: 5px;
+	margin-right: 5px;
+}
+
+.problem-detail-user ul li .user-cont {
+	/*margin-left: 20px;*/
+	
+}
+</style>
+</head>
+<body>
+	<!-- <nav class="navbar navbar-inverse navbar-fixed-top"
+		style="margin-bottom: 0;">
+		<div class="container-fluid">
+			<div class="navbar-header">
+
+				<a class="navbar-brand" href="#">VOICEUP</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+
+				<ul class="nav navbar-nav navbar-right"></ul>
+			</div>
+			/.nav-collapse
+		</div>
+
+	</nav> -->
+	<div class="container-fluid" style="margin-top: 50px;">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<ol class="breadcrumb">
+					<li><a href="#">Issues</a><i
+						class="glyphicon glyphicon-menu-right"></i></li>
+					<li><a href="#">Solve problem</a><i
+						class="glyphicon glyphicon-menu-right"></i></li>
+					<li class="active">{{task.task.subject}}</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row" style="background-color: #eee;">
+			<!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="padding: 10px;">
+                <div style="background-color: #ffffff; min-height: 785px;"></div>
+            </div> -->
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+				style="padding: 10px 0;">
+				<div class="problem-detail">
+					<div class="row" style="margin: 10px 0;">
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<div class="problem-detail-title">
+								<span>{{task.task.subject}}</span>
+							</div>
+							<div class="problem-detail-from">
+								<div class="row">
+									<div class="col-lg-3 col-md-3 col-sm-3"">
+										<span style="border-right: 1px solid #ccc; font-weight: bold;">UserName:
+										</span> <span>{{task.task.createdBy.username}}</span>
+									</div>
+									<div class="col-lg-3  col-md-3 col-sm-3">
+										<span style="border-right: 1px solid #ccc; font-weight: bold;">Phone:
+										</span><span>{{task.task.phone}}</span>
+									</div>
+									<div class="col-lg-4  col-md-3 col-sm-3">
+										<span style="border-right: 1px solid #ccc; font-weight: bold;">Email:
+										</span><span>{{task.task.email}}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row problem-detail-info">
+						<div class="col-lg-3 col-md-3 col-sm-3"
+							style="border-right: 1px solid #ccc;">
+							<span class="problem-detail-header">Related to</span><br /> <span
+								class="problem-detail-header-desc">{{task.task.subject}}</span>
+						</div>
+						<div class="col-lg-3  col-md-3 col-sm-3"
+							style="border-right: 1px solid #ccc;">
+							<span class="problem-detail-header">Location</span><br /> <span
+								class="problem-detail-header-desc">{{task.task.city}}</span>
+						</div>
+						<div class="col-lg-4  col-md-3 col-sm-3"
+							style="border-right: 1px solid #ccc;">
+							<span class="problem-detail-header">Departments</span><br /> <span
+								class="problem-detail-header-desc">{{message}}</span>
+							<li ng-repeat="depart in departs"><span
+								class="problem-detail-header-desc">{{depart.departmentName}}</span></li>
+						</div>
+						<div class="col-lg-2  col-md-2 col-sm-2">
+							<span class="problem-detail-header">Status</span><br /> <span
+								class="problem-detail-desc">{{task.task.status}}</span>
+						</div>
+					</div>
+
+					<div class="row problem-detail-desc">
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<p>
+								<span> {{task.task.description}} </span>
+							</p>
+						</div>
+					</div>
+
+					<div
+						ng-if="task.task.status !='Completed' && userId==task.task.createdBy.id">
+
+						<div class="rowproblem-detail-btn-row">
+							<div class="col-lg-2 col-md-3 col-sm-3">
+
+								<button class="btn btn-warning" ng-disabled="completeProblem"
+									ng-click=setStatus()>Complete</button>
+
+							</div>
+
+						</div>
+					</div>
+
+
+					<div
+						ng-if="task.task.status !='Completed' && userId!=task.task.createdBy.id">
+
+						<div class="row problem-detail-btn-row">
+							<div class="col-lg-6 col-md-6 col-sm-3">
+								<span
+									ng-if="task.task.createdBy.username !=task.taskparticipant.createdBy.username">
+									<button ng-show="participatevalue" class="btn btn-warning"
+										ng-disabled="participateButton" ng-click="addParticipants()">Participate</button>&nbsp;
+								</span> <span ng-show="acceptvalue"><button
+										class="btn btn-warning" ng-click="accept()">Accept</button>&nbsp;&nbsp;
+									<button class="btn btn-warning" ng-click="reject()">Reject</button>
+									&nbsp; </span> <span ng-show="solveProblem"><button
+										class="btn btn-warning" ng-click="addSolver()">Solve</button>
+									&nbsp; </span>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="row problem-detail-ppl">
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<span class="problem-detail-ppl-header">People already
+								contacted</span><br />
+							<ul ng-repeat="peopleMet in task.task.peopleMet">
+								<li><i class="thumb-up"></i><span class="ppl-cont">{{peopleMet.name}}</span></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="row problem-detail-att">
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<span class="problem-detail-att-header">Attachments</span><br />
+							<ul>
+								<li><img style="height: 100%; width: 140px;"
+									ng-src="data:image/JPEG;base64,{{task.task.attachment}}"
+									alt="task image" /></span></li>
+
+								<!-- <li><img src="Images/sample/Aaj-Tak.jpg" alt="Alternate Text" class="img-rounded" /><br /><span>attach2.png</span></li>
+                                <li><img src="Images/sample/IndianBusiness_19054.jpg" alt="Alternate Text" class="img-rounded" /><br /><span>attach3.png</span></li>
+                                <li><img src="Images/sample/ndtv-india.jpg" alt="Alternate Text" class="img-rounded" /><br /><span>attach4.png</span></li> -->
+								<ul class="taskList ">
+
+									<!-- 
+				             <div ng-repeat="peopleMet in task.task.peopleMet">
+					           <div class="right">
+					           	<strong>{{task.task.peopleMet}} </strong>  
+							
+				            </div>
+				            </div> -->
+
+								</ul>
+							</ul>
+						</div>
+					</div>
+
+					<div class="row problem-detail-user">
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<span class="problem-detail-user-header">Users working</span><br />
+
+							<ul ng-repeat="taskSolver in task.task.taskSolver">
+								<li><i class="thumb-up"></i><span class="ppl-cont">{{taskSolver.user.name}}</span></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="left-inner-addon">
+
+						<label class="header-label" for="problemDescription"> Your
+							comment </label>
+						<textarea name="comment" class="form-control" rows="4"
+							placeholder="Your comment on problem..."
+							ng-model-options="{ updateOn: 'blur', debounce:0 }"
+							ng-model="commentBean.comment" class="form-control"
+							ng-blur="addComment()" ng-maxlength="maxlength"
+							ng-pattern="/^[,\w -]*$/" required auto-fill-sync></textarea>
+
+					</div>
+					{{commentBean.comment}}
+					<div class="social-icon">
+						<a style="color: {{colorLike" href="" class="fa fa-thumbs-up"
+							role="button" ng-click="likeSentiment()" aria-hidden="true"></a>{{likeCount}}
+						&nbsp; <a style="color: {{colorDislike" href=""
+							class="fa fa-thumbs-down" role="button"
+							ng-click="dislikeSentiment()" aria-hidden="true"></a>{{dislikeCount}}
+						&nbsp;
+					</div>
+
+
+
+				</div>
+
+
+
+
+
+
+			</div>
+		</div>
+		<!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="padding: 10px;">
+                <div style="background-color: #ffffff; min-height: 785px; padding: 10px;"></div>
+            </div> -->
+	</div>
+		</div>
+
+		<script src="Scripts/jquery-1.12.4.min.js"></script>
+		<script src="Scripts/jquery.dotdotdot-1.2.1.js"></script>
+		<script src="Bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+
+				$(".success-story-well,.success-story-well-hover").mouseenter(
+						function() {
+							$(".success-story-well-hover").toggle();
+						}).mouseleave(function() {
+					$(".success-story-well-hover").hide();
+				});
+
+				//function navBarTitle() {
+				//    for (var i = 0; i < $(".active-problem-nav ul li").length; i++) {
+				//        if ($(".active-problem-nav ul li").eq(i).hasClass('active') === true) {
+				//            $(".active-problem-nav ul li").eq(i).find("a span").hide();
+				//        }
+				//        else if ($(".active-problem-nav ul li").eq(i).hasClass('active') === false) {
+				//            //   alert('hello');
+				//            $(".active-problem-nav ul li").eq(i).find("a span").show();
+				//        }
+				//    }
+				//}
+				//navBarTitle();
+				//$(".active-problem-nav ul li").click(function () {
+				//    navBarTitle();
+				//    $(this).find("a span").find("a span").hide();
+				//});
+			});
+		</script>
+		</body>
+		</html>
+
+
+	</div>
+
+</div>
+<!-- .....end....... -->
+<div class="col-md-3 col-sm-3">
+	<div class="category-box col-md-12">
+		<h2>VERDICT</h2>
+
+	</div>
+	<!-- .....end....... -->
+	<div class="col-md-3 col-sm-3">
+		<div class="category-box col-md-12">
+			<h2>VERDICT</h2>
+
+			<ul class="verdict">
+				<li class="greeBG" ng-repeat="list in verdictList"><span>{{list}}</span>
+					<div class="viewCase">
+						View case + <span>{{list.date}}</span>
+					</div> <a class="shere" id="{{list.id}}" href="#"><i
+						class="fa fa-share-alt"></i></a></li>
+				<a class="seeMore"><span>See More Verdicts</span> <i class="fa">+</i>
+				</a>
+			</ul>
+		</div>
+
+
+		<div class="category-box col-md-12">
+			<h2>task</h2>
+			<ul class="taskList ">
+				<li ng-repeat="list in taskList"><span class="pull-xs-left G "><img
+						class="task-icon responsive"
+						src="data:image/JPEG;base64,{{list.attachment}}"
+						style="width: 50px; height: 50px;"></span>
+					<div class="right">
+						<strong>{{list.Subject}} </strong> {{list.description}} <a
+							href="#" id="{{list.id}}"> Share</a>
+					</div></li>
+
+			</ul>
+			<pagination ng-model="currentPage" total-items=20 max-size=5
+				boundary-links="true"> </pagination>
+		</div>
+	</div>
+</div>
+</div>
+

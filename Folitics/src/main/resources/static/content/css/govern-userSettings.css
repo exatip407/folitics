@@ -1,0 +1,176 @@
+﻿#nav-userSettings ul {
+    list-style: none;
+    padding: 0;
+}
+
+#nav-userSettings {
+    padding: 20px 0;
+}
+
+    #nav-userSettings ul li {
+        padding: 10px 20px;
+    }
+
+        #nav-userSettings ul li a {
+            font-size: 16px;
+            color: #000;
+        }
+
+            #nav-userSettings ul li a:hover {
+                font-weight: bold;
+                text-decoration: none;
+                font-size: 18px !important;
+            }
+
+            #nav-userSettings ul li a.active {
+                font-weight: bold;
+                text-decoration: none;
+                font-size: 18px !important;
+            }
+
+.toggle-box {
+    display: none;
+}
+
+    .toggle-box + label {
+        cursor: pointer;
+        display: block;
+        font-weight: bold;
+        margin-bottom: 0;
+        padding-left: 15px;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+        .toggle-box + label + div {
+            display: none;
+            margin-bottom: 10px;
+        }
+
+    .toggle-box:checked + label + div {
+        display: block;
+    }
+
+    .toggle-box + label:before {
+        /*background-color: #f95900;*/
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+        color: #f95900;
+        content: "+";
+        display: block;
+        float: left;
+        font-weight: bold;
+        height: 39px;
+        line-height: 35px;
+        margin-right: 5px;
+        text-align: center;
+        width: 38px;
+        font-size: 24px;
+    }
+
+    .toggle-box + label:hover:before {
+        background-color: #f95900;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+        color: #fff;
+        content: "+";
+        display: block;
+        float: left;
+        font-weight: bold;
+        height: 39px;
+        line-height: 35px;
+        margin-right: 5px;
+        text-align: center;
+        width: 38px;
+        font-size: 24px;
+    }
+
+    .toggle-box:checked + label:before {
+        content: "\2212";
+    }
+
+
+
+.collapsible-header {
+    font-size: 18px;
+    color: #41b7d8;
+    font-weight: bold;
+    margin: 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #efefef;
+}
+
+.email-notification ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+    .email-notification ul li {
+        line-height: 24px !important;
+    }
+
+        .email-notification ul li span {
+            margin-left: 5px;
+            position: relative;
+            top: -8px;
+        }
+
+.mobile-notification ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+    .mobile-notification ul li {
+        line-height: 24px !important;
+    }
+
+        .mobile-notification ul li span {
+            margin-left: 5px;
+            position: relative;
+            top: -8px;
+        }
+
+.collapsible-content {
+    clear: both;
+}
+
+    .collapsible-content ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+        .collapsible-content ul li {
+            border-bottom: 1px solid #efefef;
+            padding: 10px 0;
+            line-height: 34px;
+        }
+
+            .collapsible-content ul li span {
+                font-size: 16px;
+                color: #000;
+            }
+
+
+.toggle-OnOff .toggle-OnOff-checkbox {
+    background: url('/Images/toggle-button_off.png') no-repeat;
+    display: inline-block;
+    width: 76px;
+    height: 34px;
+    margin: 0;
+    position: absolute;
+    right: 10px;
+}
+
+.toggle-OnOff input[type=checkbox] {
+    display: none;
+}
+
+    .toggle-OnOff input[type=checkbox]:checked + .toggle-OnOff-checkbox {
+        background: url('/Images/toggle-button_on.png') no-repeat;
+        width: 76px;
+        height: 34px;
+        margin: 0;
+    }

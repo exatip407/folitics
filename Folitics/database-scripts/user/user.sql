@@ -1,0 +1,11 @@
+/*
+-- Query: SELECT * FROM folitics.user
+LIMIT 0, 1000
+
+-- Date: 2016-08-02 17:07
+*/
+INSERT INTO `user` (`id`,`badge`,`dob`,`emailId`,`gender`,`inclinationAggregation`,`maritalStatus`,`name`,`password`,`points`,`religion`,`state`,`status`,`username`,`role_id`,`userImage_id`,`autoPasswordGenerated`,`mobileNo`,`timestamp`) VALUES (1,NULL,NULL,'username@gmail.com','Male',NULL,NULL,'User','123',122,NULL,NULL,'Active','username',2,NULL,NULL,0,'0000-00-00 00:00:00');
+INSERT INTO `user` (`id`,`badge`,`dob`,`emailId`,`gender`,`inclinationAggregation`,`maritalStatus`,`name`,`password`,`points`,`religion`,`state`,`status`,`username`,`role_id`,`userImage_id`,`autoPasswordGenerated`,`mobileNo`,`timestamp`) VALUES (3,NULL,'2016-05-21 09:18:10','testfoliticsuser@gmail.com','Male',NULL,'Married','name','12345',NULL,'Hinduism','Madhya Pradesh','VerifiedByEmail','username1567448',1,NULL,NULL,0,'0000-00-00 00:00:00');
+INSERT INTO `user` (`id`,`badge`,`dob`,`emailId`,`gender`,`inclinationAggregation`,`maritalStatus`,`name`,`password`,`points`,`religion`,`state`,`status`,`username`,`role_id`,`userImage_id`,`autoPasswordGenerated`,`mobileNo`,`timestamp`) VALUES (4,NULL,'2016-05-21 09:27:03','testfoliticsuser@gmail.com','Male',NULL,'Married','name','12345',NULL,'Hinduism','Madhya Pradesh','VerifiedByEmail','username1758046',1,NULL,NULL,0,'0000-00-00 00:00:00');
+INSERT INTO `user` (`id`,`badge`,`dob`,`emailId`,`gender`,`inclinationAggregation`,`maritalStatus`,`name`,`password`,`points`,`religion`,`state`,`status`,`username`,`role_id`,`userImage_id`,`autoPasswordGenerated`,`mobileNo`,`timestamp`) VALUES (5,NULL,'2016-06-03 07:31:14','testfoliticsuser@gmail.com','Male',NULL,'Married','name','12345',400,'Hinduism','Madhya Pradesh','VerifiedByEmail','updatedUsername',1,2,NULL,0,'0000-00-00 00:00:00');
+INSERT INTO `user` (`id`,`badge`,`dob`,`emailId`,`gender`,`inclinationAggregation`,`maritalStatus`,`name`,`password`,`points`,`religion`,`state`,`status`,`username`,`role_id`,`userImage_id`,`autoPasswordGenerated`,`mobileNo`,`timestamp`) VALUES (6,NULL,'2016-06-03 07:31:59','testfoliticsuser@gmail.com','Male',NULL,'Married','name','12345',400,'Hinduism','Madhya Pradesh','Active','username1563230',1,1,NULL,0,'0000-00-00 00:00:00');

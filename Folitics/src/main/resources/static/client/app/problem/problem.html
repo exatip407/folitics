@@ -1,0 +1,527 @@
+<link rel="stylesheet" href="content/css/govern.css">
+<div class="main-container">
+
+	<div class="col-md-12">
+		<div class="news-flash-box">
+			<div class="news-flash-left">
+				<span>News Flash</span> <span class="news-flash-title"><samp
+						class="triangle-topright"></samp> </span>
+			</div>
+			<div class="news-flash-right">
+				<a href="">{{newsFlash}}</a>
+			</div>
+			<span class="news-flash-close">X</span>
+		</div>
+	</div>
+	<div class="col-md-3 col-sm-3">
+		<div class="category-box col-md-12">
+			<h2>personality</h2>
+
+			<div class="personalitySlider" ng-repeat="_v in personality">
+				<div class="col-md-6 padding0">
+					<img class="personality-icon" src="{{_v.imageUrl}}">
+					<div class="personality-name">Narendra Modi</div>
+				</div>
+				<div class="col-md-6">
+					<div class="slider-control">
+						<a class="angle-left"><i ng-click="goLeft($event)"
+							id="{{_v.pagination}}" class="fa fa-angle-left"></i></a> <a
+							class="angle-right"><i ng-click="goRight($event)"
+							id="{{_v.pagination}}" class="fa fa-angle-right"></i></a>
+					</div>
+
+					<ul class="feedList">
+						<li ng-repeat="_lest in _v.feedList">{{_lest.feed}}</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="category-box col-md-12">
+			<h2>Trends</h2>
+
+			<ul class="trendsList">
+				<li ng-repeat="_v in trendsList">{{_v.trendName}}
+					<div class="trendColun">{{_v.trendColun}}</div>
+				</li>
+
+			</ul>
+
+		</div>
+
+	</div>
+	<div class="col-md-6 col-sm-6">
+		<div class="category-box col-md-12">
+			<div ng-controller="ProblemController">
+				<div class="container-fluid body-content">
+					<div class="row">
+						<div class="col-lg-3"></div>
+						<div class="col-lg-12 center-content">
+
+							<div class="header-section">
+								<h2 class="header-title OpenSansBold-class">Raise Problem</h2>
+								<div class="row radios">
+									<div class="col-lg-5 col-md-5 remove-padding-right">
+										<input id="rdByPeople" type="radio" name="problemType"
+											value="byPeople" checked /> <label class="radio"
+											for="rdByPeople"></label> <span id="spanByPeople"
+											class="header-label-black">Let people help you</span>
+									</div>
+									<div class="col-lg-7 col-md-7">
+										<input id="rdByDepartment" type="radio" name="problemType"
+											value="byDepartment" /> <label class="radio"
+											for="rdByDepartment"></label> <span id="spanByDepartment"
+											class="header-label-black"><a href="#/quickproblem">Quickly
+												sent to minister or department</a></span>
+									</div>
+
+									<!-- <div class="col-lg-7 col-md-7">
+										<input id="rdByDepartment" type="radio" name="problemType"
+											value="byDepartment" /> <label class="radio"
+											for="rdByDepartment"></label>  <span id="spanByDepartment"
+											class="header-label-black">Quickly sent to minister or
+											department</span>
+									</div> -->
+
+								</div>
+							</div>
+
+							<form name="problemForm" novalidate>
+								<div class="form-group margin-bottom-30">
+									<label class="header-label" for="problemTitle">Problem
+										title</label> <input type="text" class="form-control"
+										name="problemTitle" id="problemTitle"
+										placeholder="Give a title to your problem..."
+										ng-model="task.subject" class="form-control"
+										ng-maxlength="maxlength" ng-pattern="/^[,\w -]*$/" required
+										auto-fill-sync> <span class="error"
+										style="color: red; font-weight: bold"
+										ng-show="problemForm.problemTitle.$touched"> <span
+										ng-show="problemForm.problemTitle.$error.required">Title
+											is required</span> <span
+										ng-show="sentimentForm.problemTitle.$error.pattern">Special
+											characters not allowed</span>
+									</span>
+								</div>
+								<div class="form-group margin-bottom-30">
+									<label class="header-label" for="problemDescription">Tell
+										us about your problem</label>
+									<div class="left-inner-addon">
+										<i data-toggle="modal" data-target="#myProblemDescModal"></i>
+										<textarea id="problemDescription" class="form-control"
+											rows="4"
+											placeholder="Describe your problem. Give dates, evidences, any other detail you have..."
+											ng-model="task.description" class="form-control"
+											ng-maxlength="maxlength" ng-pattern="/^[,\w -]*$/" required
+											auto-fill-sync></textarea>
+
+									</div>
+								</div>
+								<!-- <div class="form-group margin-bottom-30">
+									<label class="header-label" for="problemDescription">
+										Image</label>
+									<div class="left-inner-addon">
+										<i data-toggle="modal" data-target="#imageModal"></i>
+										<textarea id="problemDescription" class="form-control"
+											rows="4"
+											placeholder="Add image"
+											ng-model="task.description" class="form-control"
+											ng-maxlength="maxlength" ng-pattern="/^[,\w -]*$/" required
+											auto-fill-sync></textarea>
+									</div>
+								</div> -->
+								<!--  -->
+								<!-- <div class="form-group margin-bottom-30">
+								
+								</div> -->
+								<!--  -->
+								<div class="form-group margin-bottom-30">
+									<label class="header-label">Upload problem image:</label> <input
+										class="form-control" type="file" file-model="file1"
+										name="file"
+										accept=".xlsx,.xls,image/*,.doc, .docx.,.ppt, .pptx,.txt,.pdf"
+										data-max-size="204" required></input> <span class="error"
+										style="color: red; font-weight: bold"
+										ng-show="registrationForm.file.$touched"><span
+										ng-show="registrationForm.file.$invalid">Image is
+											required</span></span>
+								</div>
+								<div class="form-group margin-bottom-30">
+									<label class="header-label" for="problemType">Problem
+										related to</label> <select class="form-control" id="problemType"
+										ng-options="option.name for option in categories track by option.id "
+										ng-model="task.category[0]">
+										<option value="0" selected="selected">Select a
+											problem type which best describes your case...</option>
+										<option value="1">Admission</option>
+										<option value="2">Cleaner</option>
+										<option value="3">Crime assult</option>
+										<option value="4">FIR</option>
+										<option value="5">Pension</option>
+										<option value="6">Not in this list</option>
+									</select> <i class="icon-drop-down"></i>
+								</div>
+
+								<div class="form-group margin-bottom-30">
+									<label class="header-label" for="departmentType">Department</label>
+									<select class="form-control" id="departmentType"
+										ng-options="option1.departmentName for option1 in departments track by option1.id "
+										ng-model="task.departments[0]">
+									</select> <i class="icon-drop-down"></i>
+								</div>
+								<div class="form-group margin-bottom-30">
+									<label class="header-label" for="problemPublicOfficer">Who
+										all public officer(s) you met</label>
+									<div class="right-inner-addon">
+										<i data-toggle="modal"
+											data-target="#myproblemPublicOfficerModal"></i> <input
+											type="text" id="problemPublicOfficer" class="form-control"
+											placeholder="Add all people you met reagrding your problem..."
+											readonly />
+									</div>
+								</div>
+								<!-- <div class="form-group margin-bottom-30">
+									<label class="header-label" for="problemType">Participant(s)
+										</label> <select class="form-control" id="problemType"
+										ng-options="option.name for option in categories track by option.id "
+										ng-model="task.category[0]">
+										<option value="0" selected="selected">Select a
+											problem type which best describes your case...</option>
+										<option value="1">Admission</option>
+										<option value="2">Cleaner</option>
+										<option value="3">Crime assult</option>
+										<option value="4">FIR</option>
+										<option value="5">Pension</option>
+										<option value="6">Not in this list</option>
+									</select> <i class="icon-drop-down"></i>
+								</div> -->
+								<label class="header-label">Your contact details</label>
+								<div class="row margin-bopttom-15px">
+									<div class="col-lg-12 col-md-12 col-sm-12">
+										<input type="text" name="address" id="address"
+											class="form-control" placeholder="Address..."
+											ng-model="task.address" class="form-control"
+											ng-maxlength="maxlength" ng-pattern="/^[,\w -]*$/" required
+											auto-fill-sync />
+									</div>
+								</div>
+								<div class="row margin-bopttom-15px">
+									<div class="col-lg-12 col-md-12 col-sm-12">
+										<input type="text" id="city" name="city" class="form-control"
+											placeholder="Start typing your city name..."
+											ng-model="task.city" class="form-control"
+											ng-maxlength="maxlength" ng-pattern="/^[,\w -]*$/" required
+											auto-fill-sync />
+
+									</div>
+								</div>
+								<div class="row margin-bopttom-15px">
+									<div class="col-lg-6 col-md-6">
+										<input type="email" id="email" name="email"
+											class="form-control" placeholder="Email..."
+											ng-model="task.email" class="form-control"
+											ng-maxlength="maxlength" required auto-fill-sync />
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<input type="text" id="phone" class="form-control"
+											placeholder="Phone..." ng-model="task.phone"
+											class="form-control" ng-maxlength="maxlength"
+											ng-pattern="/^[,\w -]*$/" required auto-fill-sync />
+									</div>
+								</div>
+								<div class="row margin-bopttom-15px ">
+									<div class="col-lg-6 col-md-6 ">
+										<input type="checkbox" name="showEmailPhone" id="rdShowEmail"
+											ng-model="task.showMobileNo" ng-value="truevalue" /> <label
+											class="radio" for="rdShowEmail"></label> <span>Show my
+											email only if I accept</span>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<input type="checkbox" name="showEmailPhone" id="rdShowPhone"
+											ng-model="task.showEmail" ng-value="truevalue" //> <label
+											class="radio" for="rdShowPhone"></label> <span>Show my
+											phone only if I accept</span>
+									</div>
+								</div>
+
+
+
+
+								<div class="form-group margin-bottom-30  concern-people-details">
+									<label class="header-label">Choose who all you want
+										your problem to be send:</label>
+									<div class="row">
+
+										<div ng-repeat="personality in personalities">
+											<div class="col-lg-2">
+
+												<input type="checkbox" checklist-model="personalities1"
+													checklist-value="personality"> <img
+													ng-click="personalitySelect(personality)"
+													class="img-responsive thumbnail"
+													ng-src="data:image/JPEG;base64,{{personality.image}}"
+													alt="sentiment image">
+												<div class="header">{{personality.name}}</div>
+												<div class="title">{{personality.desingnation}}</div>
+											</div>
+										</div>
+
+
+										<div class="col-lg-2">
+											<h4>{{personalities1}}</h4>
+										</div>
+									</div>
+								</div>
+
+								<label class="header-label">Choose user you want to ping</label>
+								<div class="row margin-bopttom-15px">
+									<div class="col-lg-12 col-md-12 col-sm-12">
+										<tags-input ng-model="pinUsers" placeholder="Add Users"
+											display-property="name" replace-spaces-with-dashes="false">
+										<auto-complete source="loadPinUser($query)" min-length="0"
+											debounce-delay="0" max-results="10"></auto-complete> </tags-input>
+									</div>
+								</div>
+
+								<div class="form-group terms-condition">
+									<label class="header-label">By submitting your problem
+										you agree with the terms and conditions.</label>
+									<p>I here by agree that this is (text has to provide by CMS
+										team)..</p>
+								</div>
+								<div class="form-group">
+									<button type="submit" class="btn btn-success govern-success"
+										ng-click="submit()">Submit your problem</button>
+									<button ng-click="reload()" class="btn btn-default">Cancel</button>
+								</div>
+							</form>
+						</div>
+						<div class="col-lg-3"></div>
+
+						<div class="modal fade" id="myProblemDescModal" role="dialog">
+							<div class="modal-dialog">
+
+								<div class="modal-content">
+
+									<div class="modal-body">
+										<div class="form-group margin-bottom-30">
+											<label class="header-label" for="problemAddFile">Add
+												File</label>
+											<div class="right-inner-addon">
+												<i></i>
+												<!-- 	 <input type="text" class="form-control"
+													id="problemAddFile" placeholder="Browse files..."> -->
+												<p style="font-size: 14px; color: #bcbcbc; margin-top: 5px;">Supported
+													formats: jpg, BMP, PNG,MP3, MP4, AVI, MOV</p>
+											</div>
+										</div>
+										<input class="form-control" type="file" file-model="file"
+											name="file" accept="image/jpeg,image/jpg,image/gif,image/png"
+											data-max-size="204" required></input>
+									</div>
+									<div class="modal-footer" style="border: none;">
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-success govern-success"
+											data-dismiss="modal">Done</button>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="col-lg-3"></div>
+
+						<div class="modal fade" id="imageModal" role="dialog">
+							<div class="modal-dialog">
+
+								<div class="modal-content">
+
+									<div class="modal-body">
+										<div class="form-group margin-bottom-30">
+											<label class="header-label" for="problemAddFile">Add
+												File</label>
+											<!-- <div class="right-inner-addon">
+												<i></i> <input type="text" class="form-control"
+													id="problemAddFile" placeholder="Browse files...">
+												<p style="font-size: 14px; color: #bcbcbc; margin-top: 5px;">Supported
+													formats: jpg, BMP, PNG,MP3, MP4, AVI, MOV</p>
+											</div> -->
+										</div>
+										<input class="form-control" type="file" file-model="file"
+											name="file" accept="image/jpeg,image/jpg,image/gif,image/png"
+											data-max-size="204" required></input>
+									</div>
+									<div class="modal-footer" style="border: none;">
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-success govern-success"
+											data-dismiss="modal">Done</button>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="modal fade" id="myProblemDepartmentModal"
+							role="dialog">
+							<div class="modal-dialog">
+
+								<div class="modal-content">
+
+									<div class="modal-body">
+										<div class="form-group margin-bottom-30">
+											<label class="header-label" for="problemAddFile">Add
+												File</label>
+											<div class="right-inner-addon">
+												<i></i> <input type="text" class="form-control"
+													id="problemAddFile"
+													placeholder="Select more departmets from the list... ">
+												<div style="border: 1px solid #ccc; border-radius: 4px;"
+													class="checkboxs">
+													<ul style="padding: 10px; list-style: none;">
+														<li><input type="checkbox" name="name1" id="name1"
+															value="" checked /> <label class="checkbox" for="name1"></label>
+															<span
+															style="position: relative; bottom: 8px; color: #000;">Health</span>
+														</li>
+														<li><input type="checkbox" name="name2" id="name2"
+															value="" /> <label class="checkbox" for="name2"></label>
+															<span
+															style="position: relative; bottom: 8px; color: #000;">Fire</span>
+														</li>
+														<li><input type="checkbox" name="name3" id="name3"
+															value="" /> <label class="checkbox" for="name3"></label>
+															<span
+															style="position: relative; bottom: 8px; color: #000;">Sports</span>
+														</li>
+														<li><input type="checkbox" name="name4" id="name4"
+															value="" /> <label class="checkbox" for="name4"></label>
+															<span
+															style="position: relative; bottom: 8px; color: #000;">MCD</span>
+														</li>
+														<li><input type="checkbox" name="name5" id="name5"
+															value="" /> <label class="checkbox" for="name5"></label>
+															<span
+															style="position: relative; bottom: 8px; color: #000;">Transport</span>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="modal-footer" style="border: none;">
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-success govern-success"
+											data-dismiss="modal">Done</button>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="modal fade" id="myproblemPublicOfficerModal"
+							role="dialog">
+							<div class="modal-dialog">
+
+								<div class="modal-content">
+									<div class="modal-body public-officer-details">
+										<label class="header-label">Add People</label>
+										<div class="addedPeople"></div>
+
+										<div class="form-group margin-bottom-30">
+											<div class="row margin-bopttom-15px">
+												<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<input type="text" id="officerName" class="form-control"
+														placeholder="Name of the person..."
+														ng-model="peopleMet.name" class="form-control"
+														ng-maxlength="maxlength" ng-pattern="/^[,\w -]*$/"
+														required auto-fill-sync />
+												</div>
+											</div>
+											<div class="row margin-bopttom-15px">
+												<div class="col-lg-6 col-md-6  col-sm-6 col-xs-6">
+													<input type="text" id="officerDepartment"
+														class="form-control" placeholder="Department..."
+														ng-model="peopleMet.departmentName" class="form-control"
+														ng-maxlength="maxlength" ng-pattern="/^[,\w -]*$/"
+														required auto-fill-sync />
+												</div>
+												<div class="col-lg-6 col-md-6  col-sm-6 col-xs-6">
+													<input type="text" id="officerCity" class="form-control"
+														placeholder="City name..." ng-model="peopleMet.location"
+														class="form-control" ng-maxlength="maxlength"
+														ng-pattern="/^[,\w -]*$/" required auto-fill-sync />
+												</div>
+											</div>
+											<div class="row margin-bopttom-15px">
+												<div class="col-lg-12 col-md-12  col-sm-12 col-xs-12">
+													<textarea id="officerCommentOn" class="form-control"
+														placeholder="Comment if any..." rows="3"
+														ng-model="peopleMet.actionTaken" class="form-control"
+														ng-maxlength="maxlength" ng-pattern="/^[,\w -]*$/"
+														required auto-fill-sync></textarea>
+												</div>
+											</div>
+											<div class="row helpfull radios">
+												<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"
+													style="padding-right: 0; margin-top: 4px;">
+													<span class="helpfull-text">Was it helpful ? </span>
+												</div>
+												<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"
+													style="padding-left: 0;">
+													<input type="radio" name="helpFullValue" value=""
+														id="rdhelpFullYes" /> <label class="radio"
+														for="rdhelpFullYes" ng-model="task.isHelpfull"></label> <i
+														class="icon-up"
+														style="margin-top: 4px; margin-left: 10px;"></i> <span
+														class="helpfull-yes-no"
+														style="padding-top: 4px; margin-left: 5px;">Yes</span>
+												</div>
+												<div class="col-lg-2 col-md-2 col-md-2 col-xs-2"
+													style="padding-left: 0;">
+													<input type="radio" name="helpFullValue" value=""
+														id="rdhelpFullNo" /> <label class="radio"
+														for="rdhelpFullNo"></label> <i class="icon-down"
+														style="margin-top: 4px; margin-left: 10px;"></i> <span
+														class="helpfull-yes-no"
+														style="padding-top: 4px; margin-left: 5px;">No</span>
+												</div>
+
+											</div>
+										</div>
+									</div>
+									<div class="modal-footer" style="border: none;">
+										<a class="pull-left add-person" ng-click="addAnotherPerson()">Add
+											another person</a>
+										<div class="pull-right">
+											<button type="button" class="btn btn-default"
+												data-dismiss="modal">Close</button>
+											<button type="button" class="btn btn-success govern-success"
+												data-dismiss="modal" ng-click="addPeopleMets()">Done</button>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!--  <h6>{{task}}</h6>
+				 <h6>{{peopleMets}}</h6> -->
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+
+	<div class="alert alert-danger" ng-show="authResponse">{{authMessage}}</div>
+</div>
+</div>
+
+

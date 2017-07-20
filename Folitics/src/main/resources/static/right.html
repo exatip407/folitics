@@ -1,0 +1,114 @@
+<!-- <div>
+	<h1>I am in right</h1>
+</div> -->
+<div class="category">
+                                 <h4>SENTIMENTS</h4>
+                                 <div ng-controller="ViewSentimentController">
+
+	<div class="container-fluid">
+		<div class="row">
+			<h2></h2>
+			<ul class="sentiments">
+				<li ng-repeat="sentiment in sentiments" class="thumbnail"><b>SENTIMEBTID:-</b><a
+					href="#/appsentiment/{{sentiment.id}}" class="thumb"> <span
+						ng-bind="sentiment.id"></span></a></li>
+			</ul>
+
+		</div>
+	</div>
+                               <!--   <ul>
+                                    <li>
+                                       <label>GFeed0</label>
+                                    </li>
+                                    <li>
+                                       <label>GFeed1</label>
+                                    </li>
+                                    <li>
+                                       <label>GFeed2</label>
+                                    </li>
+                                    <li>
+                                       <label>GFeed3</label>
+                                    </li>
+                                    <li>
+                                       <label>GFeed4</label>
+                                    </li>
+                                 </ul> -->
+                              </div>
+                              <div class="category">
+                                 <h4>GOVTSCHEMEDATA</h4>
+                                 
+ <div ng-controller="GovtschemedataController">
+
+
+<div class="container-fluid">
+	<div class="row">
+
+		<ul class="govtschemedata">
+		
+			    <li ng-repeat="govtschemedata in govtschemedata" class="thumbnail"> 
+			   
+				<a href="#/govtschemedata/{{govtschemedata.id}}">
+				<b>govtschemedataId:-</b><span ng-bind="govtschemedata.id"></span></a>
+				
+				</li>
+		</ul>
+
+	</div>
+	</div>
+	
+</div> 
+                                 
+                                 <!-- <ul>
+                                    <li>
+                                       <label>MMFeed0</label>
+                                    </li>
+                                    <li>
+                                       <label>MMFeed01</label>
+                                    </li>
+                                    <li>
+                                       <label>MMFeed02</label>
+                                    </li>
+                                    <li>
+                                       <label>MMFeed03</label>
+                                    </li>
+                                    <li>
+                                       <label>MMFeed04</label>
+                                    </li>
+                                 </ul> -->
+                              </div>
+                              <div class="category">
+                              
+                              
+                                 <h4>VERDICTS</h4>
+                                 <div ng-controller=" VerdictViewController"></div>
+
+<div class="container-fluid">
+	<div class="row">
+
+		
+				VERDICT ID:- <span ng-bind="verdict.id"></span></br>
+			
+			
+				<div class="container-fluid">
+	         <div class="row">
+
+		      <ul class="sentiments">
+		     	<li ng-repeat="sentiment in verdict.sentiments" class="thumbnail"><a
+				href="#/sentiment/{{sentiment.id}}" class="thumb"><img
+					class="img-responsive thumbnail"
+					ng-src="data:image/JPEG;base64,{{sentiment.image}}"
+					alt="sentiment image" width="50" height="30"></a> <a
+				href="#/sentiment/{{sentiment.id}}"><span ng-bind="sentiment.subject"></span></a>
+				<p><span ng-bind="sentiment.description"></span></p></li>
+		</ul>
+
+	</div>
+</div>
+				
+			
+	</div>
+</div>
+                                 
+                                 <input type="text" class="form-control">
+                                 <input type="button" value="Submit" class="btn btn-primary">
+                              </div>

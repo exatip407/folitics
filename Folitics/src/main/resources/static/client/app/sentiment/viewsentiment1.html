@@ -1,0 +1,305 @@
+
+<div class="main-container">
+	<div class="col-md-12">
+		<div class="news-flash-box">
+			<div class="news-flash-left">
+				<span>News Flash</span> <span class="news-flash-title"><samp
+						class="triangle-topright"></samp> </span>
+			</div>
+			<div class="news-flash-right">
+				<a href="">{{newsFlash}}</a>
+			</div>
+			<span class="news-flash-close">X</span>
+		</div>
+	</div>
+
+	<!-- .....sentiment strt....... -->
+	<div class="main-container">
+		<div class="col-md-12">
+			<h1>View sentiment operation</h1>
+		</div>
+
+		<div class="form-group">
+			<label>Subject: <span ng-bind="sentiment.subject"></span></label>
+		</div>
+
+		<div class="form-group">
+			<img class="img-responsive"
+				ng-src="data:image/JPEG;base64,{{sentiment.image}}"
+				alt="sentiment image" width="460" height="345">
+		</div>
+		<div class="form-group">
+			<label>Description: <span ng-bind="sentiment.description"></span></label>
+		</div>
+		<div class="form-group">
+			<label>Promotes: <span ng-bind="likeCount"></span></label> <label>,
+				Demotes: <span ng-bind="dislikeCount"></span>
+			</label> <label>, Shares on Facebook: <span
+				ng-bind="facebookShareCount"></span></label> <label>, Shares on
+				Twitter: <span ng-bind="twitterShareCount"></span>
+			</label> </label> <label>, Shares on Facebook: <span
+				ng-bind="facebookShareCount"></span></label> <label>, Shares on
+				Twitter: <span ng-bind="twitterShareCount"></span>
+			</label> <label>, Followers: <span ng-bind="followCount"></span>
+			</label> <label>, Airs: <span ng-bind="airCount"></span>
+			</label>
+		</div>
+		<div class="form-group">
+			<a href="#/createopinion/{{sentiment.id}}" class="btn btn-primary"
+				role="button">Create opinion</a>
+
+			<button id="like" type="button" class="btn btn-primary"
+				ng-click="likeSentiment()">
+				<span ng-bind="likeButtonValue"></span>
+			</button>
+
+
+
+			<button id="dislike" type="button" class="btn btn-primary"
+				ng-click="dislikeSentiment()">
+				<span ng-bind="dislikeButtonValue"></span>
+			</button>
+
+
+
+			<button type="button" class="btn btn-primary"
+				ng-click="followOrUnFollowSentiment()">
+				<span ng-bind="followUnfollow"> </span>
+			</button>
+
+
+
+			<button type="button" class="btn btn-primary"
+				ng-click="airSentiment()" data-toggle="modal"
+				data-target="#airShare">Air</button>
+
+
+
+
+
+			<button type="button" class="btn btn-primary"
+				ng-click="toggleState()">
+				<span ng-bind="btnText"></span>
+			</button>
+
+
+
+			<button type="button" class="btn btn-primary" data-toggle="modal"
+				data-target="#cloneSentiment">Clone sentiment</button>
+
+			<td><a href="#/viewallopinion/" class="btn btn-primary"
+				role="button">View All Opinion</a></td> <br> <br>
+			<div id="fb-root"></div>
+			<script>
+				window.fbAsyncInit = function() {
+
+					FB.init({
+						appId : '680245352113384',
+						xfbml : true,
+						status : true,
+						version : 'v2.7'
+					});
+				};
+
+				(function(d, s, id) {
+
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) {
+						return;
+					}
+					js = d.createElement(s);
+					js.id = id;
+					js.src = "//connect.facebook.net/en_US/sdk.js";
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+			</script>
+			<div>
+				<button ng-click="shareSentiment('facebook')">SHARE</button>
+			</div>
+			<br> <a class="twitter-share-button"
+				href="https://twitter.com/share"
+				data-url="http://localhost:8080/displaySentiment.html#/sentiment/1"
+				data-text="Sentiment on Folitics -"
+				ng-click="shareSentiment('twitter')">Share Sentiment</a>
+		</div>
+		<button type="button" class="btn btn-info" data-toggle="collapse"
+			data-target="#knowMore">Know more</button>
+		<div id="knowMore" class="collapse">
+
+			<indicators></indicators>
+			<div id="gpi-graph"></div>
+
+			<div ng-repeat="poll in sentiment.polls">
+				<h3>Question - {{poll.question}}</h3>
+				<h5>{{poll.description}}</h5>
+				<div ng-repeat="option in poll.options">
+					<label><i nput type='radio' name='options'
+						value={{option.pollOption}}>{{option.pollOption}}</label>
+				</div>
+			</div>
+			<div ng-repeat="source in sources">
+				<h3>Source</h3>
+				<h5>Link {{source.link}}</h5>
+				<h5>Description {{source.description}}</h5>
+			</div>
+			<div id="chartContainer" style="height: 300px; width: 100%;">
+
+				<myelem></myelem>
+
+			</div>
+
+
+		</div>
+		<div class="row">
+			<div ng-repeat="sentiment in sentiment.relatedSentiments">
+				<a href="#/sentiment/{{sentiment.id}}" class="btn btn-primary"><span
+					ng-bind="sentiment.subject"></span></a>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-4 col-sm-offset-2">
+		<opinion-stat data="data" title="This is the title" width="200"
+			height="300"></opinion-stat>
+	</div>
+
+	<div class="modal fade" id="airShare" role="dialog">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-body">Set Description</h4>
+				</div>
+				<div class="form-group">
+					<label>Description:</label> <input name="description" type="text"
+						class="form-control" ng-model="cloneSentiment.description"
+						ng-pattern="/^[,\w -]*$/" ng-maxlength="maxlength" auto-fill-sync
+						required></input> <span class="error"
+						style="color: red; font-weight: bold"
+						ng-show="cloneSentimentForm.description.$touched"> <span
+						ng-show="cloneSentimentForm.description.$error.required">Description
+							is required</span> <span
+						ng-show="cloneSentimentForm.description.$error.pattern">Special
+							characters not allowed</span>
+					</span>
+				</div>
+
+			</div>
+			<!-- Clone sentiment div start -->
+
+			<!--  ------sentiment end-------->
+			<!-- 	<div class="col-md-3 col-sm-3">
+			<div class="category-box col-md-12">
+				<h2>VERDICT</h2>
+
+				<ul class="verdict">
+					<li class="greeBG" ng-repeat="list in verdictList"><span>{{list}}</span>
+						<div class="viewCase">
+							View case + <span>{{list.date}}</span>
+						</div> <a class="shere" id="{{list.id}}" href="#"><i
+							class="fa fa-share-alt"></i></a></li>
+					<a class="seeMore"><span>See More Verdicts</span> <i class="fa">+</i>
+					</a>
+				</ul>
+			</div>
+
+
+			<div class="category-box col-md-12">
+				<h2>task</h2>
+				<ul class="taskList ">
+					<li ng-repeat="list in taskList"><span class="pull-xs-left G "><img
+							class="task-icon responsive"
+							src="data:image/JPEG;base64,{{list.attachment}}"
+							style="width: 50px; height: 50px;"></span>
+						<div class="right">
+							<strong>{{list.Subject}} </strong> {{list.description}} <a
+								href="#" id="{{list.id}}"> Share</a>
+						</div></li>
+
+				</ul>
+				<pagination ng-model="currentPage" total-items=20 max-size=5
+					boundary-links="true"> </pagination>
+			</div>
+		</div> -->
+		</div>
+	</div>
+
+	<!-- clone -->
+	<div class="modal fade" id="cloneSentiment" role="dialog">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Clone sentiment</h4>
+				</div>
+				<div class="modal-body">
+					<form name="cloneSentimentForm"
+						ng-submit="submit(cloneSentimentForm.$valid)" novalidate>
+						<div class="form-group">
+							<label>Subject:</label> <label><span
+								ng-bind="cloneSentiment.subject"></span> </label>
+						</div>
+						<div class="form-group">
+							<label>Description:</label> <input name="description" type="text"
+								class="form-control" ng-model="cloneSentiment.description"
+								ng-pattern="/^[,\w -]*$/" ng-maxlength="maxlength"
+								auto-fill-sync required></input> <span class="error"
+								style="color: red; font-weight: bold"
+								ng-show="cloneSentimentForm.description.$touched"> <span
+								ng-show="cloneSentimentForm.description.$error.required">Description
+									is required</span> <span
+								ng-show="cloneSentimentForm.description.$error.pattern">Special
+									characters not allowed</span>
+							</span>
+						</div>
+
+						<div class="form-group">
+							<label>Sentiment Type:</label> <select name="cloneSentimentType"
+								class="form-control" ng-model="cloneSentiment.type"
+								ng-options="cloneSentimentType.name as cloneSentimentType.name for cloneSentimentType in cloneSentimentTypes"
+								required>
+							</select> <span class="error" style="color: red; font-weight: bold"
+								ng-show="cloneSentimentForm.cloneSentimentType.$touched && cloneSentimentForm.cloneSentimentType.$invalid">Sentiment
+								Type is required.</span>
+						</div>
+						<div class="form-group">
+							<label for="cloneCategories">Categories: </label>
+							<tags-input ng-model="cloneSentiment.categories"
+								display-property="name" add-from-autocomplete-only="true"
+								placeholder="Add a Categories"
+								replace-spaces-with-dashes="false" template="tag-template">
+							<auto-complete source="loadCloneCategories($query)"
+								min-length="0" load-on-focus="true" load-on-empty="true"
+								max-results-to-show="32"
+								template="autocomplete-categories-template"> </auto-complete> </tags-input>
+						</div>
+						<div class="form-group ">
+							<label for="cloneRelatedsentiments">Related sentiment: </label>
+							<tags-input ng-model="cloneSentiment.relatedSentiments"
+								add-from-autocomplete-only="true" display-property="subject"
+								placeholder="Add a Related sentiment"
+								replace-spaces-with-dashes="false" template="tag-template"
+								minTags=1 min-length="1"> <auto-complete
+								source="loadCloneSentiments($query)" min-length="0"
+								load-on-focus="true" load-on-empty="true"
+								max-results-to-show="32" template="autocomplete-template">
+							</auto-complete> </tags-input>
+							<span class="error" style="color: red; font-weight: bold"
+								ng-show="cloneSentimentForm.cloneRelatedSentiments.$touched && cloneSentimentForm.cloneRelatedSentiments.$invalid">Related
+								sentiment is required.</span>
+						</div>
+						<div class="form-group">
+							<label>Change image:</label> <input class="form-control"
+								type="file" file-model="file" name="file"
+								accept="image/jpeg,image/jpg,image/gif,image/png"
+								data-max-size="204" required></input> <img
+								class="img-responsive thumbnail"
+								ng-src="data:image/JPEG;base64,{{cloneSentiment.image}}"
+								alt="sentiment image" width="50" height="30">
+						</div>
+						<button type="submit" class="btn btn-primary"
+							ng-disabled="!cloneSentimentForm.$valid">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>

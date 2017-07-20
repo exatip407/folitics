@@ -1,0 +1,252 @@
+<div class="main-container">
+    <div class="col-md-12 profile-bg">
+
+        <div class="col-md-12 profile-bgin">
+
+            <div class="proimg">
+                <img class="img-responsive profile-userimg userimgprofile" ng-src="data:image/JPEG;base64,{{user.userImage.image}}">
+            </div>
+
+
+            <div class="user-name">{{user.name}}</div>
+            <div class="star-profile"><img src="images/profile/star.png"></div>
+            
+            <a ng-show = "add" class="btn connect-btn-profile " ng-click = "accept()" role="button">Accept</a>&nbsp;
+            <a ng-show = "sendRequest" class="btn connect-btn-profile " ng-click = "addConnection()" role="button">Connect</a>&nbsp;
+            <a ng-show = "delete1" class="btn connect-btn-profile " ng-click = "deleteConnection()" role="button">DeleteConnection</a>&nbsp;
+
+        </div>
+    </div>
+
+
+
+    <div class="col-md-12 col-sm-12">
+
+        <div class="col-md-12">
+            <br> <br>
+            <h3 class="mproH"> Suggested User</h3>
+
+            <div class="row">
+                <div class="col-md-2 col-sm-4 col-xs-12">
+                    <img class="img-responsive border-gray" src="images/profile/user12.png">
+                    <div class="col-md-12 graybg-social-profile border-gray">
+                        <div class="fLeft">
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-thumbs-up font15 mRight" aria-hidden="true"></i></div>
+                            <div class="col-md-3 col-xs-6">50</div>
+                        </div>
+                        <div class="social-left">
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-share-alt font15 mRight" aria-hidden="true"></i></div>
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-comment font15" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-sm-4 col-xs-12">
+                    <img class="img-responsive border-gray" src="images/profile/user12.png">
+                    <div class="col-md-12 graybg-social-profile border-gray">
+                        <div class="fLeft">
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-thumbs-up font15 mRight" aria-hidden="true"></i></div>
+                            <div class="col-md-3 col-xs-6">50</div>
+                        </div>
+                        <div class="social-left">
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-share-alt font15 mRight" aria-hidden="true"></i></div>
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-comment font15" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-12">
+                    <img class="img-responsive border-gray" src="images/profile/user12.png">
+                    <div class="col-md-12 graybg-social-profile border-gray">
+                        <div class="fLeft">
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-thumbs-up font15 mRight" aria-hidden="true"></i></div>
+                            <div class="col-md-3 col-xs-6">50</div>
+                        </div>
+                        <div class="social-left">
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-share-alt font15 mRight" aria-hidden="true"></i></div>
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-comment font15" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-12">
+                    <img class="img-responsive border-gray" src="images/profile/user12.png">
+                    <div class="col-md-12 graybg-social-profile border-gray">
+                        <div class="fLeft">
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-thumbs-up font15 mRight" aria-hidden="true"></i></div>
+                            <div class="col-md-3 col-xs-6">50</div>
+                        </div>
+                        <div class="social-left">
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-share-alt font15 mRight" aria-hidden="true"></i></div>
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-comment font15" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-12">
+                    <img class="img-responsive border-gray" src="images/profile/user12.png">
+                    <div class="col-md-12 graybg-social-profile border-gray">
+                        <div class="fLeft">
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-thumbs-up font15 mRight" aria-hidden="true"></i></div>
+                            <div class="col-md-3 col-xs-6">50</div>
+                        </div>
+                        <div class="social-left">
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-share-alt font15 mRight" aria-hidden="true"></i></div>
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-comment font15" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-12">
+                    <img class="img-responsive border-gray" src="images/profile/user12.png">
+                    <div class="col-md-12 graybg-social-profile border-gray">
+                        <div class="fLeft">
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-thumbs-up font15 mRight" aria-hidden="true"></i></div>
+                            <div class="col-md-3 col-xs-6">50</div>
+                        </div>
+                        <div class="social-left">
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-share-alt font15 mRight" aria-hidden="true"></i></div>
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-comment font15" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-4">
+        <div class="category-box col-md-12">
+            <h2> personality </h2>
+
+            <a class="orange-link" href="#">Opinion</a><span class="profile-status">{{opinionSize}}</span>
+            <div class=" border-aboutus"></div>
+            <a class="orange-link" href="#">Tasks</a><span class="profile-status">{{taskSize}}</span>
+            <div class=" border-aboutus"></div>
+            <a class="orange-link" href="#">Response</a><span class="profile-status">{{responseSize}}</span>
+            <div class=" border-aboutus"></div>
+            <a class="orange-link" href="#">Vediopic</a><span class="profile-status">1</span>
+            <div class=" border-aboutus"></div>
+            <a class="orange-link" href="#">Submit Data</a><span class="profile-status">{{factSize}}</span>
+            <div class=" border-aboutus"></div>
+            <!-- <a class="orange-link" href="#">Verdict</a><span class="profile-status">2</span> -->
+
+            <div class="aboutus-gap"></div>
+
+        </div>
+
+        <div class="category-box col-md-12">
+            <h2>SUPPORT </h2>
+            <div class="yellow-supprt-profile">
+                <a class="leftsuport">March 2016</a>
+                <a class="rightsupport">Pro Gov</a>
+            </div>
+
+            <div class="green-supprt-profile">
+                <a class="leftsuport">March 2016</a>
+                <a class="rightsupport">Pro Gov</a>
+            </div>
+
+            <div class="green-supprt-profile">
+                <a class="leftsuport">March 2016</a>
+                <a class="rightsupport">Pro Gov</a>
+            </div>
+
+            <div class="yellow-supprt-profile">
+                <a class="leftsuport">March 2016</a>
+                <a class="rightsupport">Pro Gov</a>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div class="col-md-9 col-sm-8">
+        <div class="category-box col-md-12">
+            <ul CLASS="ul-class profile-tab profile-border">
+                <li class="li-class profile-tab active"><a href="#"> INFO </a></li>
+                <li class="li-class profile-tab"><a href="#"> ABOUT </a></li>
+                <li class="li-class  profile-tab"><a href="#"> CONTACT </a></li>
+                <li class="li-class  profile-tab"><a href="#"> CONNECTION </a></li>
+                <li class="li-class  profile-tab"><a href="#"> POLITICAL VIEW </a></li>
+            </ul>
+           
+            <div class="col-md-6 col-sm-6">
+                <div class="head-username">{{user.name}}</div>
+                <div><span class="f15">{{user.gender}}</span><span class="sub-para"></span></div>
+                 <div><span class="f15">DOB: </span><span class="sub-para">{{date}}</span></div>
+                <div><span class="f15">Current Location: </span><span class="sub-para"></span></div>
+                <div><span class="f15">From: </span><span class="sub-para">{{user.state}}</span></div>
+                <div><span class="f15">Studied In: </span><span class="sub-para">JNU (BE),IIIT Hydrabad</span></div>
+            </div>
+
+            <div class="col-md-6 col-sm-6 fRight mfRightN">
+                <div class="sub-para">@Sanskrati</div>
+                <a class="btn trasprnt-profile" href="#/" role="button"> VISIT WEBSITE</a>
+                <div><span class="f15">Achivement:</span><span class="sub-para">NCC topper 2005</span> <a class="f15 status-red mRight textborder" href="#">View Certificate</a></div>
+                <div><span class="sub-para">Red Cross Donor</span> <a class="f15 status-red mRight textborder" href="#">View Certificate</a></div>
+
+            </div>
+
+
+
+            <div class="col-md-12 col-sm-12 border-aboutus"></div>
+
+            <div class="col-md-6 col-sm-6">
+                <div class="head-username">LEADERSHIP PROFILE</div>
+                <div><span class="f15">Problem of @User  &nbsp;&nbsp; 11/06/2016,</span><span class="sub-para">Indore</span></div>
+                <div><span class="sub-para1">Subject:</span></div>
+                <div><span class="sub-para1">Problem Type:</span></div>
+                <div><span class="sub-para1">Description:</span></div>
+                <div><span class="sub-para1">Status:</span><span class="sub-para status-red">INCOMPLETE</span></div>
+
+            </div>
+
+            <div class="col-md-6 col-sm-6 fRight">
+                <a href="#">
+                    <div class="sub-para detail-profile">Details ></div>
+                </a>
+            </div>
+            <div class=" col-md-12 col-sm-12 border-aboutus"></div>
+
+
+            <div class="col-md-12 col-sm-12">
+                <span class="sub-para1 uppercase">Other Team</span>
+                <a href="#"><img class="profile-addicon" src="images/profile/add.png"></a>
+                <span class="sub-para1 mRight">User Name 1</span>
+                <a href="#"> <img class="profile-addicon" src="images/profile/add.png"></a>
+                <span class="sub-para1 mRight">User Name 2</span>
+                <a href="#"> <img class="profile-addicon" src="images/profile/add.png"></a>
+                <span class="sub-para1 mRight">User Name 3</span>
+            </div>
+
+
+            <div class=" col-md-12 bg-gray top20">
+
+                <a class="btn trasprnt-opentask" href="#/" role="button">
+                    <i class="fa fa-comment-o font-increse" aria-hidden="true"></i><span class="mleft">COMMENT</span></a>
+
+                <a class="btn trasprnt-opentask" href="#/" role="button">
+                    <i class="fa fa-thumbs-o-up font-increse" aria-hidden="true"></i><span class="mleft">LIKE</span> </a>
+
+                <a class="btn trasprnt-opentask" href="#/" role="button">
+                    <i class="fa fa-share-alt font-increse" aria-hidden="true"></i><span class="mleft">SHARE</span> </a>
+
+                <a class="btn trasprnt-opentask incresewidth" href="#/" role="button">
+                    <i class="fa fa-users font-increse" aria-hidden="true"></i><span class="mleft">PARTICIPATE</span> </a>
+
+                <a class="btn trasprnt-opentask" href="#/" role="button">
+                    <i class="fa fa-user font-increse" aria-hidden="true"></i><span class="mleft">FOLLOW</span> </a>
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+
+</div>

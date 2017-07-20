@@ -1,0 +1,331 @@
+
+@media only screen and (max-width : 1200px) {
+.border-vediopic {
+	width:100%;
+	 margin-top:25px; 
+}
+.yellow-aboutus, .green-aboutus, .gray-aboutus{
+	min-width: 280px;
+}
+.aboutus-border{
+	width:auto;
+	
+}
+.btn.trasprnt-opentask{
+	  width: auto;
+}
+
+}
+
+@media only screen and (max-width : 979px) {
+
+    .mright21{
+       float: left;
+    margin-left: -11px;
+    padding: 0;
+    text-align: left;
+    }
+	.solveproblm-serchdiv{
+		width:auto;
+	}
+	.name-dept{
+		margin-top:10px;
+	}
+    .col-md-12.bg-gray.top20 {
+    display: inline-block;
+}
+
+
+	.border-vediopic {
+	width:100%;
+	 margin-top:140px; 
+}
+.yellow-aboutus, .green-aboutus, .gray-aboutus{
+	min-width: 220px;
+}
+
+.conBox.searchBox input {  
+    width: auto;
+}
+
+.nav.navbar-nav.navbar-right.main-menu li a {   
+    padding: 17px 15px;
+}
+
+.btn.trasprnt-btn{
+    width: auto;
+}
+.btn.trasprnt-btn-opinion{width: auto;}
+
+}
+
+@media only screen and (max-width : 767px) { 
+ .width20{
+    width:auto;
+ }
+.social-left{
+    margin-top:0; 
+}
+
+.btn.trasprnt-profile{
+    margin-bottom: 15px; 
+}
+.mfRightN {
+    float: none;
+    margin-top: 15px;
+    text-align: left;
+}
+    .li-class.profile-tab, .li-class.profile-tab:first-child {
+    border: 1px solid #cccccc;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+    .profile-tab {
+    color: #676666;
+    font-size: 15px;
+    font-weight: 700;
+    margin-left: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.mproH{
+    float: left;
+    margin-top: 60px;
+    width: 100%;
+}
+
+    .proimg {
+    display: inline-block;
+    float: left;
+    margin-left: 15px;
+    margin-right: 10px;
+    width: 80px;
+}
+
+.user-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 0;
+}
+ 
+.btn.connect-btn-profile{
+	  font-size: 15px;
+	  padding: 2px 15px;
+	     margin-top: -0;
+}
+
+
+.m-full-width{
+	width:100%;
+	float:left;
+}
+
+.ul-class {
+    margin-top: 30px;
+}
+
+.icon-social {
+    bottom: auto;
+    display: inline-flex;
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    width: 132px;
+}
+
+.m-full-b {
+    margin: 10px 0;
+    width: 100%;
+}
+
+.arw-img {
+    width: 24px;
+}
+
+.yellow-div-botm, .green-div-botm {font-size: 16px; }
+
+.btn.nextClients, .btn.npreviousClients{
+    margin-top:0; 
+}
+
+.bnnner-div {
+    float: right;
+    margin-top: 252px;
+    text-align: right;
+}
+
+.seeprogess > h3 {
+    font-size: 20px;
+}
+
+.btn.trasprnt-btn {
+    float: left;
+    margin-bottom: 0;
+    margin-top: 12px;
+    width: 100%;
+}
+.btn.trasprnt-btn-opinion {
+    float: left;
+    margin-bottom: 0;
+    margin-top: 12px;
+    width: 100%;
+}
+.btn.gray-btn{
+    float: left;
+    margin-bottom: 0;
+    margin-top: 12px;
+    width: 100%;
+}
+
+.gren-btn-position {
+    float: right;
+    margin-top: 0;
+    width: 100%;
+}
+
+.btn.viewTeamgreen {   
+    width: 100%;
+}
+._mHead {
+    background: #fff none repeat scroll 0 0;
+    display: none;
+    height: 355px;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+.border-vediopic {
+	width:100%;
+	margin-top:180px;
+}
+.conBox {
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #e0dee1;
+    float: right;
+    height: 88px;
+    padding: 15px 0 15px 20px;
+    width: 100%;
+}
+.nav.navbar-nav.navbar-right.main-menu > li {
+    float: left;
+}
+
+.openSearch {
+    border: 1px solid #999;
+    color: #999;
+    cursor: pointer;
+    display: block;
+    font-size: 18px;
+    padding: 5px 8px;
+    position: absolute;
+    right: 5px;
+    top: 17px;
+    z-index: 2;
+}
+.or-div{
+ margin-top: 26px;
+    text-align: center;
+    width: 100%;
+}
+
+.btn.viewTeamgray-opinion {
+    float: left;
+    margin-bottom: 0;
+    margin-top: 12px;
+    width: 100%;
+}
+.number-count{
+ width:100%;
+margin-left:-25px;
+text-align:right;
+margin-bottom:20px;
+}
+
+
+.conBox .pull-right{float: left !important}
+
+
+.raise-problem-judgegov, .solve-problem-judgegov{
+    height: 98px;
+}
+
+
+.yellow-aboutus, .green-aboutus, .gray-aboutus{
+	min-width: 500px;
+	margin-top:20px;
+}
+.conBox .pull-right{float: left !important}
+
+
+.raise-problem-judgegov img, .solve-problem-judgegov img{
+    width: 100%;
+}
+
+.raise-problem-judgegov  h1, .solve-problem-judgegov  h1 {
+    font-size: 21px;
+     margin-top: 10px;
+}
+
+
+.raise-problem-judgegov  h4, .solve-problem-judgegov  h4 {
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+}
+
+
+@media only screen and (max-width : 480px) {
+     .width20{
+    width:auto;
+ }
+.user-name {
+     font-size: 20px;
+    font-weight: bold;
+    margin-left: 205px;
+    margin-top: -110px;
+}
+.star-profile {
+     margin-left: 213px;
+    width: 21%;
+} 
+.btn.connect-btn-profile{
+	  font-size: 13px;
+	  padding: 2px 15px;
+	   margin-top: -15px;
+	   margin-left:-20px;
+}
+
+
+.yellow-aboutus, .green-aboutus, .gray-aboutus{
+	min-width: 230px;
+	margin-top:20px;
+}
+	.btn.connect-btn-profile {
+		 width:auto;
+	}
+.des{width:auto;}
+}
+
+@media only screen and (max-width : 320px) {
+.des{width:auto;}
+
+.user-name {
+       font-size: 12px;
+    font-weight: bold;
+    margin-left: 138px;
+    margin-top: -74px;
+}
+.star-profile {
+    margin-left: 137px;
+    margin-top: -54px;
+   
+} 
+.btn.connect-btn-profile{
+	font-size: 10px;
+    margin-top: 4px;
+    padding: 1px 9px;
+}
+}

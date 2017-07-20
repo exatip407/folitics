@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="content/css/govern.css">
+<h6>Details</h6>
+<div class="media">
+	<div class="media-body">
+		<div class="padd60 remove-paddT text-center">
+			<h1 class="title">Fact Details</h1>
+			<div class="spaceLarge"></div>
+			<div class="popularNews">
+				<div ng-controller="acceptedFactController">
+					<b>Fact ID:</b> <span ng-bind="fact.id"></span> </br> <b>Subject: </b><span
+						ng-bind="fact.subject"></span></br> <b>Status: </b><span
+						ng-bind="fact.status"></span></br> <b>AttachmentType: </b><span
+						ng-bind="fact.attachmentType"></span></br> <b>Creation Time:</b> <span
+						ng-bind="fact.creationTime"></span></br> <b>Description:</b> <span
+						ng-bind="fact.description"></span></br> </br> </br>
+
+					<button id="connection" type="button" class="btn btn-primary"
+						ng-click="approveFact()">
+						<span ng-bind="participantbuttonValue"></span>Accepted Fact
+					</button>
+
+					<button id="connection" type="button" class="btn btn-primary"
+						ng-click="rejectFact()">Rejected Fact</button>
+					<span>{{success}} </span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,111 @@
+<div class="main-container">
+	<div class="col-md-12">
+		<div class="news-flash-box">
+			<div class="news-flash-left">
+				<span>News Flash</span> <span class="news-flash-title"><samp
+						class="triangle-topright"></samp> </span>
+			</div>
+			<div class="news-flash-right">
+				<a href="">{{newsFlash}}</a>
+			</div>
+			<span class="news-flash-close">X</span>
+		</div>
+	</div>
+	<div class="col-md-3 col-sm-3">
+		<div class="category-box col-md-12">
+			<h2>personality</h2>
+
+			<div class="personalitySlider" ng-repeat="_v in personality">
+				<div class="col-md-6 padding0">
+					<img class="personality-icon" src="{{_v.imageUrl}}">
+					<div class="personality-name">Narendra Modi</div>
+				</div>
+				<div class="col-md-6">
+					<div class="slider-control">
+						<a class="angle-left"><i ng-click="goLeft($event)"
+							id="{{_v.pagination}}" class="fa fa-angle-left"></i></a> <a
+							class="angle-right"><i ng-click="goRight($event)"
+							id="{{_v.pagination}}" class="fa fa-angle-right"></i></a>
+					</div>
+
+					<ul class="feedList">
+						<li ng-repeat="_lest in _v.feedList">{{_lest.feed}}</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="category-box col-md-12">
+			<h2>Trends</h2>
+
+			<ul class="trendsList">
+				<li ng-repeat="_v in trendsList">{{_v.trendName}}
+					<div class="trendColun">{{_v.trendColun}}</div>
+				</li>
+
+			</ul>
+
+		</div>
+
+	</div>
+	<div class="col-md-6 col-sm-6">
+		<div class="category-box col-md-12">
+			<div ng-controller="ViewallopinionController">
+
+
+				<h4 class="title">View All Opinion</h4>
+
+				<div class="popularNews">
+					<ul class="opinions">
+						<li ng-repeat="opinion in opinions" class="thumbnail"><b>Topic:</b>
+
+							<span ng-bind="opinion.subject"></span></a><br> <br> <b>Description:</b><span
+							ng-bind="opinion.text"></span><br> <br> <b>State:</b> <span
+							ng-bind="opinion.state"></span><br> <br>
+							<td><a href="#/" class="btn btn-primary" role="button">Rebut</a></td>
+							<td><a href="#/response/{{opinion.id}}"
+								class="btn btn-primary" role="button">Response</a></td></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div class="col-md-3 col-sm-3">
+		<div class="category-box col-md-12">
+			<h2>VERDICT</h2>
+
+			<ul class="verdict">
+				<li class="greeBG" ng-repeat="list in verdictList"><span>{{list}}</span>
+					<div class="viewCase">
+						View case + <span>{{list.date}}</span>
+					</div> <a class="shere" id="{{list.id}}" href="#"><i
+						class="fa fa-share-alt"></i></a></li>
+				<a class="seeMore"><span>See More Verdicts</span> <i class="fa">+</i>
+				</a>
+			</ul>
+		</div>
+
+
+		<div class="category-box col-md-12">
+			<h2>task</h2>
+			<ul class="taskList ">
+				<li ng-repeat="list in taskList"><span class="pull-xs-left G "><img
+						class="task-icon responsive"
+						src="data:image/JPEG;base64,{{list.attachment}}"
+						style="width: 50px; height: 50px;"></span>
+					<div class="right">
+						<strong>{{list.Subject}} </strong> {{list.description}} <a
+							href="#" id="{{list.id}}"> Share</a>
+					</div></li>
+
+			</ul>
+			<pagination ng-model="currentPage" total-items=20 max-size=5
+				boundary-links="true"> </pagination>
+		</div>
+	</div>
+</div>

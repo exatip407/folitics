@@ -1,0 +1,196 @@
+<div class="main-container">
+	<div class="col-md-12">
+		<div class="news-flash-box">
+			<div class="news-flash-left">
+				<span>News Flash</span> <span class="news-flash-title"><samp
+						class="triangle-topright"></samp> </span>
+			</div>
+			<div class="news-flash-right">
+				<a href="">{{newsFlash}}</a>
+			</div>
+			<span class="news-flash-close">X</span>
+		</div>
+	</div>
+	<div class="col-md-3 col-sm-3">
+		<div class="category-box col-md-12">
+			<h2>personality</h2>
+
+			<div class="personalitySlider" ng-repeat="_v in personality">
+				<div class="col-md-6 padding0">
+					<img class="personality-icon" src="{{_v.imageUrl}}">
+					<div class="personality-name">Narendra Modi</div>
+				</div>
+				<div class="col-md-6">
+					<div class="slider-control">
+						<a class="angle-left"><i ng-click="goLeft($event)"
+							id="{{_v.pagination}}" class="fa fa-angle-left"></i></a> <a
+							class="angle-right"><i ng-click="goRight($event)"
+							id="{{_v.pagination}}" class="fa fa-angle-right"></i></a>
+					</div>
+
+					<ul class="feedList">
+						<li ng-repeat="_lest in _v.feedList">{{_lest.feed}}</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="category-box col-md-12">
+			<h2>Trends and notification</h2>
+
+
+
+			<div class="row">
+				<div class="trendsList" style="border-right: 1px solid lightgray">
+					<table id="asyncTable"
+						class="table table-condensed table-striped clearfix"
+						style="display: none">
+						<thead>
+							<tr>
+								<td>Notification</td>
+
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<ul class="trendsList">
+					<li ng-repeat="_v in trendsList">{{_v.trendName}}
+						<div class="trendColun">{{_v.trendColun}}</div>
+					</li>
+
+				</ul>
+
+			</div>
+			<!--  -->
+
+		</div>
+
+	</div>
+	<div class="col-md-6 col-sm-6">
+		<div class="category-box col-md-12">
+			<div ng-controller="QuickProblemController">
+				<div class="tab-pane" id="tabByDepartment">
+					<form>
+						<div class="form-group margin-bottom-30">
+							<label class="header-label" for="quickProblemDescription">Tell
+								us about your problem</label> <i data-toggle="modal"
+								data-target="#myProblemDescModal"></i>
+							<textarea id="quickProblemDescription" class="form-control"
+								rows="4"
+								placeholder="Describe your problem. Give dates, evidences, any other detail you have..."
+								ng-model="quickProblem.description" class="form-control"
+								ng-maxlength="maxlength" ng-pattern="/^[,\w -]*$/" required
+								auto-fill-sync></textarea>
+
+						</div>
+						<div class="form-group margin-bottom-30">
+							<label class="header-label" for="problemAddFile">Add
+								Images</label> <i></i> <input class="form-control" type="file"
+								file-model="file" name="file"
+								accept="image/jpeg,image/jpg,image/gif,image/png"
+								data-max-size="204" required></input>
+
+						</div>
+
+						<div class="form-group margin-bottom-30  concern-people-details">
+							<label class="header-label">Choose who all you want your
+								problem to be send:</label>
+							<div class="row">
+
+								<div ng-repeat="quickpersonality in quickpersonalities">
+									<div class="col-lg-2">
+
+										<input type="checkbox" checklist-model="quickpersonalities1"
+											checklist-value="quickpersonality"> <img
+											ng-click="quickpersonalitySelect(quickpersonality)"
+											class="img-responsive thumbnail"
+											ng-src="data:image/JPEG;base64,{{quickpersonality.image}}"
+											alt="sentiment image">
+										<div class="header">{{quickpersonality.name}}</div>
+										<div class="title">{{quickpersonality.desingnation}}</div>
+									</div>
+								</div>
+
+
+								<div class="col-lg-2">
+									<!-- <h4>{{quickpersonalities1}}</h4> -->
+								</div>
+							</div>
+						</div>
+
+
+						<div class="row radios" style="margin-bottom: 20px;">
+							<div class="col-lg-3  col-md-3 col-sm-3">
+								<input type="radio" name="rdCommunicate" id="rdTwittr" checked />
+								<label class="radio" for="rdTwittr"></label> <span
+									style="position: absolute; top: 5px; font-size: 16px; color: #000; margin-left: 5px;">Twitter/FB</span>
+							</div>
+							<div class="col-lg-3  col-md-3 col-sm-3">
+								<input type="radio" name="rdCommunicate" id="rdEmail" /> <label
+									class="radio" for="rdEmail"></label> <span
+									style="position: absolute; top: 5px; font-size: 16px; color: #000; margin-left: 5px;">Email</span>
+							</div>
+							<div class="col-lg-2  col-md-2 col-sm-2">
+								<input type="radio" name="rdCommunicate" id="rdMagnet" /> <label
+									class="radio" for="rdMagnet"></label> <span
+									style="position: absolute; top: 5px; font-size: 16px; color: #000; margin-left: 5px;">Magnet</span>
+							</div>
+						</div>
+
+
+
+						<div class="form-group terms-condition">
+							<label class="header-label">By submitting your problem
+								you agree with the terms and conditions.</label>
+							<p>I here by agree that this is (text has to provide by CMS
+								team)..</p>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-success govern-success"
+								ng-click="submit()">Submit your problem</button>
+							<button ng-click="reload()" class="btn btn-default">Cancel</button>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- .....end....... -->
+	<div class="col-md-3 col-sm-3">
+		<div class="category-box col-md-12">
+			<h2>VERDICT</h2>
+
+			<ul class="verdict">
+				<li class="greeBG" ng-repeat="list in verdictList"><span>{{list}}</span>
+					<div class="viewCase">
+						View case + <span>{{list.date}}</span>
+					</div> <a class="shere" id="{{list.id}}" href="#"><i
+						class="fa fa-share-alt"></i></a></li>
+				<a class="seeMore"><span>See More Verdicts</span> <i class="fa">+</i>
+				</a>
+			</ul>
+		</div>
+
+
+		<div class="category-box col-md-12">
+			<h2>task</h2>
+			<ul class="taskList ">
+				<li ng-repeat="list in taskList"><span class="pull-xs-left G "><img
+						class="task-icon responsive"
+						src="data:image/JPEG;base64,{{list.attachment}}"
+						style="width: 50px; height: 50px;"></span>
+					<div class="right">
+						<strong>{{list.Subject}} </strong> {{list.description}} <a
+							href="#" id="{{list.id}}"> Share</a>
+					</div></li>
+
+			</ul>
+			<pagination ng-model="currentPage" total-items=20 max-size=5
+				boundary-links="true"> </pagination>
+		</div>
+	</div>
+</div>

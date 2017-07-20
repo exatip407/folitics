@@ -1,0 +1,218 @@
+<link rel="stylesheet" href="content/css/govern.css">
+<div class="main-container">
+	<div class="col-md-12">
+		<div class="news-flash-box">
+			<div class="news-flash-left">
+				<span>News Flash</span> <span class="news-flash-title"><samp
+						class="triangle-topright"></samp> </span>
+			</div>
+			<div class="news-flash-right">
+				<a href="">{{newsFlash}}</a>
+			</div>
+			<span class="news-flash-close">X</span>
+		</div>
+	</div>
+	<div class="col-md-3 col-sm-3">
+		<div class="category-box col-md-12">
+			<h2>personality</h2>
+
+			<div class="personalitySlider" ng-repeat="_v in personality">
+				<div class="col-md-6 padding0">
+					<img class="personality-icon" src="{{_v.imageUrl}}">
+					<div class="personality-name">Narendra Modi</div>
+				</div>
+				<div class="col-md-6">
+					<div class="slider-control">
+						<a class="angle-left"><i ng-click="goLeft($event)"
+							id="{{_v.pagination}}" class="fa fa-angle-left"></i></a> <a
+							class="angle-right"><i ng-click="goRight($event)"
+							id="{{_v.pagination}}" class="fa fa-angle-right"></i></a>
+					</div>
+
+					<ul class="feedList">
+						<li ng-repeat="_lest in _v.feedList">{{_lest.feed}}</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="category-box col-md-12">
+			<h2>Trends</h2>
+
+			<ul class="trendsList">
+				<li ng-repeat="_v in trendsList">{{_v.trendName}}
+					<div class="trendColun">{{_v.trendColun}}</div>
+				</li>
+
+			</ul>
+
+		</div>
+
+	</div>
+	<div class="col-md-6 col-sm-6">
+		<div class="category-box col-md-12">
+			<div class="header-section">
+				<h3 class="header-title OpenSansBold-class">{{anchor.subject}}</h3>
+			</div>
+			<form name="createopinionform" this.disabled=true " novalidate>
+
+				<div class="category-box col-md-12">
+
+					<div class="form-group margin-bottom-30">
+
+
+						<div class="form-group margin-bottom-30">
+							<opinion-stat data="data" title="This is the title" width="300"
+								height="300"></opinion-stat>
+
+							<input type="radio" name="opiniontype" value="Pro"
+								ng-model="opinion.type" /> Pro Government <input type="radio"
+								name="opiniontype" value="Anti" ng-model="opinion.type" /> Anti
+							Government <br> <span class="error" style="color: red;"
+								ng-show="createopinionform.opiniontype.$touched"> <span
+								ng-show="createopinionform.opiniontype.$error.required">Please
+									select one type</span>
+							</span>
+						</div>
+
+						<div class="form-group margin-bottom-30">
+							<label class="header-label">Subject:</label> <input
+								name="subject" type="text" class="form-control"
+								ng-model="opinion.subject" ng-minlength="1" ng-maxlength="512" ng-pattern="/^[,\w -]*$/"
+								required auto-fill-sync></input> <span class="error"
+								style="color: red;" ng-show="createopinionform.subject.$touched">
+								<span ng-show="createopinionform.subject.$error.required">Subject
+									is required</span> <span
+								ng-show="createopinionform.subject.$error.maxlength">Subject
+									can not contain more than 512 characters</span><span
+								ng-show="createopinionform.subject.$error.pattern">Special
+									characters not allowed</span>
+							</span>
+						</div>
+
+						<div class="form-group margin-bottom-30">
+							<label class="header-label">Text:</label> <input name="text"
+								type="text" class="form-control" ng-model="opinion.text"
+								ng-minlength="1" ng-maxlength="512" ng-pattern="/^[,\w -]*$/" required auto-fill-sync></input>
+							<span class="error" style="color: red;"
+								ng-show="createopinionform.text.$touched"> <span
+								ng-show="createopinionform.text.$error.required">Text is
+									required</span> <span
+								ng-show="createopinionform.text.$error.maxlength">Text
+									can not contain more than 512 characters</span><span
+								ng-show="createopinionform.text.$error.pattern">Special
+									characters not allowed</span>
+							</span>
+						</div>
+
+						<div class="form-group margin-bottom-30">
+							<label class="header-label">Select SubCategory:</label>
+							<div ng-repeat="subcat in anchor.subcategories">
+								<label><input type='radio' name='subcategories'
+									value={{subcat.id}} ng-model="opinion.category.id">{{subcat.name}}</input></label>
+								<span class="error" style="color: red;"
+									ng-show="createopinionform.subcategories.$touched"> <span
+									ng-show="createopinionform.subcategories.$error.required">Sub-Category
+										is required </span></span>
+							</div>
+						</div>
+
+						<div class="form-group margin-bottom-30">
+							<label class="header-label">Add Source:</label> <input type="url"
+								ng-model="opinion.link.link" name="source" type="text"
+								class="form-control" auto-fill-sync> </input> <span
+								class="error" style="color: red;"
+								ng-show="createopinionform.source.$touched"> <span
+								ng-show="createopinionform.source.$error.required">Source
+									description is required</span> <span
+								ng-show="createopinionform.source.$error.url">Invalid URL
+							</span></span>
+						</div>
+
+						<div class="form-group margin-bottom-30">
+							<label class="header-label">Add Source Description:</label> <input
+								name="sourcedescription" type="text" class="form-control"
+								ng-model="opinion.link.description" ng-minlength="1"
+								ng-maxlength="128" ng-pattern="/^[,\w -]*$/" required auto-fill-sync></input> <span
+								class="error" style="color: red;"
+								ng-show="createopinionform.sourcedescription.$touched"> <span
+								ng-show="createopinionform.sourcedescription.$error.required">Source
+									description is required</span><span
+								ng-show="createopinionform.sourcedescription.$error.maxlength">Link
+									description's length should be between 1 to 128 characters</span><span
+								ng-show="createopinionform.sourcedescription.$error.pattern">Special
+									characters not allowed</span></span>
+						</div>
+
+						<div class="form-group margin-bottom-30">
+							<label class="header-label">Add Attachment:</label> <input
+								type="file" file-model="file" name="file"
+								accept="image/jpeg,image/jpg,image/gif,image/png"
+								ng-model="opinion.attachment"></input> <span> </span>
+						</div>
+
+						<div class="form-group margin-bottom-30">
+							<label class="header-label">Add Attachment Description:</label> <input
+								name="attachmentdescription" type="text" class="form-control"
+								ng-model="opinion.attachment.description" ng-minlength="1"
+								ng-maxlength="128" ng-pattern="/^[,\w -]*$/" required auto-fill-sync>
+							</textarea>
+							<span class="error"
+								style="color: red;" ng-show="createopinionform.attachmentdescription.$touched">
+								<span ng-show="createopinionform.attachmentdescription.$error.required">Subject
+									is required</span> <span
+								ng-show="createopinionform.attachmentdescriptionsubject.$error.maxlength">Subject
+									can not contain more than 512 characters</span><span
+								ng-show="createopinionform.attachmentdescription.$error.pattern">Special
+									characters not allowed</span>
+							</span>
+						</div>
+
+						<div>
+							<button ng-click="submit(createopinionform.$valid)"
+								class="btn btn-warning" ng-disabled="!createopinionform.$valid">Submit</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+
+	<div class="col-md-3 col-sm-3">
+		<div class="category-box col-md-12">
+			<h2>VERDICT</h2>
+
+			<ul class="verdict">
+				<li class="greeBG" ng-repeat="list in verdictList"><span>{{list}}</span>
+					<div class="viewCase">
+						View case + <span>{{list.date}}</span>
+					</div> <a class="shere" id="{{list.id}}" href="#"><i
+						class="fa fa-share-alt"></i></a></li>
+				<a class="seeMore"><span>See More Verdicts</span> <i class="fa">+</i>
+				</a>
+			</ul>
+		</div>
+
+
+		<div class="category-box col-md-12">
+			<h2>task</h2>
+			<ul class="taskList ">
+				<li ng-repeat="list in taskList"><span class="pull-xs-left G "><img
+						class="task-icon responsive"
+						src="data:image/JPEG;base64,{{list.attachment}}"
+						style="width: 50px; height: 50px;"></span>
+					<div class="right">
+						<strong>{{list.Subject}} </strong> {{list.description}} <a
+							href="#" id="{{list.id}}"> Share</a>
+					</div></li>
+
+			</ul>
+			<pagination ng-model="currentPage" total-items=20 max-size=5
+				boundary-links="true"> </pagination>
+		</div>
+	</div>
+</div>

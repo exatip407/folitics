@@ -1,0 +1,63 @@
+
+@media only screen and (max-width : 1200px) {
+
+}
+
+@media only screen and (max-width : 979px) {
+
+.conBox.searchBox input {  
+    width: auto;
+}
+
+.nav.navbar-nav.navbar-right.main-menu li a {   
+    padding: 17px 15px;
+}
+
+}
+
+@media only screen and (max-width : 767px) { 
+
+._mHead {
+    background: #fff none repeat scroll 0 0;
+    display: none;
+    height: 355px;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+.conBox {
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #e0dee1;
+    float: right;
+    height: 88px;
+    padding: 15px 0 15px 20px;
+    width: 100%;
+}
+.nav.navbar-nav.navbar-right.main-menu > li {
+    float: left;
+}
+
+.openSearch {
+    border: 1px solid #999;
+    color: #999;
+    cursor: pointer;
+    display: block;
+    font-size: 18px;
+    padding: 5px 8px;
+    position: absolute;
+    right: 5px;
+    top: 17px;
+    z-index: 2;
+}
+
+.conBox .pull-right{float: left !important}
+
+}
+
+@media only screen and (max-width : 480px) {
+
+}
+
+@media only screen and (max-width : 320px) {
+
+}

@@ -1,0 +1,205 @@
+
+$(document).ready(function(){
+  (function($){
+ 	var cards = $(".card-drop"),
+		toggler = cards.find(".toggle"),
+		links = cards.find("ul>li>a"),
+		li = links.parent('li'),
+		count = links.length,
+		width = links.outerWidth();
+
+console.info(count);
+
+console.info(width);
+console.info(toggler);
+console.info(links);
+console.info(li);
+console.info(cards );
+
+		//set z-Index of drop Items
+		links.parent("li").each(function(i){
+			$(this).css("z-index" , count - i); //invert the index values
+		});
+
+		//set top margins & widths of li elements
+		function setClosed(){
+			li.each(function(index){
+			});
+                       
+			li.addClass('closed');
+			toggler.removeClass("active");
+		}
+		setClosed();
+
+	/* -------------------------------------------------------- */ 
+	/*	Toggler Click handler
+	/* -------------------------------------------------------- */ 
+	toggler.on("mousedown" , function(){
+		var $this = $(this); //cache $(this)
+		//if the menu is active:
+               console.info(this);
+		if($this.is(".active")){
+			setClosed();
+		}else{
+			//if the menu is un-active:
+			$this.addClass("active");
+			li.removeClass('closed');
+			//set top margins
+			li.each(function(index){
+				 
+			});
+		}
+	});
+
+	links.on("click" , function(e){
+		var $this = $(this),
+			label = $this.data("label");
+			icon = $this.children("i").attr("class");
+			
+			li.removeClass('active');
+		if($this.parent("li").is("active")){
+			$this.parent('li').removeClass("active");
+		}else{
+			$this.parent("li").addClass("active");
+		}
+		toggler.children("span").text(label);
+		toggler.children("i").removeClass().addClass(icon);
+		setClosed();
+		e.preventDefault;
+	});
+
+})(jQuery);
+}); 
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+$('.sentiment_container .carousel').carousel({
+    interval: false
+});
+$('#carousel-poll.carousel').carousel({
+    interval: false
+});
+$('.number_pop .carousel').carousel({
+    interval: false
+});
+
+$('#slide_vertical.carousel').carousel({
+    interval: false
+});
+
+var $radioButtons = $('.poll input[type="radio"]');
+$radioButtons.click(function() {
+    $radioButtons.each(function() {
+        $(this).parent().addClass('select_poll', this.checked);
+    });
+});
+
+
+
+$( ".box_sentiment a.link_sentiment" ).click(function() {
+alert("hi");
+  $( ".show_onclick" ).show();
+  $( ".narrow_show_onclick" ).show();
+  $( ".how_to_play" ).hide();
+  $( "#carousel-sentiment .item ul li .box_sentiment" ).removeClass('active');
+  $(this).parent(".box_sentiment").addClass('active');
+  $( ".collapse_sec" ).hide();
+  $( ".top_sec_govt" ).hide();
+});
+
+$( ".toggle_txt ul li.last a" ).click(function() {
+		
+	$( ".collapse_sec" ).show();
+	$( ".show_onclick" ).hide();
+});
+
+$( "ul.left_nav li a.close_nav" ).click(function() {
+  $("body").toggleClass( "highlight" );
+});
+$( ".round_text_file .filter_data li.alert" ).click(function() {
+  $(".filter_data li.alert").children( ".detail_col" ).hide();
+  $(this).children( ".detail_col" ).show();
+});
+
+$(".search_opin input").mouseover(function(){ 
+ $(".col-pop-bx").show();
+});
+
+$(".answer").hide();
+$("#has_q").click(function() {
+    if($(this).is(":checked")) {
+        $(".answer").show(300);
+    } else {
+        $(".answer").hide(200);
+    }
+});
+
+$(".solve_problem .bg .inline .sty_rad input[type='radio']").click(function(){
+
+    if($("#quick").is(":checked")) {
+        $("#quickly").show();
+    } else {
+        $("#quickly").hide();
+    }
+});
+
+if($("#which_govt").hasClass(".panel-collapse.collapse.in")){
+	
+	alert("ok");
+	
+}
+
+$(".search_opin input").mouseout(function(){  $(".col-pop-bx").hide(); });
+
+$( ".tab.narrow li a" ).click(function() { $(".search_fld").show(); });
+$( ".view_sup a" ).click(function() { $(".respond_sec").show(); 
+	$( ".view_sup a" ).addClass('disabled');
+	$(this).removeClass('disabled');
+	});
+
+
+
+$( ".tab.narrow li a" ).click(function() {
+	$( ".tab.narrow li a" ).removeClass('active');
+	$(this).addClass('active');
+	
+});
+	
+$( ".number_value li.fool_nav" ).mouseover(function() {$( ".slider_box .carousel-indicators li p.fool" ).show(); });
+$( ".number_value li.fool_nav" ).mouseout(function() { $( ".slider_box .carousel-indicators li p.fool" ).hide(); });
+
+$( ".number_value li.bad_nav" ).mouseover(function() {$( ".slider_box .carousel-indicators li p.bad" ).show(); });
+$( ".number_value li.bad_nav" ).mouseout(function() { $( ".slider_box .carousel-indicators li p.bad" ).hide(); });
+
+$( ".number_value li.good_nav" ).mouseover(function() {$( ".slider_box .carousel-indicators li p.good" ).show(); });
+$( ".number_value li.good_nav" ).mouseout(function() { $( ".slider_box .carousel-indicators li p.good" ).hide(); });
+
+$( ".number_value li.excellent_nav" ).mouseover(function() {$( ".slider_box .carousel-indicators li p.excellent" ).show(); });
+$( ".number_value li.excellent_nav" ).mouseout(function() { $( ".slider_box .carousel-indicators li p.excellent" ).hide(); });
+
+
+$(document).ready(function(){
+    // Defining the local dataset
+    var sentiment = ['Beef', 'Beef ban', 'Education in India', 'Uri Attack', 'JNU', 'Delhi College'];
+    
+    // Constructing the suggestion engine
+    var sentiment = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.whitespace,
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        local: sentiment
+    });
+    
+    // Initializing the typeahead
+    $('.typeahead').typeahead({
+        hint: true,
+        highlight: true, /* Enable substring highlighting */
+        minLength: 1 /* Specify minimum characters required for showing result */
+    },
+    {
+        name: 'sentiment',
+        source: sentiment
+    });
+});  
+
+$('#share_alt').popover('toggle')

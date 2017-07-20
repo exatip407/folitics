@@ -1,0 +1,31 @@
+To Start MongoDB Goto- Mongo db installation directory and fire following command for example with database location("E:\bin\mongodb\data" )
+
+cd C:\Program Files\MongoDB\Server\3.0\bin
+mongod.exe --dbpath "E:\bin\mongodb\data"
+
+To Check if mongodb is running fine
+cd C:\Program Files\MongoDB\Server\3.0\bin
+run exe file:  mongo.exe
+fire command: show dbs
+Start Redis server
+
+cd C:\Program Files\Redis
+redis-server redis.windows.conf
+
+Goto to project root directory and fire command
+mvn clean spring-boot:run
+It should setup download and start tomcat 
+Goto to URL : http://localhost:8080
+Put Login details if prompted: Username: user, Password: password
+Click on login &  put Username: user, Password: password
+Mysql Username:root, Password:root
+Create database using create-dn.sql under database-scripts folder under root directory
+Setting up javaagent
+Pull down Windows
+Select Preferences
+Select Java
+Select Installed JREs
+Edit 
+-javaagent:C:\Users\sheetal\.m2\repository\org\aspectj\aspectjweaver\1.8.7\aspectjweaver-1.8.7.jar -javaagent:C:\Users\sheetal\.m2\repository\org\springframework\spring-instrument\4.1.5.RELEASE\spring-instrument-4.1.5.RELEASE.jar
+Give Goal as clean spring-boot:run in eclipse
+Ready to go

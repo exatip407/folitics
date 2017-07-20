@@ -1,0 +1,144 @@
+<!-- <h3>.</h3>
+<div class="media">
+	<div class="media-body">
+		<div class="padd60 remove-paddT text-center">
+			<h1 class="title">Active Contests</h1>
+			<div class="spaceLarge"></div>
+			<div class="popularNews">
+			
+				<ul class="luckyDraws">
+					<li ng-repeat="luckydraw in luckyDraws" class="thumbnail"><a
+						href="#/lucky/{{luckydraw.id}}" class="thumb"> 
+						<b>LuckyDraw Id:</b> <span ng-bind="luckydraw.id"></span></a><br> 
+						<b> Participation Points:</b> <span ng-bind="luckydraw.participationPoints"></span></a><br>
+							 <b>Description:</b><span ng-bind="luckydraw.description"></span><br>
+							  <b> State:</b> <span ng-bind="luckydraw.state"></span><br>
+							 <b> Prize Amount:</b><span ng-bind="luckydraw.prizeAmount"></span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+ -->
+
+<div class="main-container">
+	<div class="col-md-12">
+		<div class="news-flash-box">
+			<div class="news-flash-left">
+				<span>News Flash</span> <span class="news-flash-title"><samp
+						class="triangle-topright"></samp> </span>
+			</div>
+			<div class="news-flash-right">
+				<a href="">{{newsFlash}}</a>
+			</div>
+			<span class="news-flash-close">X</span>
+		</div>
+	</div>
+	<div class="col-md-3 col-sm-3">
+		<div class="category-box col-md-12">
+			<h2>personality</h2>
+
+			<div class="personalitySlider" ng-repeat="_v in personality">
+				<div class="col-md-6 padding0">
+					<img class="personality-icon" src="{{_v.imageUrl}}">
+					<div class="personality-name">Narendra Modi</div>
+				</div>
+				<div class="col-md-6">
+					<div class="slider-control">
+						<a class="angle-left"><i ng-click="goLeft($event)"
+							id="{{_v.pagination}}" class="fa fa-angle-left"></i></a> <a
+							class="angle-right"><i ng-click="goRight($event)"
+							id="{{_v.pagination}}" class="fa fa-angle-right"></i></a>
+					</div>
+
+					<ul class="feedList">
+						<li ng-repeat="_lest in _v.feedList">{{_lest.feed}}</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="category-box col-md-12">
+			<h2>Trends</h2>
+
+			<ul class="trendsList">
+				<li ng-repeat="_v in trendsList">{{_v.trendName}}
+					<div class="trendColun">{{_v.trendColun}}</div>
+				</li>
+
+			</ul>
+
+		</div>
+
+	</div>
+	<div class="col-md-6 col-sm-6">
+		<div class="category-box col-md-12">
+			<h6>.</h6>
+			<div class="padd60 remove-paddT text-center">
+				<h1 class="title">Active Contests</h1>
+				<div class="spaceLarge"></div>
+				<div class="popularNews">
+
+					<!-- <ul class="luckyDraws">
+						<li ng-repeat="luckydraw in luckyDraws" class="thumbnail"><a
+							href="#/lucky/{{luckydraw.id}}" class="thumb"> <b>LuckyDraw
+									Id:</b> <span ng-bind="luckydraw.id"></span></a><br> <b>
+								Participation Points:</b> <span
+							ng-bind="luckydraw.participationPoints"></span></a><br> <b>Description:</b><span
+							ng-bind="luckydraw.description"></span><br> <b> State:</b> <span
+							ng-bind="luckydraw.state"></span><br> <b> Prize Amount:</b><span
+							ng-bind="luckydraw.prizeAmount"></span></li>
+					</ul> -->
+					
+					<ul class="activeContests">
+					<li ng-repeat="contest in activeContests" class="thumbnail"><a
+						href="#/contest/{{contest.id}}" class="thumb"> <b>Contest
+								Id:</b> <span ng-bind="contest.id"></span></a><br> <b>Image:</b> <img
+						class="img-responsive thumbnail"
+						ng-src="data:image/JPEG;base64,{{contest.image}}"
+						alt="contest image" width="100" height="100"></a> <br> <b>Participants
+							Name:</b> <span ng-bind="contest.name"></span></a><br> <b>Description:</b><span
+						ng-bind="contest.description"></span><br> <b>Contest
+							State:</b> <span ng-bind="contest.state"></span><br> <b>Terms
+							and conditions:</b><span ng-bind="contest.termsAndCondition"></span></li>
+				</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-3 col-sm-3">
+		<div class="category-box col-md-12">
+			<h2>VERDICT</h2>
+
+			<ul class="verdict">
+				<li class="greeBG" ng-repeat="list in verdictList"><span>{{list}}</span>
+					<div class="viewCase">
+						View case + <span>{{list.date}}</span>
+					</div> <a class="shere" id="{{list.id}}" href="#"><i
+						class="fa fa-share-alt"></i></a></li>
+				<a class="seeMore"><span>See More Verdicts</span> <i class="fa">+</i>
+				</a>
+			</ul>
+		</div>
+
+
+		<div class="category-box col-md-12">
+			<h2>task</h2>
+			<ul class="taskList ">
+				<li ng-repeat="list in taskList"><span class="pull-xs-left G "><img
+						class="task-icon responsive"
+						src="data:image/JPEG;base64,{{list.attachment}}"
+						style="width: 50px; height: 50px;"></span>
+					<div class="right">
+						<strong>{{list.Subject}} </strong> {{list.description}} <a
+							href="#" id="{{list.id}}"> Share</a>
+					</div></li>
+
+			</ul>
+			<pagination ng-model="currentPage" total-items=20 max-size=5
+				boundary-links="true"> </pagination>
+		</div>
+	</div>
+</div>

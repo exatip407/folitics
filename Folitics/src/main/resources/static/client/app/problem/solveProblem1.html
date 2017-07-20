@@ -1,0 +1,293 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<link href="Bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+<link href="Content/css/govern.css" rel="stylesheet" />
+
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top"
+		style="margin-bottom: 0;">
+		<div class="container-fluid">
+			<div class="navbar-header">
+
+				<a class="navbar-brand" href="#">VOICEUP</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+
+				<ul class="nav navbar-nav navbar-right"></ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+
+	</nav>
+	<div class="container-fluid" style="margin-top: 50px;">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<ol class="breadcrumb">
+					<li><a href="#">Issues</a><i
+						class="glyphicon glyphicon-menu-right"></i></li>
+					<li class="active">Solve problem</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+
+		<div class="row" style="background-color: #eee;">
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"
+				style="padding: 10px;">
+				<div style="background-color: #ffffff; min-height: 680px;"></div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"
+				style="padding: 10px 0;">
+				<div
+					style="background-color: #ffffff; min-height: 500px; padding: 10px;">
+					<div class="row" style="margin: 10px 0;">
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<div style="color: #41b7d8; font-weight: bold; font-size: 25px;"
+								class="pull-left">Active Problems</div>
+							<div class="pull-right" style="padding: 10px 0;">
+								<span
+									style="font-size: 14px; font-weight: bold; color: #f95900; margin-right: 5px;">Filter</span>
+								<i class="glyphicon glyphicon-menu-up"
+									style="color: #f95900; font-size: 18px; position: relative; top: 5px;"></i>
+							</div>
+						</div>
+					</div>
+					<div class="row active-problem-nav">
+						<ul class="nav nav-pills nav-justified">
+							<li class="active"><a data-toggle="pill" href="#location">Location<br />
+								<span style="display: none;">Search</span></a></li>
+							<li><a data-toggle="pill"">Problem Type<br />
+								<span>Select</span></a></li>
+							<li><a data-toggle="pill">Supporter<br />
+								<span>Select</span></a></li>
+							<li><a data-toggle="pill">Status<br />
+								<span>Select</span></a></li>
+							<li><a data-toggle="pill">Department<br />
+								<span>Select</span></a></li>
+						</ul>
+						<div class="tab-content tab-content-problem">
+							<div id="location" class="tab-pane fade in active">
+								<input type="text" class="form-control" id="problemTitle"
+									placeholder="Start typing a location name..."
+									style="border: 1px solid #41b7d8; border-radius: 0;">
+							</div>
+							<div id="problemType" class="tab-pane fade">
+								<div class="radios  radio-type">
+									<ul>
+										<li><input type="radio" name="problemType" id="name1"
+											value="" checked /> <label class="radio" for="name1"></label>
+											<span>Health</span></li>
+										<li><input type="radio" name="problemType" id="name2"
+											value="" /> <label class="radio" for="name2"></label> <span>Fire</span>
+										</li>
+										<li><input type="radio" name="problemType" id="name3"
+											value="" /> <label class="radio" for="name3"></label> <span>Sports</span>
+										</li>
+										<li><input type="radio" name="problemType" id="name4"
+											value="" /> <label class="radio" for="name4"></label> <span>MCD</span>
+										</li>
+										<li><input type="radio" name="problemType" id="name5"
+											value="" /> <label class="radio" for="name5"></label> <span>Transport</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div id="supporter" class="tab-pane fade">
+								<div class="radios  radio-type">
+									<ul>
+										<li><input type="radio" name="supporter" id="supporter1"
+											value="" checked /> <label class="radio" for="supporter1"></label>
+											<span>supporter 1</span></li>
+										<li><input type="radio" name="supporter" id="supporter2"
+											value="" /> <label class="radio" for="supporter2"></label> <span>supporter
+												2</span></li>
+										<li><input type="radio" name="supporter" id="supporter3"
+											value="" /> <label class="radio" for="supporter3"></label> <span>supporter
+												3</span></li>
+										<li><input type="radio" name="supporter" id="supporter4"
+											value="" /> <label class="radio" for="supporter4"></label> <span>supporter
+												4</span></li>
+										<li><input type="radio" name="supporter" id="supporter5"
+											value="" /> <label class="radio" for="supporter5"></label> <span>supporter
+												5</span></li>
+									</ul>
+								</div>
+							</div>
+							<div id="status" class="tab-pane fade">
+								<div class="radios  radio-type">
+									<ul>
+										<li><input type="radio" name="status" id="status1"
+											value="" checked /> <label class="radio" for="status1"></label>
+											<span>Open</span></li>
+										<li><input type="radio" name="status" id="status2"
+											value="" /> <label class="radio" for="status2"></label> <span>In
+												progress</span></li>
+										<li><input type="radio" name="status" id="status3"
+											value="" /> <label class="radio" for="status3"></label> <span>Completed</span>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+							<div id="department" class="tab-pane fade">
+								<div class="checkboxs checkbox-type">
+									<ul>
+										<li><input type="checkbox" name="department1"
+											id="department1" value="" checked /> <label class="checkbox"
+											for="department1"></label> <span>Health</span></li>
+										<li><input type="checkbox" name="department2"
+											id="department2" value="" /> <label class="checkbox"
+											for="department2"></label> <span>Fire</span></li>
+										<li><input type="checkbox" name="department3"
+											id="department3" value="" /> <label class="checkbox"
+											for="department3"></label> <span>Sports</span></li>
+										<li><input type="checkbox" name="department4"
+											id="department4" value="" /> <label class="checkbox"
+											for="department4"></label> <span>MCD</span></li>
+										<li><input type="checkbox" name="department5"
+											id="department5" value="" /> <label class="checkbox"
+											for="department5"></label> <span>Transport</span></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row success-story-row">
+						<div class="col-lg-6 col-md-6 col-sm-6" style="padding-right: 0;">
+							<div id="success-story-hover-0" class="success-story-well-hover">
+								<div class="caption-desc">Lorem ipsum dolor sit amet,
+									consectetur adipiscing elit. Proin nisi ligula, dapibus a
+									volutpat sit amet, mattis et dui. Nunc porttitor accumsan orci
+									id luctus. Phasellus ipsum metus, tincidunt non rhoncus id,
+									dictum a lectus. Nam sed ipsum a lacus sodales eleifend.
+									Vestibulum lorem felis, rhoncus elementum vestibulum eget,
+									dictum ut velit. Nullam venenatis, elit in suscipit imperdiet,
+									orci purus posuere mauris, quis adipiscing ipsum urna ac quam.</div>
+								<div class="caption-detail">
+									<div class="caption-detail-title">Related to Corruption
+										in Bangaluru</div>
+									<div class="caption-detail-from">By Servesh Sharma</div>
+									<div class="caption-detail-support">
+										<i class="glyphicon glyphicon-user"></i><span>50</span> users
+										signed to support
+									</div>
+									<div class="caption-detail-footer">
+										<span>Read full story</span><i></i>
+									</div>
+								</div>
+							</div>
+							<div class="success-story-well" id="success-story-0">
+								<img src="Images/sample/38d4a516d6d7ff25ce218a54619dd781.jpg" />
+								<div class="success-story-well-detail">
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Proin nisi ligula dui huo...</p>
+									<a href="#">Servesh Sharma</a>
+									<div class="pull-right">
+										<i class="glyphicon glyphicon-user"></i>50
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="col-lg-6 col-md-6 col-sm-6" style="padding-right: 0;">
+							<div style="border: 1px solid #e3e3e3;">
+								<img src="Images/sample/Aaj-Tak.jpg"
+									style="height: 200px; width: 100%" />
+								<div style="padding: 10px;">
+									<p style="font-size: 14px; color: #000; font-weight: bold;">Lorem
+										ipsum dolor sit amet, consectetur adipiscing elit. Proin nisi
+										ligula dui huo...</p>
+									<a href="#"
+										style="color: #41b7d8; font-size: 12px; font-weight: bold;">Servesh
+										Sharma</a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="row"
+						style="padding-left: 15px; padding-right: 30px; margin-bottom: 10px;">
+						<div class="col-lg-6 col-md-6 col-sm-6" style="padding-right: 0;">
+							<div style="border: 1px solid #e3e3e3;">
+								<img src="Images/sample/IndianBusiness_19054.jpg"
+									style="height: 200px; width: 100%" />
+								<div style="padding: 10px;">
+									<p style="font-size: 14px; color: #000; font-weight: bold;">Lorem
+										ipsum dolor sit amet, consectetur adipiscing elit. Proin nisi
+										ligula dui huo...</p>
+									<a href="#"
+										style="color: #41b7d8; font-size: 12px; font-weight: bold;">Servesh
+										Sharma</a>
+								</div>
+							</div>
+
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6" style="padding-right: 0;">
+							<div style="border: 1px solid #e3e3e3;">
+								<img src="Images/sample/ndtv-india.jpg"
+									style="height: 200px; width: 100%" />
+								<div style="padding: 10px;">
+									<p style="font-size: 14px; color: #000; font-weight: bold;">Lorem
+										ipsum dolor sit amet, consectetur adipiscing elit. Proin nisi
+										ligula dui huo...</p>
+									<a href="#"
+										style="color: #41b7d8; font-size: 12px; font-weight: bold;">Servesh
+										Sharma</a>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"
+				style="padding: 10px;">
+				<div
+					style="background-color: #ffffff; min-height: 680px; padding: 10px;"></div>
+			</div>
+		</div>
+
+
+	</div>
+
+	<script src="Scripts/jquery-1.12.4.min.js"></script>
+	<script src="Scripts/jquery.dotdotdot-1.2.1.js"></script>
+	<script src="Bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+
+			$(".success-story-well,.success-story-well-hover").mouseenter(function() {
+
+				$(".success-story-well-hover").toggle();
+			}).mouseleave(function() {
+
+				$(".success-story-well-hover").hide();
+			});
+
+			//function navBarTitle() {
+			//    for (var i = 0; i < $(".active-problem-nav ul li").length; i++) {
+			//        if ($(".active-problem-nav ul li").eq(i).hasClass('active') === true) {
+			//            $(".active-problem-nav ul li").eq(i).find("a span").hide();
+			//        }
+			//        else if ($(".active-problem-nav ul li").eq(i).hasClass('active') === false) {
+			//            //   alert('hello');
+			//            $(".active-problem-nav ul li").eq(i).find("a span").show();
+			//        }
+			//    }
+			//}
+			//navBarTitle();
+			//$(".active-problem-nav ul li").click(function () {
+			//    navBarTitle();
+			//    $(this).find("a span").find("a span").hide();
+			//});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<h6>Details</h6>
+   <div class="media">
+	<div class="media-body">
+		<div class="padd60 remove-paddT text-center">
+			<h1 class="title">Participant Details</h1>
+			<div class="spaceLarge"></div>
+			<div class="popularNews">
+<div ng-controller="ContestViewController">
+                <b>Contest ID:</b> <span ng-bind="contest.id"></span> </br>
+				<b>Name: </b><span ng-bind="contest.name"></span></br>
+				<b>State: </b><span ng-bind="contest.state"></span></br>
+				<b>ImageType: </b><span ng-bind="contest.imageType"></span></br>
+				<b>Creation Time:</b> <span ng-bind="contest.creationTime"></span></br>
+				<b>Edit Time:</b> <span ng-bind="contest.editTime"></span></br>
+				<b>Expiry Time:</b> <span ng-bind="contest.expiryTime"></span></br>
+				<b>Description:</b> <span ng-bind="contest.description"></span></br>
+				<b>Terms and conditions:</b> <span ng-bind="contest.termsAndCondition"></span></br>
+				
+			</br>
+					</br>
+
+						<button id="connection" type="button" class="btn btn-primary"
+							ng-click="addParticipants()">
+							<span ng-bind="participantbuttonValue"></span>AddParticipants
+						</button>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>         
+	           

@@ -1,0 +1,23 @@
+<html>
+<div ng-controller="PollController">
+
+<div class="container-fluid">
+	<div class="row">
+<h2>POLL PAGE</h2>
+		<ul class="poll">
+		
+			    <li ng-repeat="poll in polls" class="thumbnail"> 
+			   
+				<a href="#/poll/{{poll.id}}">
+				<b>PollId:-</b><span ng-bind="poll.id"></span></a>
+				QUESTION:-<span ng-bind="poll.question"></span>
+				STATE:-<span ng-bind="poll.state"></span>
+			   
+				</li>
+		</ul>
+
+	</div>
+	</div>
+	
+</div>
+</html>

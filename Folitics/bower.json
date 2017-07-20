@@ -1,0 +1,24 @@
+{
+  "name": "ohmuk_folitics",
+  "description": "Politcs of engagement",
+  "main": "src\\main\\resources\\static\\js/main.js",
+  "moduleType": [
+    "globals"
+  ],
+  "authors": [
+    "Jahid Ali"
+  ],
+  "license": "MIT",
+  "homepage": "home.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "amcharts-angular": "*"
+  }
+}

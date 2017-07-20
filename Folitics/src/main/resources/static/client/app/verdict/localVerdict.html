@@ -1,0 +1,188 @@
+<div class="main-container">
+	
+	<!-- <div class="col-md-3 col-sm-3">
+		<div class="category-box col-md-12">
+			
+		</div>
+
+	</div> -->
+	<!-- <div class="col-md-6 col-sm-6"> -->
+	<!-- <div class="category-box col-md-12"> -->
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+		style="padding: 10px 0;">
+		<div class="container-fluid local-verdict" ng-init="getPrerequisite()">
+			<div class="row lc-vrdct-overallPoll">
+				<div class="container-fluid verdict-performance">
+					<h2>{{headline}}</h2>
+					<br />
+					<div class="pull-left">
+						<input class="overall-poll" id="inptoverall" type="checkbox">
+						<label for="inptoverall"> By overall <i
+							class="glyphicon glyphicon-menu-down"></i>
+						</label>
+						<!-- <div id="shareItem">
+							<ul>
+								<li><a href="javascript:void(0)">Facebook</a></li>
+								<li><a href="javascript:void(0)">Twitter</a></li>
+								<li><a href="javascript:void(0)">Air</a></li>
+								<li><a href="javascript:void(0)">Linkdin</a></li>
+								<li><a href="javascript:void(0)">Google circle</a></li>
+							</ul>
+						</div> -->
+					</div>
+					<div class="pull-right">
+						<i class="icon-up"></i>
+					</div>
+
+
+					<div class="progress verdict-progress">
+						<div class="progress-bar progress-bar-danger"
+							ng-style="{ width: overAllVerdict.pro + '%', 'background-color': '#f95900'}" ></div>
+						<div class="progress-bar progress-bar-success"
+							ng-style="{ width: overAllVerdict.anti + '%', 'background-color': '#449d44'}"></div>
+					</div>
+					<div ng-style="{ width: overAllVerdict.pro + '%' }"
+						class="pull-left">
+						<p class="verdict-infacv">{{overAllVerdict.pro}} %</p>
+						<p class="verdict-txt">Favouring government</p>
+
+					</div>
+					<div ng-style="{ width: overAllVerdict.anti + '%' }"
+						class="pull-right">
+
+						<p class="verdict-aginst">{{overAllVerdict.anti}} %</p>
+						<p class="verdict-txt">Against government</p>
+					</div>
+
+				<!-- 	<h2>Local verdict distribution</h2> -->
+					<br />
+					<div class="row">
+					<aslmrq-list></aslmrq-list>
+						
+						<div class="col-lg-12">
+							<global-verdict id='{{sentimentId}}' data='data1'
+								title='verdictSexService'></global-verdict>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row lc-vrdct-pollResults" ng-init="getSentiment()">
+				<div class="col-lg-12"
+					ng-repeat="poll in sentiment.polls | startFrom:currentPage*pageSize | limitTo:pageSize">
+					<label class="pull-left header-label">Poll Results</label>
+					<div class="pull-right shared-links">
+						<input class="overall-box" id="inptPollRslt" type="checkbox">
+						<label for="inptPollRslt"> By {{poll.by}} <i
+							class="glyphicon glyphicon-menu-down"></i>
+						</label>
+						<div id="shareItem">
+							<ul>
+								<li><span ng-click="getPollResult(poll,'OverAll')">OverAll</span></li>
+								<li><span ng-click="getPollResult(poll,'Age')"
+									class="pointer">Age</span></li>
+								<li><span ng-click="getPollResult(poll,'Sex')"
+									class="pointer">Sex</span></li>
+								<li><span ng-click="getPollResult(poll,'Region')"
+									class="pointer">Region</span></li>
+								<li><span ng-click="getPollResult(poll,'Religion')"
+									class="pointer">Religion</span></li>
+								<li><span ng-click="getPollResult(poll,'MaritalStatus')"
+									class="pointer">Marital status</span></li>
+								<li><span ng-click="getPollResult(poll,'Qualification')"
+									class="pointer">Qualification</span></li>
+							</ul>
+						</div>
+					</div>
+					<div style="clear: both;"></div>
+					<div>
+						<p>{{poll.question}}.</p>
+					</div>
+					<ul>
+						<li ng-repeat="option in poll.options"
+							ng-init="getPollResult(poll,'OverAll')">
+							<div class="list-header">{{$index+1}}.
+								{{option.pollOption}}</div>
+							<div ng-repeat="result in option.percentage">
+								<label>{{result.name}}</label>
+								<div class="progress list-progress">
+									<div class="progress-bar progress-bar-info"
+										ng-style="{ width: result.value + '%' }"></div>
+								</div>
+							</div>
+
+						</li>
+					</ul>
+
+				</div>
+				<!--  -->
+				<div>
+					<button class="pull-left nav-btns btn btn-defualt"
+						ng-disabled="currentPage == 0"
+						ng-click="currentPage=currentPage-1">Previous poll</button>
+					<button class="pull-right nav-btns btn btn-defualt"
+						ng-disabled="currentPage >= sentiment.polls.length/pageSize - 1"
+						ng-click="currentPage=currentPage+1">Next poll</button>
+				</div>
+				<!--  -->
+			</div>
+			<div class="row lc-vrdct-topOpinion">
+				<div class="col-lg-12">
+					<label class="header-label">Top Opinions</label> <br />
+					<ul>
+						<li>
+							<div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+									Proin nisi ligula, dapibus a volutpat sit amet, mattis et dui.
+									Nunc porttitor accumsan orci id luctus .</p>
+							</div>
+							<div class="footer">
+								<span>120 Likes</span> | <span>18 Dislikes</span> | <span>18
+									Responses</span> | <span>321 Shares</span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+									Proin nisi ligula, dapibus a volutpat sit amet, mattis et dui.
+									Nunc porttitor accumsan orci id luctus .</p>
+							</div>
+							<div class="footer">
+								<span>120 Likes</span> | <span>18 Dislikes</span> | <span>18
+									Responses</span> | <span>321 Shares</span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+									Proin nisi ligula, dapibus a volutpat sit amet, mattis et dui.
+									Nunc porttitor accumsan orci id luctus .</p>
+							</div>
+							<div class="footer">
+								<span>120 Likes</span> | <span>18 Dislikes</span> | <span>18
+									Responses</span> | <span>321 Shares</span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+									Proin nisi ligula, dapibus a volutpat sit amet, mattis et dui.
+									Nunc porttitor accumsan orci id luctus .</p>
+							</div>
+							<div class="footer">
+								<span>120 Likes</span> | <span>18 Dislikes</span> | <span>18
+									Responses</span> | <span>321 Shares</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- </div> -->
+
+	<!-- </div> -->
+	<!-- .....end....... -->
+	<!-- <div class="col-md-3 col-sm-3"></div> -->
+</div>

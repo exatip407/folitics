@@ -1,0 +1,51 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Find User</title>
+</head>
+<body>
+
+<div class="main-container">
+	<div class="col-md-12">
+	 	<b><i><h3><img style="width: 30px; height: 30px;" src= "images/01/user.png"/> <font color="blue" style="font-style: normal;">About</font></h3></b></i> 
+
+		<ul>
+				<li><b>NAME: </b><span ng-bind="user.name"></span></li></br>
+				<li><b>EMAIL ID: </b><span ng-bind="user.emailId"></span></li></br>
+				<li><b>GENDER: </b><span ng-bind="user.gender"></span></li></br>			
+				<li><b>USER NAME: </b><span ng-bind="user.username"></span></li></br>
+				<li><b>PASSWORD: </b><span ng-bind="user.password"></span></li></br>
+				<li><b>POINT: </b><span ng-bind="user.points"></span></li></br>
+			<!-- 	<li><b>STATUS: </b><span ng-bind="user.status"></span></li></br> -->
+			</ul>	
+	
+				<button ng-show= "add" id="connection" type="button" class="btn btn-primary"
+			    ng-click="addConnection()">
+			    <span ng-show="add" ng-bind="connectionbuttonValue"></span>AddConnection
+		        </button>&nbsp;&nbsp;&nbsp;&nbsp;
+		        
+		        <button ng-show = "accept" id="connection2" type="button" class="btn btn-primary"
+			    ng-click="accept">
+			    <span ng-bind="deleteconnectionbuttonValue"></span>Accept request
+		        </button> &nbsp;&nbsp;&nbsp;&nbsp;
+		        
+		        <button ng-show = "delete1" id="connection1" type="button" class="btn btn-primary"
+			    ng-click="deleteConnection()">
+			    <span ng-bind="deleteconnectionbuttonValue"></span>DeleteConnection
+		        </button> 
+		        
+		       <!--  <button id="connection3" type="button" class="btn btn-primary"
+			    ng-click="getUserConnection()">
+			    <span ng-bind="getUserconnectionbuttonValue"></span>GetConnection
+		        </button>  -->
+		        
+			
+	</div>
+</div>
+
+
+</body>
+</html>

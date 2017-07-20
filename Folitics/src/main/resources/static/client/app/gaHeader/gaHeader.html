@@ -1,0 +1,182 @@
+<div class="main-container">
+	<div class="col-md-12">
+		<div class="news-flash-box">
+			<div class="news-flash-left">
+				<span>News Flash</span> <span class="news-flash-title"><samp
+						class="triangle-topright"></samp> </span>
+			</div>
+			<div class="news-flash-right">
+				<a href="">{{newsFlash}}</a>
+			</div>
+			<span class="news-flash-close">X</span>
+		</div>
+	</div>
+	<div class="col-md-3 col-sm-3">
+		<div class="category-box col-md-12">
+			<h2>personality</h2>
+
+			<div class="personalitySlider" ng-repeat="_v in personality">
+				<div class="col-md-6 padding0">
+					<img class="personality-icon" src="{{_v.imageUrl}}">
+					<div class="personality-name">Narendra Modi</div>
+				</div>
+				<div class="col-md-6">
+					<div class="slider-control">
+						<a class="angle-left"><i ng-click="goLeft($event)"
+							id="{{_v.pagination}}" class="fa fa-angle-left"></i></a> <a
+							class="angle-right"><i ng-click="goRight($event)"
+							id="{{_v.pagination}}" class="fa fa-angle-right"></i></a>
+					</div>
+
+					<ul class="feedList">
+						<li ng-repeat="_lest in _v.feedList">{{_lest.feed}}</li>
+					</ul>
+				</div>
+			</div>
+
+
+			<!-- <div class="col-sm-8">
+	
+	<indicators></indicators>
+	<myelem></myelem>
+	 <aslmrq-list></aslmrq-list>
+    	
+	</div> -->
+		</div>
+		<div class="restaurantDetail"></div>
+
+
+		<div class="category-box col-md-12">
+			<h2>Trends</h2>
+
+			<ul class="trendsList">
+				<li ng-repeat="_v in trendsList">{{_v.trendName}}
+					<div class="trendColun">{{_v.trendColun}}</div>
+				</li>
+
+			</ul>
+
+		</div>
+
+	</div>
+	<div class="col-md-6 col-sm-6">
+		<div class="category-box col-md-12">
+			<h2>
+				<font color="yellowgreen"> GA HEADER 
+			</h2>
+			</font>
+
+			<div ng-controller="gaHeaderController">
+
+				<div ng-repeat="c in categories">
+					<span ng-bind="c.id"></span> <b> <font color="brown">
+							Threshold Category: </font>
+					</b> <span ng-bind="c.thresholdCategory"></span></br>
+					</br>
+
+					<div ng-repeat="cc in c.indicatorDataList">
+						<b> <font color="brown"> Category Name: </font></b> <span
+							ng-bind="cc.categoryName"></span> </br>
+						</br> <b> <font color="brown"> Total Score v/s Total
+								IdealValue Score: </font>
+						</b>
+						<h4>{{c.totalScore}} v/s {{c.totalIdealVaueScore}}</h4>
+
+
+
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="category-box col-md-12" ng-init="getPrerequisite()">
+
+			<indicators></indicators>
+			<indicator-graph id='6' data="data1" title='inflation'></indicator-graph>
+		</div>
+
+
+		<div class="category-box col-md-12">
+			<h2>
+				<font color="yellowgreen">GOVERMENT SCHEME DATA<a href=""
+					class="more"> View More ></a>
+				</font>
+			</h2>
+
+			<div ng-controller="GovtschemedataController">
+				<!-- 	<div class="padd60 remove-paddT text-center"> -->
+
+				<ul class="govtschemedata">
+					<li ng-repeat="govtschemedata in govtschemedata"><b> <span
+							ng-bind="govtschemedata.id"></span> -
+					</b> <b><font color="brown">Scheme Name:</font></b> <span
+						ng-bind="govtschemedata.schemename"></span></br> </br> <b><font
+							color="brown"> Webpage URL:</font></b><a
+						href="{{govtschemedata.webpageurl}}"> <span
+							ng-bind="govtschemedata.webpageurl"></span></a> </br> </br> <b><font
+							color="brown"> About:</font></b> <span
+						ng-bind="govtschemedata.description1"></span></br> </br> <b><font
+							color="brown"> Description:</font></b> <span
+						ng-bind="govtschemedata.description2"></span></br> </br></li>
+				</ul>
+			</div>
+		</div>
+
+
+
+		<div class="category-box col-md-12">
+			<h2>
+				<font color="yellowgreen"> TRACK PROMISES <a href=""
+					class="more"> View More ></a>
+				</font>
+			</h2>
+			<!-- 	<div class="padd60 remove-paddT text-center"> -->
+			<div ng-controller="trackPromiseController">
+
+				<div ng-repeat="c in categories">
+					<span ng-bind="c.category"></span>
+					<h5>{{c.subCategory}} : {{c.direction}}</h5>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+	<div class="col-md-3 col-sm-3">
+		<div class="category-box col-md-12">
+			<h2>VERDICT</h2>
+
+			<ul class="verdict">
+				<li class="greeBG" ng-repeat="list in verdictList"><span>{{list}}</span>
+					<div class="viewCase">
+						View case + <span>{{list.date}}</span>
+					</div> <a class="shere" id="{{list.id}}" href="#"><i
+						class="fa fa-share-alt"></i></a></li>
+				<a class="seeMore"><span>See More Verdicts</span> <i class="fa">+</i>
+				</a>
+			</ul>
+		</div>
+
+
+		<div class="category-box col-md-12">
+			<h2>task</h2>
+			<ul class="taskList ">
+				<li ng-repeat="list in taskList"><span class="pull-xs-left G "><img
+						class="task-icon responsive"
+						src="data:image/JPEG;base64,{{list.attachment}}"
+						style="width: 50px; height: 50px;"></span>
+					<div class="right">
+						<strong>{{list.Subject}} </strong> {{list.description}} <a
+							href="#" id="{{list.id}}"> Share</a>
+					</div></li>
+
+			</ul>
+			<pagination ng-model="currentPage" total-items=20 max-size=5
+				boundary-links="true"> </pagination>
+		</div>
+	</div>
+</div>

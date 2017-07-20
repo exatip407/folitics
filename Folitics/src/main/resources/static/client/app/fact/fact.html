@@ -1,0 +1,233 @@
+<!-- <div ng-controller="FactController">
+
+	<div class="col-sm-8 col-sm-offset-2">
+		<div class="page-header">
+			<h1>Fact Module</h1>
+		</div>
+		
+		<form name="factForm" ng-submit="submit()">
+
+			<div class="form-group">
+				<label>Subject:</label> <input name="subject" type="text"
+					class="form-control" ng-model="fact.subject" required></input> <span
+					class="error" style="color: red; font-weight: bold"
+					ng-show="factForm.subject.$invalid"> </span>
+			</div>
+
+			<div class="form-group">
+				<label>Description:</label> <input name="description" type="text"
+					class="form-control" ng-model="fact.description" required></input>
+				<span class="error" style="color: red; font-weight: bold"
+					ng-show="factForm.description.$invalid"></span>
+			</div>
+
+			<div class="form-group">
+				<label>ParentID:</label> <input name="parentId" type="number"
+					class="form-control" ng-model="fact.parentId" required></input> <span
+					class="error" style="color: red; font-weight: bold"
+					ng-show="factForm.ParentId.$invalid">The Parent id is
+					required.</span>
+			</div>
+
+			<div class="form-group">
+				<label>ParentName:</label> <input name="parentName" type="text"
+					class="form-control" ng-model="fact.parentName" required></input>
+			</div>
+
+			<div class="form-group">
+				<label>ParentType:</label> <select name="parentType"
+					class="form-control" ng-model="fact.parentType" required>
+					<option value="">---please select---</option>
+					<option value="Scheme">Scheme</option>
+					<option value="LocalGraph">LocalGraph</option>
+					<option value="GlobalGraph">GlobalGraph</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label>Status:</label> <select name="status" class="form-control"
+					ng-model="fact.status" required>
+					<option value="">---please select---</option>
+					<option value="Submitted">Submitted</option>
+					<option value="pending">Pending</option>
+					<option value="accepted">Accepted</option>
+					<option value="deleted">Deleted</option>
+				</select>
+			</div>
+
+			<div>
+				<button type="submit" class="btn btn-warning">Submit</button>
+			</div>
+		</form>
+	</div>
+</div> -->
+<link rel="stylesheet" href="content/css/govern.css">
+<div class="main-container">
+	<div class="col-md-12">
+		<div class="news-flash-box">
+			<div class="news-flash-left">
+				<span>News Flash</span> <span class="news-flash-title"><samp
+						class="triangle-topright"></samp> </span>
+			</div>
+			<div class="news-flash-right">
+				<a href="">{{newsFlash}}</a>
+			</div>
+			<span class="news-flash-close">X</span>
+		</div>
+	</div>
+	<div class="col-md-3 col-sm-3">
+		<div class="category-box col-md-12">
+			<h2>personality</h2>
+
+			<div class="personalitySlider" ng-repeat="_v in personality">
+				<div class="col-md-6 padding0">
+					<img class="personality-icon" src="{{_v.imageUrl}}">
+					<div class="personality-name">Narendra Modi</div>
+				</div>
+				<div class="col-md-6">
+					<div class="slider-control">
+						<a class="angle-left"><i ng-click="goLeft($event)"
+							id="{{_v.pagination}}" class="fa fa-angle-left"></i></a> <a
+							class="angle-right"><i ng-click="goRight($event)"
+							id="{{_v.pagination}}" class="fa fa-angle-right"></i></a>
+					</div>
+
+					<ul class="feedList">
+						<li ng-repeat="_lest in _v.feedList">{{_lest.feed}}</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="category-box col-md-12">
+			<h2>Trends</h2>
+
+			<ul class="trendsList">
+				<li ng-repeat="_v in trendsList">{{_v.trendName}}
+					<div class="trendColun">{{_v.trendColun}}</div>
+				</li>
+
+			</ul>
+
+		</div>
+
+	</div>
+	<div class="col-md-6 col-sm-6">
+		<div class="category-box col-md-12">
+			<div class="header-section">
+								<h3 class="header-title OpenSansBold-class">Submit Fact</h3></div>
+			
+			<div ng-controller="FactController">
+
+	<div class="category-box col-md-12">
+	<div class="form-group margin-bottom-30">
+		<form name="factForm" ng-submit="submit()", this.disabled = true" novalidate>
+
+			<div class="form-group margin-bottom-30">
+				<label class="header-label" >Subject:</label> <input name="subject" type="text"
+					class="form-control" ng-model="fact.subject" required></input> <span
+					class="error" style="color: red; font-weight: bold"
+					ng-show="factForm.subject.$invalid"> </span>
+			</div>
+
+			<div class="form-group margin-bottom-30">
+				<label class="header-label">Description:</label> <input name="description" type="text"
+					class="form-control" ng-model="fact.description" required></input>
+				<span class="error" style="color: red; font-weight: bold"
+					ng-show="factForm.description.$invalid"></span>
+			</div>
+			
+			<div class="form-group margin-bottom-30">
+					<label class="header-label">Upload Attachment:</label> <input class="form-control"
+						type="file" file-model="file" name="file"
+						accept=".xlsx,.xls,image/*,.doc, .docx.,.ppt, .pptx,.txt,.pdf"
+						data-max-size="204" required></input> <span class="error"
+						style="color: red; font-weight: bold"
+						ng-show="registrationForm.file.$touched"><span
+						ng-show="registrationForm.file.$invalid">Image is required</span></span>
+				</div>
+
+			<!-- <div class="form-group">
+				<label>ParentID:</label> <input name="parentId" type="number"
+					class="form-control" ng-model="fact.parentId" required></input> <span
+					class="error" style="color: red; font-weight: bold"
+					ng-show="factForm.ParentId.$invalid">The Parent id is
+					required.</span>
+			</div>
+
+			<div class="form-group">
+				<label>ParentName:</label> <input name="parentName" type="text"
+					class="form-control" ng-model="fact.parentName" required></input>
+			</div>
+
+			<div class="form-group">
+				<label>ParentType:</label> <select name="parentType"
+					class="form-control" ng-model="fact.parentType" required>
+					<option value="">---please select---</option>
+					<option value="Scheme">Scheme</option>
+					<option value="LocalGraph">LocalGraph</option>
+					<option value="GlobalGraph">GlobalGraph</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label>Status:</label> <select name="status" class="form-control"
+					ng-model="fact.status" required>
+					<option value="">---please select---</option>
+					<option value="Submitted">Submitted</option>
+					<option value="pending">Pending</option>
+					<option value="accepted">Accepted</option>
+					<option value="deleted">Deleted</option>
+				</select>
+			</div>
+ -->
+ <div >
+  {{message}}
+ </div>
+			<div>
+				<button type="submit" class="btn btn-warning">Submit</button>
+			</div>
+		</form>
+		</div>
+	</div>
+</div>
+		</div>		
+	</div>
+
+	<div class="col-md-3 col-sm-3">
+		<div class="category-box col-md-12">
+			<h2>VERDICT</h2>
+
+			<ul class="verdict">
+				<li class="greeBG" ng-repeat="list in verdictList">
+					<span>{{list}}</span>
+					<div class="viewCase">
+						View case + <span>{{list.date}}</span>
+					</div> <a class="shere" id="{{list.id}}" href="#"><i
+						class="fa fa-share-alt"></i></a>
+
+				</li>
+				<a class="seeMore"><span>See More Verdicts</span> <i class="fa">+</i>
+				</a>
+			</ul>
+		</div>
+
+
+		<div class="category-box col-md-12">
+			<h2>task</h2>
+			<ul class="taskList ">
+				<li ng-repeat="list in taskList"><span class="pull-xs-left G "><img
+						class="task-icon responsive"
+						src="data:image/JPEG;base64,{{list.attachment}}" style="width:50px;height:50px;"></span>
+					<div class="right">
+						<strong>{{list.Subject}} </strong> {{list.description}} <a
+							href="#" id="{{list.id}}"> Share</a>
+					</div></li>
+
+			</ul>
+			<pagination ng-model="currentPage" total-items=20 max-size=5
+				boundary-links="true"> </pagination>
+		</div>
+	</div>
+</div>

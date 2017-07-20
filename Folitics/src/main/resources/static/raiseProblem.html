@@ -1,0 +1,371 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+<link href="content/css/govern.css" rel="stylesheet" />
+
+</head>
+<body>
+	<nav class="navbar navbar-inverse nav-section">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">VOICEUP</a>
+			</div>
+		</div>
+	</nav>
+	<div class="container-fluid body-content">
+		<div class="row">
+			<div class="col-lg-3">LHS</div>
+			<div class="col-lg-6 center-content">
+
+				<div class="header-section">
+					<h2 class="header-title OpenSansBold-class">Raise Problem</h2>
+					<div class="row radios">
+						<div class="col-lg-5 col-md-5 remove-padding-right">
+							<input id="rdByPeople" type="radio" name="problemType"
+								value="byPeople" checked /> <label class="radio"
+								for="rdByPeople"></label> <span id="spanByPeople"
+								class="header-label-black">Let people help you</span>
+						</div>
+						<div class="col-lg-7 col-md-7">
+							<input id="rdByDepartment" type="radio" name="problemType"
+								value="byDepartment" /> <label class="radio"
+								for="rdByDepartment"></label> <span id="spanByDepartment"
+								class="header-label-black">Quicly sent to minister or
+								department</span>
+						</div>
+					</div>
+				</div>
+
+				<form>
+					<div class="form-group margin-bottom-30">
+						<label class="header-label" for="problemTitle">Problem
+							title</label> <input type="text" class="form-control" id="problemTitle"
+							placeholder="Give a title to your problem..."
+							ng-model="task.subject" class="form-control"
+							ng-maxlength="maxlength" ng-pattern="/^[,\w -]*$/" required>
+					</div>
+					<div class="form-group margin-bottom-30">
+						<label class="header-label" for="problemDescription">Tell
+							us about your problem</label>
+						<div class="left-inner-addon">
+							<i data-toggle="modal" data-target="#myProblemDescModal"></i>
+							<textarea id="problemDescription" class="form-control" rows="4"
+								placeholder="Describe your problem. Give dates, evidences, any other detail you have..."></textarea>
+						</div>
+					</div>
+					<div class="form-group margin-bottom-30">
+						<label class="header-label" for="problemType">Problem
+							related to</label> <select class="form-control" id="problemType">
+							<option value="0" selected="selected">Select a problem
+								type which best describes your case...</option>
+							<option value="1">Admission</option>
+							<option value="2">Cleaner</option>
+							<option value="3">Crime assult</option>
+							<option value="4">FIR</option>
+							<option value="5">Pension</option>
+							<option value="6">Not in this list</option>
+						</select> <i class="icon-drop-down"></i>
+					</div>
+					<div class="form-group margin-bottom-30">
+						<div>
+							<label class="header-label" for="problemDepartment">Department
+							</label><i class="icon_help"></i>
+						</div>
+
+						<div class="right-inner-addon">
+							<i data-toggle="modal" data-target="#myProblemDepartmentModal"></i>
+							<input type="text" id="problemDepartment" class="form-control"
+								placeholder="Which department your problem relates to..." />
+						</div>
+					</div>
+					<div class="form-group margin-bottom-30">
+						<label class="header-label" for="problemPublicOfficer">Who
+							all public officer(s) you met</label>
+						<div class="right-inner-addon">
+							<i data-toggle="modal" data-target="#myproblemPublicOfficerModal"></i>
+							<input type="text" id="problemPublicOfficer" class="form-control"
+								placeholder="Add all people you met reagrding your problem..." />
+						</div>
+					</div>
+					<div class="form-group margin-bottom-30 user-details">
+						<label class="header-label">Your contact details</label>
+						<div class="row margin-bopttom-15px">
+							<div class="col-lg-12 col-md-12 col-sm-12">
+								<input type="text" id="address" class="form-control"
+									placeholder="Address..." />
+							</div>
+						</div>
+						<div class="row margin-bopttom-15px">
+							<div class="col-lg-12 col-md-12 col-sm-12">
+								<input type="text" id="city" class="form-control"
+									placeholder="Start typing your city name..." />
+							</div>
+						</div>
+						<div class="row margin-bopttom-15px">
+							<div class="col-lg-6 col-md-6">
+								<input type="email" id="email" class="form-control"
+									placeholder="Email..." />
+							</div>
+							<div class="col-lg-6 col-md-6">
+								<input type="text" id="phone" class="form-control"
+									placeholder="Phone..." />
+							</div>
+						</div>
+						<div class="row margin-bopttom-15px radios">
+							<div class="col-lg-6 col-md-6">
+								<input type="radio" name="showEmailPhone" id="rdShowEmail"
+									checked /> <label class="radio" for="rdShowEmail"></label> <span>Show
+									my email only if I accept</span>
+							</div>
+							<div class="col-lg-6 col-md-6">
+								<input type="radio" name="showEmailPhone" id="rdShowPhone" /> <label
+									class="radio" for="rdShowPhone"></label> <span>Show my
+									phone only if I accept</span>
+							</div>
+						</div>
+					</div>
+					<div class="form-group margin-bottom-30  concern-people-details">
+						<label class="header-label">Choose who all you want your
+							problem to be send:</label>
+						<div class="row">
+							<div class="col-lg-2">
+								<img src="" />
+								<div class="header">Arun Jaitley</div>
+								<div class="title">Finance Minister</div>
+							</div>
+							<div class="col-lg-2">
+								<img src="" />
+								<div class="header">Arun Jaitley</div>
+								<div class="title">Finance Minister</div>
+							</div>
+							<div class="col-lg-2">
+								<img src="" />
+								<div class="header">Arun Jaitley</div>
+								<div class="title">Finance Minister</div>
+							</div>
+							<div class="col-lg-2">
+								<img src="" />
+								<div class="header">Arun Jaitley</div>
+								<div class="title">Finance Minister</div>
+							</div>
+							<div class="col-lg-2">
+								<img src="" />
+								<div class="header">Arun Jaitley</div>
+								<div class="title">Finance Minister</div>
+							</div>
+							<div class="col-lg-2">
+								<img src="" />
+								<div class="header">Arun Jaitley</div>
+								<div class="title">Finance Minister</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group terms-condition">
+						<label class="header-label">By submitting your problem you
+							agree with the terms and conditions.</label>
+						<p>I here by agree that this is (text has to provide by CMS
+							team)..</p>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-success govern-success">Submit
+							your problem</button>
+						<button type="submit" class="btn btn-default">Cancel</button>
+					</div>
+
+				</form>
+			</div>
+			<div class="col-lg-3">RHS</div>
+			<!-- Problem Description Modal -->
+			<div class="modal fade" id="myProblemDescModal" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+
+						<div class="modal-body">
+							<div class="form-group margin-bottom-30">
+								<label class="header-label" for="problemAddFile">Add
+									File</label>
+								<div class="right-inner-addon">
+									<i></i> <input type="text" class="form-control"
+										id="problemAddFile" placeholder="Browse files...">
+									<p style="font-size: 14px; color: #bcbcbc; margin-top: 5px;">Supported
+										formats: jpg, BMP, PNG,MP3, MP4, AVI, MOV</p>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer" style="border: none;">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-success govern-success"
+								data-dismiss="modal">Done</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- Problem Description Modal  -->
+			<!-- Problem Department Modal -->
+			<div class="modal fade" id="myProblemDepartmentModal" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+
+						<div class="modal-body">
+							<div class="form-group margin-bottom-30">
+								<label class="header-label" for="problemAddFile">Add
+									File</label>
+								<div class="right-inner-addon">
+									<i></i> <input type="text" class="form-control"
+										id="problemAddFile"
+										placeholder="Select more departmets from the list... ">
+									<div style="border: 1px solid #ccc; border-radius: 4px;"
+										class="checkboxs">
+										<ul style="padding: 10px; list-style: none;">
+											<li><input type="checkbox" name="name1" id="name1"
+												value="" checked /> <label class="checkbox" for="name1"></label>
+												<span style="position: relative; bottom: 8px; color: #000;">Health</span>
+											</li>
+											<li><input type="checkbox" name="name2" id="name2"
+												value="" /> <label class="checkbox" for="name2"></label> <span
+												style="position: relative; bottom: 8px; color: #000;">Fire</span>
+											</li>
+											<li><input type="checkbox" name="name3" id="name3"
+												value="" /> <label class="checkbox" for="name3"></label> <span
+												style="position: relative; bottom: 8px; color: #000;">Sports</span>
+											</li>
+											<li><input type="checkbox" name="name4" id="name4"
+												value="" /> <label class="checkbox" for="name4"></label> <span
+												style="position: relative; bottom: 8px; color: #000;">MCD</span>
+											</li>
+											<li><input type="checkbox" name="name5" id="name5"
+												value="" /> <label class="checkbox" for="name5"></label> <span
+												style="position: relative; bottom: 8px; color: #000;">Transport</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer" style="border: none;">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-success govern-success"
+								data-dismiss="modal">Done</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- Problem Department Modal  -->
+			<!-- Problem Public Officers Modal -->
+			<div class="modal fade" id="myproblemPublicOfficerModal"
+				role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-body public-officer-details">
+							<label class="header-label">Add People</label>
+							<div class="addedPeople"></div>
+
+							<div class="form-group margin-bottom-30">
+								<div class="row margin-bopttom-15px">
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<input type="text" id="officerName" class="form-control"
+											placeholder="Name of the person..." />
+									</div>
+								</div>
+								<div class="row margin-bopttom-15px">
+									<div class="col-lg-6 col-md-6  col-sm-6 col-xs-6">
+										<input type="text" id="officerDepartment" class="form-control"
+											placeholder="Department..." />
+									</div>
+									<div class="col-lg-6 col-md-6  col-sm-6 col-xs-6">
+										<input type="text" id="officerCity" class="form-control"
+											placeholder="City name..." />
+									</div>
+								</div>
+								<div class="row margin-bopttom-15px">
+									<div class="col-lg-12 col-md-12  col-sm-12 col-xs-12">
+										<textarea id="officerCommentOn" class="form-control"
+											placeholder="Comment if any..." rows="3"></textarea>
+									</div>
+								</div>
+								<div class="row helpfull radios">
+									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"
+										style="padding-right: 0; margin-top: 4px;">
+										<span class="helpfull-text">Was it helpful ? </span>
+									</div>
+									<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"
+										style="padding-left: 0;">
+										<input type="radio" name="helpFullValue" value=""
+											id="rdhelpFullYes" /> <label class="radio"
+											for="rdhelpFullYes"></label> <i class="icon-up"
+											style="margin-top: 4px; margin-left: 10px;"></i> <span
+											class="helpfull-yes-no"
+											style="padding-top: 4px; margin-left: 5px;">Yes</span>
+									</div>
+									<div class="col-lg-2 col-md-2 col-md-2 col-xs-2"
+										style="padding-left: 0;">
+										<input type="radio" name="helpFullValue" value=""
+											id="rdhelpFullNo" /> <label class="radio" for="rdhelpFullNo"></label>
+										<i class="icon-down"
+											style="margin-top: 4px; margin-left: 10px;"></i> <span
+											class="helpfull-yes-no"
+											style="padding-top: 4px; margin-left: 5px;">No</span>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer" style="border: none;">
+							<a class="pull-left add-person">Add another person</a>
+							<div class="pull-right">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-success govern-success"
+									data-dismiss="modal">Done</button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- Problem Department Modal  -->
+		</div>
+		<h6>{}</h6>
+	</div>
+
+	<script src="scripts/jquery-1.12.4.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			//  alert('hello');
+			//   $('#rdByPeople').prop('checked', true);
+			$('#spanByPeople').css('font-weight', 'bold');
+			$('input:radio[name=problemType]').change(function() {
+
+				if (this.value == 'byPeople') {
+					$('#spanByDepartment').css('font-weight', '');
+					$('#spanByPeople').css('font-weight', 'bold');
+				} else if (this.value == 'byDepartment') {
+					$('#spanByPeople').css('font-weight', '');
+					$('#spanByDepartment').css('font-weight', 'bold');
+				}
+			});
+			$("select").change(function() {
+
+				if ($(this).val() == "0")
+					$(this).addClass("empty");
+				else
+					$(this).removeClass("empty")
+			});
+			$("select").change();
+
+		});
+	</script>
+</body>
+</html>

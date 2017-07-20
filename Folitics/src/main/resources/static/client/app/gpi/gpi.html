@@ -1,0 +1,78 @@
+<div ng-controller="GpiController">
+	<div class="container">
+							<div class="row">
+								<div class="col-sm-8">
+									<div class="restaurantDetail">
+										<div class="media-body">
+												<div id="chartContainer" style="height: 300px; width: 100%;">
+	                                               <myelem></myelem>
+												</div>
+											</div>
+										<div class="media">
+											<div class="media-body">
+												<div class="padd60 remove-paddT text-center">
+													<h1 class="title">Short Sentiment</h1>
+													<div class="spaceLarge"></div>
+													<div class="popularNews">
+				
+														<ul class="sentiments">
+															<li ng-repeat="sentiment in sentiments" class="thumbnail"><a
+																href="#/sentiment/{{sentiment.id}}" class="thumb"><img
+																	class="img-responsive thumbnail"
+																	ng-src="data:image/JPEG;base64,{{sentiment.image}}"
+																	alt="sentiment image" width="50" height="30"></a> <a
+																href="#/sentiment/{{sentiment.id}}"><span
+																	ng-bind="sentiment.subject"></span></a>
+																<p>
+																	<span ng-bind="sentiment.description"></span>
+																</p></li>
+														</ul>
+														
+														<a id="prev2" class="prev sliderArrow" href="#"><span
+															class="glyphicon glyphicon-chevron-left"
+															aria-hidden="true"></span></a> <a id="next2"
+															class="next sliderArrow" href="#"><span
+															class="glyphicon glyphicon-chevron-right"
+															aria-hidden="true"></span></a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="media">
+											<div class="media-body">
+												<div class="padd60 remove-paddT text-center">
+													<h1 class="title">Permanent Sentiment</h1>
+													<div class="spaceLarge"></div>
+													<div class="popularNews">
+
+
+														<ul class="sentiments">
+															<li ng-repeat="sentiment in sentiments" class="thumbnail"><a
+																href="#/sentiment/{{sentiment.id}}" class="thumb"><img
+																	class="img-responsive thumbnail"
+																	ng-src="data:image/JPEG;base64,{{sentiment.image}}"
+																	alt="sentiment image" width="50" height="30"></a> <a
+																href="#/sentiment/{{sentiment.id}}"><span
+																	ng-bind="sentiment.subject"></span></a>
+																<p>
+																	<span ng-bind="sentiment.description"></span>
+																</p></li>
+														</ul>
+
+														<a id="prev2" class="prev sliderArrow" href="#"><span
+															class="glyphicon glyphicon-chevron-left"
+															aria-hidden="true"></span></a> <a id="next2"
+															class="next sliderArrow" href="#"><span
+															class="glyphicon glyphicon-chevron-right"
+															aria-hidden="true"></span></a>
+													</div>
+												</div>
+											</div>
+										</div>
+										
+									</div>
+								</div>
+
+							</div>
+						</div>
+</div>

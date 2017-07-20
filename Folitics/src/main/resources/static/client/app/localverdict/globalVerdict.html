@@ -1,0 +1,273 @@
+<div class="main-container">
+	<!-- <div class="col-md-12">
+		<div class="news-flash-box">
+			<div class="news-flash-left">
+				<span>News Flash</span> <span class="news-flash-title"><samp
+						class="triangle-topright"></samp> </span>
+			</div>
+			<div class="news-flash-right">
+				<a href="">{{newsFlash}}</a>
+			</div>
+			<span class="news-flash-close">X</span>
+		</div>
+	</div> -->
+	<!-- <div class="col-md-2 col-sm-2">
+		<div class="row lc-vrdct-pollResults">
+			<div class="category-box col-md-12">
+			
+		</div>
+			<button class="pull-left nav-btns" name="Indicator">sdf</button>
+		</div>
+	</div> -->
+	<!-- <div class="col-md-6 col-sm-6"> -->
+	<!-- <div class="category-box col-md-12"> -->
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+		style="padding: 10px 0;">
+		<div class="container-fluid verdict-performance"
+			ng-init="getPrerequisite()">
+			<!--  -->
+			<div class="row lc-vrdct-overallPoll">
+				<label class="pull-left header-label">Global overall verdict</label>
+				<div class="pull-right">
+					<i class="icon-up"></i>
+				</div>
+
+				<div class="progress verdict-progress">
+					<div class="progress-bar progress-bar-danger"
+						ng-style="{ width: globalOverAllVerdict.proCount + '%', 'background-color': '#f95900'}"></div>
+					<div class="progress-bar progress-bar-success"
+						ng-style="{ width: globalOverAllVerdict.antiCount + '%', 'background-color': '#449d44'}"></div>
+				</div>
+				<div ng-style="{ width: globalOverAllVerdict.proCount + '%' }"
+					class="pull-left">
+					<p class="verdict-infacv">{{globalOverAllVerdict.proCount}} %</p>
+					<p class="verdict-txt">Favouring government</p>
+
+				</div>
+				<div ng-style="{ width: globalOverAllVerdict.antiCount + '%' }"
+					class="pull-right">
+
+					<p class="verdict-aginst">{{globalOverAllVerdict.antiCount}} %</p>
+					<p class="verdict-txt">Against government</p>
+				</div>
+			</div>
+			<!--  -->
+
+			<div class="row lc-vrdct-overallPoll">
+				<div class="col-lg-12">
+					<label class="pull-left header-label">Global verdict
+						distribution</label>
+				</div>
+				<div class="col-lg-2 verdict-performance-type-list">
+					<global-indicators></global-indicators>
+
+				</div>
+				<div class="col-lg-10">
+					<global-overall-verdict id="1" data='data1'
+						title='globalVerdictAgeGroup'></global-overall-verdict>
+				</div>
+				<!-- <div class="col-lg-3 verdict-performance-type-list">
+						<promise-indicators></promise-indicators>
+					</div>
+					<div class="col-lg-9">
+					<global-promise-indicator id='6' data='data1' title='Promise Indicator'></global-promise-indicator>
+					</div> -->
+			</div>
+
+		</div>
+		<div class="container-fluid promise-indicator">
+			<div class="row">
+				<div class="col-lg-12">
+					<label class="pull-left header-label">Promise Indicators</label>
+					<div class="pull-right shared-links">
+						<input class="share-box" id="inptShareInd" type="checkbox">
+						<label for="inptShareInd"></label>
+						<div id="shareItem">
+							<ul>
+								<li><a href="javascript:void(0)">Facebook</a></li>
+								<li><a href="javascript:void(0)">Twitter</a></li>
+								<li><a href="javascript:void(0)">Air</a></li>
+								<li><a href="javascript:void(0)">Linkdin</a></li>
+								<li><a href="javascript:void(0)">Google circle</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<!-- <div class="col-lg-12">
+						<span class="promise-ideal-icon">__</span> <span
+							class="promise-ideal">Ideal</span> <span
+							class="promise-actual-icon">__</span> <span
+							class="promise-actual">Actual</span>
+					</div> -->
+				<div class="col-lg-2 verdict-performance-type-list">
+					<promise-indicators></promise-indicators>
+				</div>
+				<div class="col-lg-10">
+					<global-promise-indicator id='6'
+						data='data1' title='Promise Indicator'></global-promise-indicator>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12"></div>
+			</div>
+		</div>
+		<div class="container-fluid change-indicator">
+			<div class="row">
+				<div class="col-lg-12">
+					<label class="pull-left header-label">Change in Indicators</label>
+					<div class="pull-right shared-links">
+						<input class="share-box" id="inptShareChngInd" type="checkbox">
+						<label for="inptShareChngInd"></label>
+						<div id="shareItem">
+							<ul>
+								<li><a href="javascript:void(0)">Facebook</a></li>
+								<li><a href="javascript:void(0)">Twitter</a></li>
+								<li><a href="javascript:void(0)">Air</a></li>
+								<li><a href="javascript:void(0)">Linkdin</a></li>
+								<li><a href="javascript:void(0)">Google circle</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<table class="table" style="margin-bottom: 0;">
+						<thead>
+							<tr>
+								<td>Indicator</td>
+								<td>From</td>
+								<td>To</td>
+								<td>Change</td>
+								<td>Point affected</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="indicator in changeIndicators">
+								<td>{{indicator.indicatorName}}</td>
+								<td>{{indicator.valueFrom}}</td>
+								<td>{{indicator.valueTo}}</td>
+								<td>{{indicator.lastChange | date:'medium'}}</td>
+								<td>{{indicator.pointAffected}}</td>
+							</tr>
+							<!-- <tr>
+									<td>CPI</td>
+									<td>4.5</td>
+									<td>6</td>
+									<td>5-Mar-2015</td>
+									<td>500</td>
+								</tr>
+								<tr>
+									<td>No. of new rail</td>
+									<td>10</td>
+									<td>6</td>
+									<td>2-Jan-2016</td>
+									<td>800</td>
+								</tr>
+ -->
+						</tbody>
+					</table>
+					<br />
+					<div style="text-align: center">
+						<label class="verdict-seemore">See more indicators</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid verdict-report">
+			<div class="row">
+				<div class="col-lg-12">
+					<label class="header-label">Reports</label> <br />
+					<ul>
+						<li>
+							<div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+									Proin nisi ligula, dapibus a volutpat sit amet, mattis et dui.
+									Nunc porttitor accumsan orci id luctus .</p>
+							</div>
+							<div class="date-point pull-left">
+								<span class="date">18-Feb-2016</span> | <span class="point">1000
+									points</span>
+							</div>
+							<div class="pull-right">
+								<label class="share">Share </label> <span
+									style="color: #bcbcbc;">|</span> <label class="add-my-report">Add
+									to my reports</label>
+							</div>
+							<div style="clear: both;"></div>
+						</li>
+						<li class="brd-pdng">
+							<div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+									Proin nisi ligula, dapibus a volutpat sit amet, mattis et dui.
+									Nunc porttitor accumsan orci id luctus .</p>
+							</div>
+							<div class="date-point pull-left">
+								<span class="date">18-Feb-2016</span> | <span class="point">1000
+									points</span>
+							</div>
+							<div class="pull-right">
+								<label class="share">Share </label> <span
+									style="color: #bcbcbc;">|</span> <label class="add-my-report">Add
+									to my reports</label>
+							</div>
+							<div style="clear: both;"></div>
+						</li>
+						<li class="brd-pdng">
+							<div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+									Proin nisi ligula, dapibus a volutpat sit amet, mattis et dui.
+									Nunc porttitor accumsan orci id luctus .</p>
+							</div>
+							<div class="date-point pull-left">
+								<span class="date">18-Feb-2016</span> | <span class="point">1000
+									points</span>
+							</div>
+							<div class="pull-right">
+								<label class="share">Share </label> <span
+									style="color: #bcbcbc;">|</span> <label class="add-my-report">Add
+									to my reports</label>
+							</div>
+							<div style="clear: both;"></div>
+						</li>
+						<li class="brd-pdng">
+							<div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+									Proin nisi ligula, dapibus a volutpat sit amet, mattis et dui.
+									Nunc porttitor accumsan orci id luctus .</p>
+							</div>
+							<div class="date-point pull-left">
+								<span class="date">18-Feb-2016</span> | <span class="point">1000
+									points</span>
+							</div>
+							<div class="pull-right">
+								<label class="share">Share </label> <span
+									style="color: #bcbcbc;">|</span> <label class="add-my-report">Add
+									to my reports</label>
+							</div>
+							<div style="clear: both;"></div>
+						</li>
+
+					</ul>
+					<br />
+					<div style="text-align: center">
+						<label style="cursor: pointer; color: #f95900;">See more
+							indicators</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12"></div>
+			</div>
+
+
+		</div>
+	</div>
+	<!-- </div> -->
+
+	<!-- </div> -->
+	<!-- .....end....... -->
+	<!-- <div class="col-md-2 col-sm-2"></div> -->
+</div>

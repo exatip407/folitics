@@ -1,0 +1,58 @@
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>find data</title>
+</head>
+<body>
+	<div ng-controller="GovtschemedataviewController">
+
+		<div class="container-fluid">
+			<div class="row">
+
+
+				USER ID: <span ng-bind="govtschemedataview.id"></span></br> SCHEME NAME<span
+					ng-bind="govtschemedataview.schemename"></span></br> ISACTIVE: <span
+					ng-bind="govtschemedataview.isactive"></span></br> Description: <span
+					ng-bind="govtschemedataview.description1"></span></br> description: <span
+					ng-bind="govtschemedataview.description2"></span></br>
+
+
+
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html> -->
+
+
+<div class="media">
+	<div class="media-body">
+		<div class="padd60 remove-paddT text-center">
+			<h1 class="title">Goverment Scheme Data</h1>
+			<div class="spaceLarge"></div>
+			<div class="popularNews">
+				<div ng-controller="GovtschemedataController">
+					<div class="container-fluid">
+						<div class="row">
+							GOVTSCHEME ID: <span ng-bind="govtschemedataview.id"></span></br> SCHEME
+							NAME :-<b><span ng-bind="govtschemedataview.schemename"></b></span></br>
+							ISACTIVE: <span ng-bind="govtschemedataview.isactive"></span></br>
+							Description: <span ng-bind="govtschemedataview.description1"></span></br>
+							description: <span ng-bind="govtschemedataview.description2"></span></br>
+							</br> </br> <label>Followers:<span ng-bind="followCount"></span><label>
+									</br>
+						</div>
+
+						</br>
+
+						<button type="button" class="btn btn-primary"
+							ng-click="followOrUnFollowGovtSchemeData()">
+							 <span ng-bind="followUnfollow"></span>
+						</button>
+					</div>
+				</div>

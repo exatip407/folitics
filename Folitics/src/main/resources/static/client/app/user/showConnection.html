@@ -1,0 +1,38 @@
+
+
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+</head>
+<body>
+
+<div ng-controller="UserViewController"></div>
+
+<div class="container-fluid">
+	<div class="row">
+	
+	<h1>hello we got success<h1>
+	<a>  hello</a>
+
+		<ul class="users">
+			<li ng-repeat="user in connectedUser" class="thumbnail"> <a
+				href="#/user/{{user.id}}">
+				USER ID : <span ng-bind="user.id"></span></a></br>
+				<!-- EMAIL ID : <span ng-bind="user.emailId"></span></br>
+				GENDER : <span ng-bind="user.gender"></span></br>
+				NAME : <span ng-bind="user.name"></span></br>
+				PASSWORD : <span ng-bind="user.password"></span></br>
+				POINT : <span ng-bind="user.point"></span></br>
+				STATUS : <span ng-bind="user.status"></span></br>
+				USERNAME: <span ng-bind="user.username"></span></br>
+				ROLE ID : <span ng-bind="user.role_id"></span></br>
+				USER EDUCATION : <span ng-bind="user.user_education"></span> -->
+				</li>
+		</ul>
+	</div>
+</div>
+
+</body>
+</html>

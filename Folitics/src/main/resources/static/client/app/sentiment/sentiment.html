@@ -1,0 +1,161 @@
+<link rel="stylesheet" href="content/css/govern.css">
+<div ng-controller="SentimentController">
+	<div class="col-sm-8 col-sm-offset-2">
+		<div class="page-header">
+			<h1>Create Temporary sentiment</h1>
+		</div>
+		<form name="sentimentForm" ng-submit="submit(sentimentForm.$valid)"
+			novalidate>
+			<div class="form-group">
+				<label>Subject:</label> <input name="subject" type="text"
+					ng-model="sentiment.subject" class="form-control"
+					ng-maxlength="maxlength" ng-pattern="/^[,\w -]*$/" required
+					auto-fill-sync></input> <span class="error"
+					style="color: red; font-weight: bold"
+					ng-show="sentimentForm.subject.$touched"> <span
+					ng-show="sentimentForm.subject.$error.required">Subject is
+						required</span> <span ng-show="sentimentForm.subject.$error.pattern">Special
+						characters not allowed</span>
+				</span>
+			</div>
+			<div class="form-group">
+				<label>Description:</label> <input name="description" type="text"
+					class="form-control" ng-model="sentiment.description"
+					ng-pattern="/^[,\w -]*$/" ng-maxlength="maxlength" auto-fill-sync
+					required></input> <span class="error"
+					style="color: red; font-weight: bold"
+					ng-show="sentimentForm.description.$touched"> <span
+					ng-show="sentimentForm.description.$error.required">Description
+						is required</span> <span
+					ng-show="sentimentForm.description.$error.pattern">Special
+						characters not allowed</span>
+				</span>
+
+			</div>
+			<!-- 				<div class="form-group">
+					<label>Created By:</label> <input name="createdBy" type="text"
+						class="form-control" ng-model="sentiment.createdBy"
+						ng-pattern="/^[,\w -]*$/" ng-maxlength="maxlength" auto-fill-sync
+						required></input> <span class="error"
+						style="color: red; font-weight: bold"
+						ng-show="sentimentForm.createdBy.$touched"> <span
+						ng-show="sentimentForm.createdBy.$error.required">Created
+							by field is required</span> <span
+						ng-show="sentimentForm.createdBy.$error.pattern">Special
+							characters not allowed</span>
+					</span>
+
+				</div> -->
+			<div class="form-group">
+				<label>Start Time:</label> <input name="startTime"
+					type="datetime-local" class="form-control"
+					ng-model="sentiment.startTime"
+					placeholder="yyyy-MM-ddTHH:mm:ss.sss"
+					min="{{todayDate | date:'yyyy-MM-ddTHH:mm'}}"
+					max="{{sentiment.endTime | date:'yyyy-MM-ddTHH:mm:ss.sss'}}"
+					required></input> <span class="error"
+					style="color: red; font-weight: bold"
+					ng-show="sentimentForm.startTime.$touched && sentimentForm.startTime.$invalid">Date
+					is invalid</span>
+
+			</div>
+			<div class="form-group">
+				<label>End Time:</label> <input name="endTime" type="datetime-local"
+					class="form-control" ng-model="sentiment.endTime"
+					placeholder="yyyy-MM-ddTHH:mm:ss.sss"
+					min="{{todayDate | date:'yyyy-MM-ddTHH:mm'}}"
+					min="{{sentiment.startTime | date:'yyyy-MM-ddTHH:mm:ss'}}" required></input>
+				<span class="error" style="color: red; font-weight: bold"
+					ng-show="sentimentForm.endTime.$touched && sentimentForm.endTime.$invalid">Date
+					is invalid</span>
+			</div>
+			<!-- <div class="form-group">
+					<label>Sentiment State:</label> <select name="sentimentState"
+						ng-model="sentimentState" class="form-control"
+						ng-options="sentimentState as sentimentState.name for sentimentState in sentimentStates"
+						required>
+						<option value="">---Please select---</option>
+					</select> <span class="error" style="color: red; font-weight: bold"
+						ng-show="sentimentForm.sentimentState.$touched && sentimentForm.sentimentState.$invalid">State
+						required.</span>
+				</div> -->
+			<!-- <div class="form-group">
+					<label>Sentiment Type:</label> <select name="sentimentType"
+						ng-model="sentimentType" class="form-control"
+						ng-options="sentimentType as sentimentType.name for sentimentType in sentimentTypes"
+						required>
+						<option value="">---Please select---</option>
+					</select> <span class="error" style="color: red; font-weight: bold"
+						ng-show="sentimentForm.sentimentType.$touched && sentimentForm.sentimentType.$invalid">Sentiment
+						Type is required.</span>
+				</div> -->
+			<div class="form-group">
+				<label>Add polls:</label> <select multiple="multiple" name="poll"
+					ng-model="poll" class="form-control"
+					ng-options="poll as poll.question for poll in polls" required>
+				</select> <span class="error" style="color: red; font-weight: bold"
+					ng-show="sentimentForm.poll.$touched && sentimentForm.poll.$invalid">Poll
+					is required.</span>
+			</div>
+			
+			<div class="form-group">
+				<label>Categories:</label> <select multiple="multiple" name="poll"
+					ng-model="categoriesTags" class="form-control"
+					ng-options="category as category.name for category in categories" required>
+				</select> <span class="error" style="color: red; font-weight: bold"
+					ng-show="sentimentForm.category.$touched && sentimentForm.category.$invalid">category
+					is required.</span>
+			</div>
+			
+			<div class="form-group">
+				<label>Related Sentiment:</label> <select multiple="multiple" name="poll"
+					ng-model="relatedSentimentTags" class="form-control"
+					ng-options="related as related.subject for related in sentiments">
+				</select> 
+			</div>
+			
+			<div class="form-group">
+				<label for="categories">Categories: </label>
+				<tags-input ng-model="categoriesTags" display-property="name"
+					add-from-autocomplete-only="true" placeholder="Add a Categories"
+					replace-spaces-with-dashes="false" template="tag-template"
+					min-length="1" max-length="30"> <auto-complete
+					source="loadloadCategories($query)" min-length="0"
+					load-on-focus="true" load-on-empty="true" max-results-to-show="32"
+					template="autocomplete-categories-template"> </auto-complete> </tags-input>
+			</div>
+			<!-- <div class="form-group ">
+				<label for="relatedSentiments">Related sentiment: </label>
+				<tags-input ng-model="relatedSentimentTags"
+					add-from-autocomplete-only="true" display-property="subject"
+					placeholder="Add a Related sentiment"
+					replace-spaces-with-dashes="false" template="tag-template"
+					minTags=1> <auto-complete
+					source="loadSentiments($query)" min-length="0" load-on-focus="true"
+					load-on-empty="true" max-results-to-show="32"
+					template="autocomplete-template"> </auto-complete> </tags-input>
+				<span class="error" style="color: red; font-weight: bold"
+					ng-show="sentimentForm.relatedSentiments.$touched && sentimentForm.relatedSentiments.$invalid">Related
+					sentiment is required.</span>
+			</div> -->
+			<div class="form-group">
+				<label>Upload image:</label> <input class="form-control" type="file"
+					file-model="file" name="file"
+					accept="image/jpeg,image/jpg,image/gif,image/png"
+					data-max-size="204" required></input> <span class="error"
+					style="color: red; font-weight: bold"
+					ng-show="sentimentForm.file.$touched && sentimentForm.file.$invalid">Image
+					is required</span>
+			</div>
+
+			<button type="submit" class="btn btn-primary"
+				ng-disabled="!sentimentForm.$valid">Submit</button>
+				
+				<button type="reset" class="btn btn-primary"
+				>Reset</button>
+				
+				<button ng-click = "reload()" class="btn btn-primary"
+				>Cancel</button>
+		</form>
+	</div>
+</div>

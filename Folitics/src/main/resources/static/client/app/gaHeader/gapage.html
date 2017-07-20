@@ -1,0 +1,201 @@
+<link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700'
+	rel='stylesheet' type='text/css'>
+<div class="main-container">
+	<div class="col-md-12 full-w">
+		<h2 class="border-bottom-title">GA Page</h2>
+	</div>
+
+
+	<div class="col-md-12">
+		<div class="category-box  ">
+
+			<div class="col-md-12">
+				<div class="img-bg img-responsive">
+					<div class="bnnner-div">
+						<h3 class="f-left">
+							<b>MENIFESTO</b>
+						</h3>
+						<h3 class="f-left top10">Is Modi Meeting Promices</h3>
+
+						<div class="icon-social">
+							<a href="#">
+								<div id="circle">
+									<i class="fa fa-facebook blue-icon" aria-hidden="true"></i>
+								</div>
+							</a> <a href="#">
+								<div id="circle">
+									<i class="fa fa-twitter blue-icon" aria-hidden="true"></i>
+								</div>
+							</a> <a href="#">
+								<div id="circle">
+									<i class="fa fa-camera-retro blue-icon" aria-hidden="true"></i>
+								</div>
+							</a> <a href="#">
+								<div id="circle">
+									<i class="fa fa-youtube-play blue-icon" aria-hidden="true"></i>
+								</div>
+							</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<!-- <div class="col-md-3 col-sm-6 right-p0"
+				ng-controller="gaHeaderController"> -->
+
+			<!--   <div class="sentimentsList">
+                    <h4 class="head-div foolingclr">3000 Vs 280 Points</h4>
+                    <div class="para-div">Inflation, Crime, Railway, Minority, <br>Backword Class </div>
+                    <a class="link" href="#">Folling Us </a>
+                </div>
+                 -->
+
+
+			<!-- <div ng-repeat="c in categories | limitTo : 4">
+					<span ng-bind="c.id"></span> <b> <font color="brown">
+							Threshold Category: </font>
+					</b> <span ng-bind="c.thresholdCategory"></span></br> </br>
+
+					<div ng-repeat="cc in c.indicatorDataList">
+						<b> <font color="brown"> Category Name: </font></b> <span
+							ng-bind="cc.categoryName"></span> </br> </br> <b> <font color="brown">
+								Total Score v/s Total IdealValue Score: </font>
+						</b>
+						<h4>{{c.totalScore}} v/s {{c.totalIdealVaueScore}}</h4>
+
+
+
+					</div>
+				</div> -->
+			<H2><b>Performance Indicator</b></H2>
+			<div class="col-md-3 col-sm-6 right-p0">
+				<div class="fooling">
+					<h4 class="head-div foolingclr">{{fooling.totalScore}} v/s
+						{{fooling.totalIdealVaueScore}}</h4>
+					<div style="font-family: sans-serif; font-style: oblique;"
+						class="para-div" class="para-div"
+						ng-repeat="list1 in foolingIndicatorList | limitTo : 2">
+						<b>{{list1.category.name}}</b> <br>
+					</div>
+					<a class="link">Fooling Us </a>
+				</div>
+			</div>
+
+			<div class="col-md-3 col-sm-6 right-p0">
+				<div class="unsatisfactory">
+					<h4 class="head-div unsatisfactory-clr">{{unsatisfactory.totalScore}}
+						Vs {{unsatisfactory.totalIdealVaueScore}}</h4>
+					<div style="font-family: sans-serif; font-style: oblique;"
+						class="para-div"
+						ng-repeat="list2 in unsatisfactoryIndicatorList | limitTo : 2">
+						<b>{{list2.category.name}}</b>
+					</div>
+					<a class="link"> Unsatisfactory </a>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6 right-p0 ">
+				<div class="ontrack">
+					<h4 class="head-div ontrack-clr">{{onTrack.totalScore}} Vs
+						{{onTrack.totalIdealVaueScore}}</h4>
+					<div style="font-family: sans-serif; font-style: oblique;"
+						class="para-div"
+						ng-repeat="list3 in onTrackIndicatorList | limitTo : 2">
+						<b>{{list3.category.name}}
+					</div>
+					<a class="link"> On Track </a>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6 right-p0 ">
+				<div class="bestperform">
+					<h4 class="head-div bestperform-clr">{{bestPerform.totalScore}}
+						Vs {{bestPerform.totalIdealVaueScore}}</h4>
+					<div style="font-family: sans-serif; font-style: oblique;"
+						class="para-div"
+						ng-repeat="list4 in performIndicatorList | limitTo : 2">
+						<b>{{list4.category.name}}</b>
+					</div>
+					<a class="link"> Best Performance </a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="col-md-9 col-sm-12">
+		
+<H1><b>Global Indicator Chart</b></H1>
+		<div class="category-box col-md-12" ng-init="getPrerequisite()">
+			<!--   <img class="img-responsive" src="images/ga-page/01.jpg"> -->
+			<div class="category-box col-md-12" >
+				<indicators></indicators>
+			</div>
+			
+			<div class="category-box col-md-12" >
+				<indicator-graph id='6' data="data1" title='inflation'></indicator-graph>
+			</div>
+			<br> <br>
+			<div class="gry-div">INDICATOR'S THRESHOLD INDICATION</div>
+			<div class="marginT10">
+				<a class="btn m-full-b  green-btn" href="#/" role="button">0-2
+					EXCELLENT</a> <a class="btn  m-full-b lightgreen-btn" href="#/"
+					role="button">2-5 ACCEPTABLE</a> <a
+					class="btn  m-full-b yellow-btn" href="#/" role="button">5-8
+					BAD</a> <a class="btn  m-full-b red-btn" href="#/" role="button">>8
+					GOVT FOOLING US</a>
+			</div>
+			<div class="doted-border"></div>
+
+			
+
+			<div class="col-md-12 seeprogess" ng-controller="trackPromiseController">
+			
+				
+				
+				<a href="#" class="btn nextClients "><i
+					class="fa fa-angle-right" aria-hidden="true"></i></a> <a href="#"
+					class="btn npreviousClients "><i class="fa fa-angle-left"
+					aria-hidden="true"></i></a>
+			<span ng-repeat="c in categories" >
+			<h3>
+					<b>{{c.category}}</b>
+				</h3>
+				<div class="row">
+					<div class="col-md-12 col-sm-12" >
+					
+						<a ng-if="c.direction==='Up'" href="" class="yellow-div-botm">{{c.subCategory}} <img
+								class="arw-img" src="images/ga-page/ar-up.png"></a>
+						<a ng-if="c.direction==='Down'"  href=""
+							class="green-div-botm">{{c.subCategory}} <img
+								class="arw-img" src="images/ga-page/ar-down.png"></a>
+					</span>
+				</div>
+			</div>
+			</span>
+		</div>
+	</div>
+
+
+	<div class="col-md-3 col-sm-12">
+        <div class="category-box col-md-12">
+            <h2> GOVT SCHEMES</h2>
+        <div class="search-div">
+    <input id="inputGroupSuccess1 " class="form-control " type="text "
+     placeholder="Search "> <span><i
+     class="fa fa-search f-left" aria-hidden="true"></i></span>
+   </div>
+
+   <ul class="col-md-12 col-sm-12 right-p0 left-p0">
+    <li ng-repeat="data in govtSchemeData">
+     <div class="ourschem">
+      <h4 class="head-div"><b>{{data.schemename}}</b></h4>
+      <div class="para-div">{{data.description1}}</div>
+      <a class="btn ourschem-btn" href="#/fact/{{data.id}}">SUBMIT
+       FACT</a>
+     </div>
+
+    </li>
+   </ul>
+        </div>
+	</div>
+</div>

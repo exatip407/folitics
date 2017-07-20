@@ -1,0 +1,163 @@
+<link rel="stylesheet" href="content/css/govern.css">
+<link href="client/app/problem/problem.styles.css" rel="stylesheet" />
+
+<div class="main-container">
+	<div class="col-md-12">
+		<div class="news-flash-box">
+			<div class="news-flash-left">
+				<span>News Flash</span> <span class="news-flash-title"><samp
+						class="triangle-topright"></samp> </span>
+			</div>
+			<div class="news-flash-right">
+				<a href="">{{newsFlash}}</a>
+			</div>
+			<span class="news-flash-close">X</span>
+		</div>
+	</div>
+	<div class="col-md-3 col-sm-3">
+		<div class="category-box col-md-12">
+			<h2>personality</h2>
+
+			<div class="personalitySlider" ng-repeat="_v in personality">
+				<div class="col-md-6 padding0">
+					<img class="personality-icon" src="{{_v.imageUrl}}">
+					<div class="personality-name">Narendra Modi</div>
+				</div>
+				<div class="col-md-6">
+					<div class="slider-control">
+						<a class="angle-left"><i ng-click="goLeft($event)"
+							id="{{_v.pagination}}" class="fa fa-angle-left"></i></a> <a
+							class="angle-right"><i ng-click="goRight($event)"
+							id="{{_v.pagination}}" class="fa fa-angle-right"></i></a>
+					</div>
+
+					<ul class="feedList">
+						<li ng-repeat="_lest in _v.feedList">{{_lest.feed}}</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="category-box col-md-12">
+			<h2>Trends</h2>
+
+			<ul class="trendsList">
+				<li ng-repeat="_v in trendsList">{{_v.trendName}}
+					<div class="trendColun">{{_v.trendColun}}</div>
+				</li>
+
+			</ul>
+
+		</div>
+
+	</div>
+	
+	
+	
+	<div class="col-md-6 col-sm-6">
+	
+	<div class="col-lg-12 col-md-12 col-sm-12"
+						style="color: #41b7d8; font-weight: bold; font-size: 25px;">
+						SENTIMENTS</div>
+	
+		<div class="category-box col-md-12">
+
+
+
+			<div class="container-fluid">
+
+			<div class="row success-story-row">
+				<div  ><img alt="" src="{{check1}}"> <h2>{{note}} </h2></div>
+					<div ng-repeat="task in tasks">
+						<div class="col-lg-6 col-md-6 col-sm-6" style="padding-right: 0;">
+							<!-- Hover start  -->
+							<div id="success-story-hover-0" class="success-story-well-hover">
+								<div class="caption-desc"></div>
+								<div class="caption-detail">
+									<div class="caption-detail-title">
+									</div>
+									<div class="caption-detail-from"></div>
+									<div class="caption-detail-support">
+									 
+									
+									</div>
+									<div class="caption-detail-footer">
+										
+									</div>
+								</div>
+							</div>
+							<!-- Hover end  -->
+
+							<div  class="success-story-well" id="success-story-0">
+								<a  href="#/problem/{{task._source.id}}"> <img  style="padding: 10px; width: 200px; height: 150px"
+									ng-src="data:image/JPEG;base64,{{task._source.attachment}}"
+									 /><br><span style="font-size: 20px; float: inherit;">&nbsp;&nbsp;{{task._source.subject}}</span>
+								</a>
+								<div class="success-story-well-detail">
+									
+									<div class="pull-right">
+										
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				</div>
+
+			</div>
+
+
+		</div>
+	</div>
+
+	<div class="col-md-3 col-sm-3">
+		<div class="category-box col-md-12">
+			<h2>VERDICT</h2>
+
+			<ul class="verdict">
+				<li class="greeBG" ng-repeat="list in verdictList"><span>{{list}}</span>
+					<div class="viewCase">
+						View case + <span>{{list.date}}</span>
+					</div> <a class="shere" id="{{list.id}}" href="#"><i
+						class="fa fa-share-alt"></i></a></li>
+				<a class="seeMore"><span>See More Verdicts</span> <i class="fa">+</i>
+				</a>
+			</ul>
+		</div>
+
+
+		<div class="category-box col-md-12">
+			<h2>task</h2>
+			<ul class="taskList ">
+				<li ng-repeat="list in taskList"><span class="pull-xs-left G "><img
+						class="task-icon responsive"
+						src="data:image/JPEG;base64,{{list.attachment}}"
+						style="width: 50px; height: 50px;"></span>
+					<div class="right">
+						<strong>{{list.Subject}} </strong> {{list.description}} <a
+							href="#" id="{{list.id}}"> Share</a>
+					</div></li>
+
+			</ul>
+			<pagination ng-model="currentPage" total-items=20 max-size=5
+				boundary-links="true"> </pagination>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function() {
+
+		$(".success-story-well,.success-story-well-hover").mouseenter(
+				function() {
+
+					$(".success-story-well-hover").toggle();
+				}).mouseleave(function() {
+
+			$(".success-story-well-hover").hide();
+		});
+
+	});
+</script>
